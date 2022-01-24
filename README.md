@@ -1,5 +1,5 @@
-<div align="center"> <img src="logo.png" width="200"> </div>  
-# GeoClassification
+<div align="center"> <img src="logo.png" width="200"> GeoClassification </div>  
+
 
 # Image/Scene Classification for RemoteSensing Images
 
