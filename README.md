@@ -1,13 +1,8 @@
 # GeoClassification
 
-***
+<div align="center"> <img src="logo.png" width="200"> </div>
 
 # Image/Scene Classification for RemoteSensing Images
-
-<div align="center">
-  <img src="logo.png" width="200"/>
-<\div>  
-  
 
 GeoAI is a library based on PyTorch, that provides datasets, model implementations and benchmark results for Remote Sensing data.
 
