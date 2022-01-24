@@ -11,6 +11,8 @@ This library is inspired by TorchGeo and MMDetection. The main targets of this l
 
 for machine learning experts to use geospatial data in their workflows, and
 for remote sensing experts to use their data in machine learning workflows.
+  
+To this date, there is no well-established consensus on how to evaluate models on remote sensing data. We believe that inconsistent benchmarking on a wide spectrum of tasks and datasets makes it difficult to assess relative model quality amongst many models. Thus, we aim to build a systematic and unified benchmark, specifically focused on evaluating model quality under different remote sensing scenarios. This benchmark is a suite of tasks consisting of image classification, object detection, and semantic segmentation.
 
 
 [![PyPI](https://img.shields.io/pypi/v/mmdet)](https://pypi.org/project/mmdet)
