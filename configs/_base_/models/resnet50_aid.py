@@ -1,10 +1,10 @@
 # model settings
 model = dict(
     type='ImageClassifier',
-    pretrained='open-mmlab://resnet18_v1c',
+    pretrained='open-mmlab://resnet50_v1c',
     backbone=dict(
         type='ResNet',
-        depth=18,
+        depth=50,
         num_stages=4,
         out_indices=(3, ),
         style='pytorch'),
@@ -12,7 +12,7 @@ model = dict(
     head=dict(
         type='LinearClsHead',
         num_classes=30,
-        in_channels=512,
+        in_channels=2048,
         loss=dict(type='CrossEntropyLoss', loss_weight=1.0),
         topk=(1, 5),
     ))
