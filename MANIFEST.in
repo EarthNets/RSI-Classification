@@ -1,0 +1,4 @@
+include requirements/*.txt
+include rsicls/.mim/model-index.yml
+recursive-include rsicls/.mim/configs *.py *.yml
+recursive-include rsicls/.mim/tools *.py *.sh
