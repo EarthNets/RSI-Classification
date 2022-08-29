@@ -2,22 +2,6 @@
  <img src="resources/CLS.svg" width = "400" height = "130" alt="segmentation" align=center />
 </div>
 
-[![PyPI](https://img.shields.io/pypi/v/rsicls)](https://pypi.org/project/rsicls)
-[![Docs](https://img.shields.io/badge/docs-latest-blue)](https://mmclassification.readthedocs.io/en/latest/)
-[![Build Status](https://github.com/open-mmlab/mmclassification/workflows/build/badge.svg)](https://github.com/open-mmlab/mmclassification/actions)
-[![codecov](https://codecov.io/gh/open-mmlab/mmclassification/branch/master/graph/badge.svg)](https://codecov.io/gh/open-mmlab/mmclassification)
-[![license](https://img.shields.io/github/license/open-mmlab/mmclassification.svg)](https://github.com/open-mmlab/mmclassification/blob/master/LICENSE)
-[![open issues](https://isitmaintained.com/badge/open/open-mmlab/mmclassification.svg)](https://github.com/open-mmlab/mmclassification/issues)
-[![issue resolution](https://isitmaintained.com/badge/resolution/open-mmlab/mmclassification.svg)](https://github.com/open-mmlab/mmclassification/issues)
-
-[📘 Documentation](https://mmclassification.readthedocs.io/en/latest/) |
-[🛠️ Installation](https://mmclassification.readthedocs.io/en/latest/install.html) |
-[👀 Model Zoo](https://mmclassification.readthedocs.io/en/latest/model_zoo.html) |
-[🆕 Update News](https://mmclassification.readthedocs.io/en/latest/changelog.html) |
-[🤔 Reporting Issues](https://github.com/open-mmlab/mmclassification/issues/new/choose)
-
-</div>
-
 ## Introduction
 
 English | [简体中文](/README_zh-CN.md)
