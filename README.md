@@ -22,14 +22,9 @@
 
 English | [简体中文](/README_zh-CN.md)
 
-MMClassification is an open source image classification toolbox based on PyTorch. It is
-a part of the [OpenMMLab](https://openmmlab.com/) project.
+RSI-Classification is an open source image classification toolbox based on PyTorch. 
 
-The master branch works with **PyTorch 1.5+**.
-
-<div align="center">
-  <img src="https://user-images.githubusercontent.com/9102141/87268895-3e0d0780-c4fe-11ea-849e-6140b7e0d4de.gif" width="70%"/>
-</div>
+The master branch works with **PyTorch 1.10+**.
 
 ### Major features
 
