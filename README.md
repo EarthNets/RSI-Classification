@@ -1,5 +1,5 @@
 <div  align="center">    
- <img src="resources/CLS.svg" width = "400" height = "130" alt="segmentation" align=center />
+ <img src="resources/CLS.png" width = "400" height = "130" alt="segmentation" align=center />
 </div>
 
 ## Introduction
