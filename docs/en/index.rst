@@ -11,15 +11,9 @@ Welcome to RSI-Classification's documentation!
 
 .. toctree::
    :maxdepth: 1
-   :caption: Tutorials
+   :caption: Dataset Preparation
 
-   tutorials/config.md
-   tutorials/finetune.md
-   tutorials/new_dataset.md
-   tutorials/data_pipeline.md
-   tutorials/new_modules.md
-   tutorials/schedule.md
-   tutorials/runtime.md
+   dataset_prepare.md
 
 
 .. toctree::
@@ -30,6 +24,19 @@ Welcome to RSI-Classification's documentation!
    modelzoo_statistics.md
    model_zoo.md
    papers/*
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Tutorials
+
+   tutorials/config.md
+   tutorials/finetune.md
+   tutorials/new_dataset.md
+   tutorials/data_pipeline.md
+   tutorials/new_modules.md
+   tutorials/schedule.md
+   tutorials/runtime.md
 
 
 .. toctree::
