@@ -1,23 +1,6 @@
-<div align="center">
-
-<img src="resources/rsicls-logo.png" width="600"/>
-  <div>&nbsp;</div>
-  <div align="center">
-    <b><font size="5">OpenMMLab website</font></b>
-    <sup>
-      <a href="https://openmmlab.com">
-        <i><font size="4">HOT</font></i>
-      </a>
-    </sup>
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    <b><font size="5">OpenMMLab platform</font></b>
-    <sup>
-      <a href="https://platform.openmmlab.com">
-        <i><font size="4">TRY IT OUT</font></i>
-      </a>
-    </sup>
-  </div>
-  <div>&nbsp;</div>
+<div  align="center">    
+ <img src="resources/CLS.svg" width = "400" height = "130" alt="segmentation" align=center />
+</div>
 
 [![PyPI](https://img.shields.io/pypi/v/rsicls)](https://pypi.org/project/rsicls)
 [![Docs](https://img.shields.io/badge/docs-latest-blue)](https://mmclassification.readthedocs.io/en/latest/)
