@@ -4,8 +4,6 @@
 
 ## Introduction
 
-English | [简体中文](/README_zh-CN.md)
-
 RSI-Classification is an open source image classification toolbox based on PyTorch. 
 
 The master branch works with **PyTorch 1.10+**.
