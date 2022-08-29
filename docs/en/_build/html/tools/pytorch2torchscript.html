@@ -1,0 +1,531 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Pytorch to TorchScript (Experimental) &mdash; RSI-Classification 0.23.1 documentation</title>
+  
+
+  <link rel="shortcut icon" href="../_static/images/favicon.ico" />
+  
+  
+
+  
+
+  
+  
+  
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> -->
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/readthedocs.css" type="text/css" />
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Search" href="../search.html" />
+  <link rel="next" title="Model Serving" href="model_serving.html" />
+  <link rel="prev" title="ONNX to TensorRT (Experimental)" href="onnx2tensorrt.html" />
+  <!-- Google Analytics -->
+  <script type="text/javascript">
+    var collapsedSections = [];
+  </script>
+  
+  <!-- End Google Analytics -->
+  
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+  <script>
+    MathJax = {
+        chtml: {
+            scale: 1,
+            minScale: 1,
+        },
+        svg: {
+            scale: 1,
+            minScale: 1,
+        }
+    }
+</script>
+
+  <!-- Preload the theme fonts -->
+
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-book.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/IBMPlexMono/IBMPlexMono-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-medium-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/IBMPlexMono/IBMPlexMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+<!-- Preload the katex fonts -->
+
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Math-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size1-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size4-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size2-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size3-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Caligraphic-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+</head>
+
+<div class="container-fluid header-holder tutorials-header" id="header-holder">
+  <div class="container">
+    <div class="header-container">
+      <a class="header-logo" href="https://rsi-classification.readthedocs.io/en/latest/"
+        aria-label="OpenMMLab"></a>
+
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://github.com/EarthNets/RSI-Segmentation/blob/main/demo/rsi_classification_tutorial.ipynb" target="_blank">Tutorial</a>
+          </li>
+          <li>
+            <a href="https://github.com/EarthNets/RSI-Classification" target="_blank">GitHub</a>
+          </li>
+          <li >
+            <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
+              <a
+                class="resource-option with-down-arrow">
+                About
+              </a>
+              <div class="resources-dropdown-menu">
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/open-mmlab/mmcv" target="_blank">
+                  <span class="dropdown-title">MMCV </span>
+                  <p>Foundational library for computer vision</p>
+                </a>
+              </div>
+          </li>
+          <li >
+            <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
+              <a
+                class="resource-option with-down-arrow">
+                EarthNets
+              </a>
+              <div class="resources-dropdown-menu">
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/Dataset4EO" target="_blank">
+                  <span class="dropdown-title">Dataset4EO </span>
+                  <p>Re-organize remote sensing datasets.</p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/RSI-Classification" target="_blank">
+                  <span class="dropdown-title">RSI-Classification </span>
+                  <p>Image/scene classification for RS images.</p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/RSI-Segmentation" target="_blank">
+                  <span class="dropdown-title">RSI-Segmentation </span>
+                  <p>Pixel-wise semantic segmentation for RS images.</p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/RSI-Detection" target="_blank">
+                  <span class="dropdown-title">RSI-Detection </span>
+                  <p>Object detection for RS images.</p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/RSI-ChangeDetection" target="_blank">
+                  <span class="dropdown-title">RSI-ChangeDetection </span>
+                  <p>Change detection for RS images.</p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/RSI-SelfSupervised" target="_blank">
+                  <span class="dropdown-title">RSI-SelfSupervised </span>
+                  <p>Self-supervised learning for RS images.</p>
+                </a>
+              </div>
+          </li>
+        </ul>
+      </div>
+
+      <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
+    </div>
+  </div>
+</div>
+
+<body class="pytorch-body">
+
+   
+
+  
+
+  <div class="table-of-contents-link-wrapper">
+    <span>Table of Contents</span>
+    <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
+  </div>
+
+  <nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
+    <div class="pytorch-side-scroll">
+      <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <div class="pytorch-left-menu-search">
+          
+
+          
+          
+          
+          
+
+          
+
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search Docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        
+        
+        
+        
+        
+        <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html#installation">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/config.html">Tutorial 1: Learn about Configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/finetune.html">Tutorial 2: Fine-tune Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/new_dataset.html">Tutorial 3: Customize Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/data_pipeline.html">Tutorial 4: Custom Data Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/new_modules.html">Tutorial 5: Adding New Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/schedule.html">Tutorial 6: Customize Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/runtime.html">Tutorial 7: Customize Runtime Settings</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Model zoo</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../model_zoo.html">Model Zoo</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Useful Tools and Scripts</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="pytorch2onnx.html">Pytorch to ONNX (Experimental)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onnx2tensorrt.html">ONNX to TensorRT (Experimental)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Pytorch to TorchScript (Experimental)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model_serving.html">Model Serving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualization.html">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis.html">Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="miscellaneous.html">Miscellaneous</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+</ul>
+
+        
+        
+      </div>
+    </div>
+  </nav>
+
+  <div class="pytorch-container">
+    <div class="pytorch-page-level-bar" id="pytorch-page-level-bar">
+      <div class="pytorch-breadcrumbs-wrapper">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="pytorch-breadcrumbs">
+    
+      <li>
+        <a href="../index.html">
+            Docs
+        </a> &gt;
+      </li>
+
+        
+      <li>Pytorch to TorchScript (Experimental)</li>
+    
+    
+      <li class="pytorch-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/tools/pytorch2torchscript.md.txt" rel="nofollow"><img src="../_static/images/view-page-source-icon.svg"></a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+</div>
+      </div>
+
+      <div class="pytorch-shortcuts-wrapper" id="pytorch-shortcuts-wrapper">
+        Shortcuts
+      </div>
+    </div>
+
+    <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
+      <div class="pytorch-content-left">
+        
+          <div class="rst-content">
+            
+            <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
+              <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
+                
+  <section id="pytorch-to-torchscript-experimental">
+<h1>Pytorch to TorchScript (Experimental)<a class="headerlink" href="#pytorch-to-torchscript-experimental" title="Permalink to this heading">¶</a></h1>
+<!-- TOC -->
+<ul class="simple">
+<li><p><a class="reference internal" href="#pytorch-to-torchscript-experimental"><span class="std std-doc">Pytorch to TorchScript (Experimental)</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#how-to-convert-models-from-pytorch-to-torchscript"><span class="std std-doc">How to convert models from Pytorch to TorchScript</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#usage"><span class="std std-doc">Usage</span></a></p></li>
+<li><p><a class="reference internal" href="#description-of-all-arguments"><span class="std std-doc">Description of all arguments</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#reminders"><span class="std std-doc">Reminders</span></a></p></li>
+<li><p><a class="reference internal" href="#faqs"><span class="std std-doc">FAQs</span></a></p></li>
+</ul>
+</li>
+</ul>
+<!-- TOC -->
+<section id="how-to-convert-models-from-pytorch-to-torchscript">
+<h2>How to convert models from Pytorch to TorchScript<a class="headerlink" href="#how-to-convert-models-from-pytorch-to-torchscript" title="Permalink to this heading">¶</a></h2>
+<section id="usage">
+<h3>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python tools/deployment/pytorch2torchscript.py <span class="se">\</span>
+    <span class="si">${</span><span class="nv">CONFIG_FILE</span><span class="si">}</span> <span class="se">\</span>
+    --checkpoint <span class="si">${</span><span class="nv">CHECKPOINT_FILE</span><span class="si">}</span> <span class="se">\</span>
+    --output-file <span class="si">${</span><span class="nv">OUTPUT_FILE</span><span class="si">}</span> <span class="se">\</span>
+    --shape <span class="si">${</span><span class="nv">IMAGE_SHAPE</span><span class="si">}</span> <span class="se">\</span>
+    --verify <span class="se">\</span>
+</pre></div>
+</div>
+</section>
+<section id="description-of-all-arguments">
+<h3>Description of all arguments<a class="headerlink" href="#description-of-all-arguments" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">config</span></code> : The path of a model config file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--checkpoint</span></code> : The path of a model checkpoint file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--output-file</span></code>: The path of output TorchScript model. If not specified, it will be set to <code class="docutils literal notranslate"><span class="pre">tmp.pt</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--shape</span></code>: The height and width of input tensor to the model. If not specified, it will be set to <code class="docutils literal notranslate"><span class="pre">224</span> <span class="pre">224</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--verify</span></code>: Determines whether to verify the correctness of an exported model. If not specified, it will be set to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python tools/deployment/pytorch2onnx.py <span class="se">\</span>
+    configs/resnet/resnet18_8xb16_cifar10.py <span class="se">\</span>
+    --checkpoint checkpoints/resnet/resnet18_8xb16_cifar10.pth <span class="se">\</span>
+    --output-file checkpoints/resnet/resnet18_8xb16_cifar10.pt <span class="se">\</span>
+    --verify <span class="se">\</span>
+</pre></div>
+</div>
+<p>Notes:</p>
+<ul class="simple">
+<li><p><em>All models are tested with Pytorch==1.8.1</em></p></li>
+</ul>
+</section>
+</section>
+<section id="reminders">
+<h2>Reminders<a class="headerlink" href="#reminders" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>For torch.jit.is_tracing() is only supported after v1.6. For users with pytorch v1.3-v1.5, we suggest early returning tensors manually.</p></li>
+<li><p>If you meet any problem with the models in this repo, please create an issue and it would be taken care of soon.</p></li>
+</ul>
+</section>
+<section id="faqs">
+<h2>FAQs<a class="headerlink" href="#faqs" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>None</p></li>
+</ul>
+</section>
+</section>
+
+
+              </article>
+              
+            </div>
+            <footer>
+  
+  <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+    
+    <a href="model_serving.html" class="btn btn-neutral float-right" title="Model Serving" accesskey="n"
+      rel="next">Next <img src="../_static/images/chevron-right-blue.svg"
+        class="next-page"></a>
+    
+    
+    <a href="onnx2tensorrt.html" class="btn btn-neutral" title="ONNX to TensorRT (Experimental)" accesskey="p"
+      rel="prev"><img src="../_static/images/chevron-right-blue.svg" class="previous-page"> Previous</a>
+    
+  </div>
+  
+
+  <hr>
+
+  <div role="contentinfo">
+    <p>
+      &copy; Copyright 2022, EarthNets.
+
+    </p>
+  </div>
+  
+  <div>
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a
+      href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the
+      Docs</a>.
+  </div>
+   
+
+</footer>
+          </div>
+        </div>
+
+        <div class="pytorch-content-right" id="pytorch-content-right">
+          <div class="pytorch-right-menu" id="pytorch-right-menu">
+            <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
+              <ul>
+<li><a class="reference internal" href="#">Pytorch to TorchScript (Experimental)</a><ul>
+<li><a class="reference internal" href="#how-to-convert-models-from-pytorch-to-torchscript">How to convert models from Pytorch to TorchScript</a><ul>
+<li><a class="reference internal" href="#usage">Usage</a></li>
+<li><a class="reference internal" href="#description-of-all-arguments">Description of all arguments</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#reminders">Reminders</a></li>
+<li><a class="reference internal" href="#faqs">FAQs</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+          </div>
+        </div>
+    </section>
+  </div>
+
+  
+
+
+  
+
+  
+  <script type="text/javascript" id="documentation_options" data-url_root="../"
+    src="../_static/documentation_options.js"></script>
+  <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+  <script src="../_static/jquery.js"></script>
+  <script src="../_static/underscore.js"></script>
+  <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+  <script src="../_static/doctools.js"></script>
+  <script src="../_static/clipboard.min.js"></script>
+  <script src="../_static/copybutton.js"></script>
+  <script src="../_static/js/custom.js"></script>
+  
+
+  
+
+  <script type="text/javascript" src="../_static/js/vendor/popper.min.js"></script>
+  <script type="text/javascript" src="../_static/js/vendor/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+    jQuery(function () {
+      SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+  <!-- Begin Footer -->
+
+  <div class="container-fluid docs-tutorials-resources" id="docs-tutorials-resources">
+  </div>
+
+  <!-- End Footer -->
+
+  <!-- Begin Mobile Menu -->
+
+  <div class="mobile-main-menu">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="mobile-main-menu-header-container">
+          <a class="header-logo" href="https://rsi-classification.readthedocs.io/en/latest/" aria-label="OpenMMLab"></a>
+          <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-main-menu-links-container">
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://github.com/EarthNets/RSI-Segmentation/blob/main/demo/rsi_classification_tutorial.ipynb" target="_blank">Tutorial</a>
+          </li>
+          <li>
+            <a href="https://github.com/EarthNets/RSI-Classification" target="_blank">GitHub</a>
+          </li>
+          <li class="resources-mobile-menu-title" >
+            About
+          </li>
+          <ul class="resources-mobile-menu-items">
+            <li>
+              <a href="https://github.com/open-mmlab/mmcv" target="_blank">MMCV</a>
+            </li>
+          </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Mobile Menu -->
+
+  <script type="text/javascript" src="../_static/js/vendor/anchor.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      mobileMenu.bind();
+      mobileTOC.bind();
+      pytorchAnchors.bind();
+      sideMenus.bind();
+      scrollToAnchor.bind();
+      highlightNavigation.bind();
+      mainMenuDropdown.bind();
+      filterTags.bind();
+
+      // Add class to links that have code blocks, since we cannot create links in code blocks
+      $("article.pytorch-article a span.pre").each(function (e) {
+        $(this).closest("a").addClass("has-code");
+      });
+    })
+  </script>
+</body>
+
+</html>

@@ -1,12 +1,8 @@
-Welcome to MMClassification's documentation!
-============================================
-
-You can switch between Chinese and English documentation in the lower-left corner of the layout.
-
-您可以在页面左下角切换中英文文档。
+Welcome to RSI-Classification's documentation!
+==================================================
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Get Started
 
    install.md
@@ -51,38 +47,10 @@ You can switch between Chinese and English documentation in the lower-left corne
 
 .. toctree::
    :maxdepth: 1
-   :caption: Community
-
-   community/CONTRIBUTING.md
-
-
-.. toctree::
-   :maxdepth: 1
-   :caption: API Reference
-
-   rsicls.apis <api/apis>
-   rsicls.core <api/core>
-   rsicls.models <api/models>
-   rsicls.models.utils <api/models.utils>
-   rsicls.datasets <api/datasets>
-   Data Transformations <api/transforms>
-   Batch Augmentation <api/models.utils.augment>
-   rsicls.utils <api/utils>
-
-
-.. toctree::
-   :maxdepth: 1
    :caption: Notes
 
    changelog.md
-   compatibility.md
    faq.md
-
-.. toctree::
-   :caption: Language Switch
-
-   English <https://mmclassification.readthedocs.io/en/latest/>
-   简体中文 <https://mmclassification.readthedocs.io/zh_CN/latest/>
 
 
 Indices and tables

@@ -1,0 +1,677 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Analysis &mdash; RSI-Classification 0.23.1 documentation</title>
+  
+
+  <link rel="shortcut icon" href="../_static/images/favicon.ico" />
+  
+  
+
+  
+
+  
+  
+  
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> -->
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/readthedocs.css" type="text/css" />
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Search" href="../search.html" />
+  <link rel="next" title="Miscellaneous" href="miscellaneous.html" />
+  <link rel="prev" title="Visualization" href="visualization.html" />
+  <!-- Google Analytics -->
+  <script type="text/javascript">
+    var collapsedSections = [];
+  </script>
+  
+  <!-- End Google Analytics -->
+  
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+  <script>
+    MathJax = {
+        chtml: {
+            scale: 1,
+            minScale: 1,
+        },
+        svg: {
+            scale: 1,
+            minScale: 1,
+        }
+    }
+</script>
+
+  <!-- Preload the theme fonts -->
+
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-book.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/IBMPlexMono/IBMPlexMono-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-medium-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/IBMPlexMono/IBMPlexMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+<!-- Preload the katex fonts -->
+
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Math-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size1-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size4-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size2-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size3-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Caligraphic-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+</head>
+
+<div class="container-fluid header-holder tutorials-header" id="header-holder">
+  <div class="container">
+    <div class="header-container">
+      <a class="header-logo" href="https://rsi-classification.readthedocs.io/en/latest/"
+        aria-label="OpenMMLab"></a>
+
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://github.com/EarthNets/RSI-Segmentation/blob/main/demo/rsi_classification_tutorial.ipynb" target="_blank">Tutorial</a>
+          </li>
+          <li>
+            <a href="https://github.com/EarthNets/RSI-Classification" target="_blank">GitHub</a>
+          </li>
+          <li >
+            <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
+              <a
+                class="resource-option with-down-arrow">
+                About
+              </a>
+              <div class="resources-dropdown-menu">
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/open-mmlab/mmcv" target="_blank">
+                  <span class="dropdown-title">MMCV </span>
+                  <p>Foundational library for computer vision</p>
+                </a>
+              </div>
+          </li>
+          <li >
+            <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
+              <a
+                class="resource-option with-down-arrow">
+                EarthNets
+              </a>
+              <div class="resources-dropdown-menu">
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/Dataset4EO" target="_blank">
+                  <span class="dropdown-title">Dataset4EO </span>
+                  <p>Re-organize remote sensing datasets.</p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/RSI-Classification" target="_blank">
+                  <span class="dropdown-title">RSI-Classification </span>
+                  <p>Image/scene classification for RS images.</p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/RSI-Segmentation" target="_blank">
+                  <span class="dropdown-title">RSI-Segmentation </span>
+                  <p>Pixel-wise semantic segmentation for RS images.</p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/RSI-Detection" target="_blank">
+                  <span class="dropdown-title">RSI-Detection </span>
+                  <p>Object detection for RS images.</p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/RSI-ChangeDetection" target="_blank">
+                  <span class="dropdown-title">RSI-ChangeDetection </span>
+                  <p>Change detection for RS images.</p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/RSI-SelfSupervised" target="_blank">
+                  <span class="dropdown-title">RSI-SelfSupervised </span>
+                  <p>Self-supervised learning for RS images.</p>
+                </a>
+              </div>
+          </li>
+        </ul>
+      </div>
+
+      <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
+    </div>
+  </div>
+</div>
+
+<body class="pytorch-body">
+
+   
+
+  
+
+  <div class="table-of-contents-link-wrapper">
+    <span>Table of Contents</span>
+    <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
+  </div>
+
+  <nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
+    <div class="pytorch-side-scroll">
+      <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <div class="pytorch-left-menu-search">
+          
+
+          
+          
+          
+          
+
+          
+
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search Docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        
+        
+        
+        
+        
+        <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html#installation">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/config.html">Tutorial 1: Learn about Configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/finetune.html">Tutorial 2: Fine-tune Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/new_dataset.html">Tutorial 3: Customize Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/data_pipeline.html">Tutorial 4: Custom Data Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/new_modules.html">Tutorial 5: Adding New Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/schedule.html">Tutorial 6: Customize Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/runtime.html">Tutorial 7: Customize Runtime Settings</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Model zoo</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../model_zoo.html">Model Zoo</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Useful Tools and Scripts</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="pytorch2onnx.html">Pytorch to ONNX (Experimental)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onnx2tensorrt.html">ONNX to TensorRT (Experimental)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pytorch2torchscript.html">Pytorch to TorchScript (Experimental)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model_serving.html">Model Serving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualization.html">Visualization</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="miscellaneous.html">Miscellaneous</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+</ul>
+
+        
+        
+      </div>
+    </div>
+  </nav>
+
+  <div class="pytorch-container">
+    <div class="pytorch-page-level-bar" id="pytorch-page-level-bar">
+      <div class="pytorch-breadcrumbs-wrapper">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="pytorch-breadcrumbs">
+    
+      <li>
+        <a href="../index.html">
+            Docs
+        </a> &gt;
+      </li>
+
+        
+      <li>Analysis</li>
+    
+    
+      <li class="pytorch-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/tools/analysis.md.txt" rel="nofollow"><img src="../_static/images/view-page-source-icon.svg"></a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+</div>
+      </div>
+
+      <div class="pytorch-shortcuts-wrapper" id="pytorch-shortcuts-wrapper">
+        Shortcuts
+      </div>
+    </div>
+
+    <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
+      <div class="pytorch-content-left">
+        
+          <div class="rst-content">
+            
+            <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
+              <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
+                
+  <section id="analysis">
+<h1>Analysis<a class="headerlink" href="#analysis" title="Permalink to this heading">¶</a></h1>
+<!-- TOC -->
+<ul class="simple">
+<li><p><a class="reference internal" href="#log-analysis"><span class="std std-doc">Log Analysis</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#plot-curves"><span class="std std-doc">Plot Curves</span></a></p></li>
+<li><p><a class="reference internal" href="#calculate-training-time"><span class="std std-doc">Calculate Training Time</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#result-analysis"><span class="std std-doc">Result Analysis</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#evaluate-results"><span class="std std-doc">Evaluate Results</span></a></p></li>
+<li><p><a class="reference internal" href="#view-typical-results"><span class="std std-doc">View Typical Results</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#model-complexity"><span class="std std-doc">Model Complexity</span></a></p></li>
+<li><p><a class="reference internal" href="#faqs"><span class="std std-doc">FAQs</span></a></p></li>
+</ul>
+<!-- TOC -->
+<section id="log-analysis">
+<h2>Log Analysis<a class="headerlink" href="#log-analysis" title="Permalink to this heading">¶</a></h2>
+<section id="plot-curves">
+<h3>Plot Curves<a class="headerlink" href="#plot-curves" title="Permalink to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">tools/analysis_tools/analyze_logs.py</span></code> plots curves of given keys according to the log files.</p>
+<div align=center><img src="../_static/image/tools/analysis/analyze_log.jpg" style=" width: 75%; height: 30%; "></div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python tools/analysis_tools/analyze_logs.py plot_curve  <span class="se">\</span>
+    <span class="si">${</span><span class="nv">JSON_LOGS</span><span class="si">}</span>  <span class="se">\</span>
+    <span class="o">[</span>--keys <span class="si">${</span><span class="nv">KEYS</span><span class="si">}</span><span class="o">]</span>  <span class="se">\</span>
+    <span class="o">[</span>--title <span class="si">${</span><span class="nv">TITLE</span><span class="si">}</span><span class="o">]</span>  <span class="se">\</span>
+    <span class="o">[</span>--legend <span class="si">${</span><span class="nv">LEGEND</span><span class="si">}</span><span class="o">]</span>  <span class="se">\</span>
+    <span class="o">[</span>--backend <span class="si">${</span><span class="nv">BACKEND</span><span class="si">}</span><span class="o">]</span>  <span class="se">\</span>
+    <span class="o">[</span>--style <span class="si">${</span><span class="nv">STYLE</span><span class="si">}</span><span class="o">]</span>  <span class="se">\</span>
+    <span class="o">[</span>--out <span class="si">${</span><span class="nv">OUT_FILE</span><span class="si">}</span><span class="o">]</span>  <span class="se">\</span>
+    <span class="o">[</span>--window-size <span class="si">${</span><span class="nv">WINDOW_SIZE</span><span class="si">}</span><span class="o">]</span>
+</pre></div>
+</div>
+<p><strong>Description of all arguments</strong>：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">json_logs</span></code> : The paths of the log files, separate multiple files by spaces.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--keys</span></code> : The fields of the logs to analyze, separate multiple keys by spaces. Defaults to ‘loss’.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--title</span></code> : The title of the figure. Defaults to use the filename.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--legend</span></code> : The names of legend, the number of which must be equal to <code class="docutils literal notranslate"><span class="pre">len(${JSON_LOGS})</span> <span class="pre">*</span> <span class="pre">len(${KEYS})</span></code>. Defaults to use <code class="docutils literal notranslate"><span class="pre">&quot;${JSON_LOG}-${KEYS}&quot;</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--backend</span></code> : The backend of matplotlib. Defaults to auto selected by matplotlib.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--style</span></code> : The style of the figure. Default to <code class="docutils literal notranslate"><span class="pre">whitegrid</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--out</span></code> : The path of the output picture. If not set, the figure won’t be saved.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--window-size</span></code>: The shape of the display window. The format should be <code class="docutils literal notranslate"><span class="pre">'W*H'</span></code>. Defaults to <code class="docutils literal notranslate"><span class="pre">'12*7'</span></code>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">--style</span></code> option depends on <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> package, please install it before setting it.</p>
+</div>
+<p>Examples:</p>
+<ul>
+<li><p>Plot the loss curve in training.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python tools/analysis_tools/analyze_logs.py plot_curve your_log_json --keys loss --legend loss
+</pre></div>
+</div>
+</li>
+<li><p>Plot the top-1 accuracy and top-5 accuracy curves, and save the figure to results.jpg.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python tools/analysis_tools/analyze_logs.py plot_curve your_log_json --keys accuracy_top-1 accuracy_top-5  --legend top1 top5 --out results.jpg
+</pre></div>
+</div>
+</li>
+<li><p>Compare the top-1 accuracy of two log files in the same figure.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python tools/analysis_tools/analyze_logs.py plot_curve log1.json log2.json --keys accuracy_top-1 --legend exp1 exp2
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The tool will automatically select to find keys in training logs or validation logs according to the keys.
+Therefore, if you add a custom evaluation metric, please also add the key to <code class="docutils literal notranslate"><span class="pre">TEST_METRICS</span></code> in this tool.</p>
+</div>
+</section>
+<section id="calculate-training-time">
+<h3>Calculate Training Time<a class="headerlink" href="#calculate-training-time" title="Permalink to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">tools/analysis_tools/analyze_logs.py</span></code> can also calculate the training time according to the log files.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python tools/analysis_tools/analyze_logs.py cal_train_time <span class="se">\</span>
+    <span class="si">${</span><span class="nv">JSON_LOGS</span><span class="si">}</span>
+    <span class="o">[</span>--include-outliers<span class="o">]</span>
+</pre></div>
+</div>
+<p><strong>Description of all arguments</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">json_logs</span></code> : The paths of the log files, separate multiple files by spaces.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--include-outliers</span></code> : If set, include the first iteration in each epoch (Sometimes the time of first iterations is longer).</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python tools/analysis_tools/analyze_logs.py cal_train_time work_dirs/some_exp/20200422_153324.log.json
+</pre></div>
+</div>
+<p>The output is expected to be like the below.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>-----Analyze train time of work_dirs/some_exp/20200422_153324.log.json-----
+slowest epoch 68, average time is 0.3818
+fastest epoch 1, average time is 0.3694
+time std over epochs is 0.0020
+average iter time: 0.3777 s/iter
+</pre></div>
+</div>
+</section>
+</section>
+<section id="result-analysis">
+<h2>Result Analysis<a class="headerlink" href="#result-analysis" title="Permalink to this heading">¶</a></h2>
+<p>With the <code class="docutils literal notranslate"><span class="pre">--out</span></code> argument in <code class="docutils literal notranslate"><span class="pre">tools/test.py</span></code>, we can save the inference results of all samples as a file.
+And with this result file, we can do further analysis.</p>
+<section id="evaluate-results">
+<h3>Evaluate Results<a class="headerlink" href="#evaluate-results" title="Permalink to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">tools/analysis_tools/eval_metric.py</span></code> can evaluate metrics again.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python tools/analysis_tools/eval_metric.py <span class="se">\</span>
+      <span class="si">${</span><span class="nv">CONFIG</span><span class="si">}</span> <span class="se">\</span>
+      <span class="si">${</span><span class="nv">RESULT</span><span class="si">}</span> <span class="se">\</span>
+      <span class="o">[</span>--metrics <span class="si">${</span><span class="nv">METRICS</span><span class="si">}</span><span class="o">]</span>  <span class="se">\</span>
+      <span class="o">[</span>--cfg-options <span class="si">${</span><span class="nv">CFG_OPTIONS</span><span class="si">}</span><span class="o">]</span> <span class="se">\</span>
+      <span class="o">[</span>--metric-options <span class="si">${</span><span class="nv">METRIC_OPTIONS</span><span class="si">}</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>Description of all arguments:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">config</span></code> : The path of the model config file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">result</span></code>:  The Output result file in json/pickle format from <code class="docutils literal notranslate"><span class="pre">tools/test.py</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--metrics</span></code> : Evaluation metrics, the acceptable values depend on the dataset.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--cfg-options</span></code>: If specified, the key-value pair config will be merged into the config file, for more details please refer to <a class="reference internal" href="../tutorials/config.html"><span class="doc std std-doc">Tutorial 1: Learn about Configs</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--metric-options</span></code>: If specified, the key-value pair arguments will be passed to the <code class="docutils literal notranslate"><span class="pre">metric_options</span></code> argument of dataset’s <code class="docutils literal notranslate"><span class="pre">evaluate</span></code> function.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">tools/test.py</span></code>, we support using <code class="docutils literal notranslate"><span class="pre">--out-items</span></code> option to select which kind of results will be saved. Please ensure the result file includes “class_scores” to use this tool.</p>
+</div>
+<p><strong>Examples</strong>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python tools/analysis_tools/eval_metric.py configs/t2t_vit/t2t-vit-t-14_8xb64_in1k.py your_result.pkl --metrics accuracy --metric-options <span class="s2">&quot;topk=(1,5)&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="view-typical-results">
+<h3>View Typical Results<a class="headerlink" href="#view-typical-results" title="Permalink to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">tools/analysis_tools/analyze_results.py</span></code> can save the images with the highest scores in successful or failed prediction.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python tools/analysis_tools/analyze_results.py <span class="se">\</span>
+      <span class="si">${</span><span class="nv">CONFIG</span><span class="si">}</span> <span class="se">\</span>
+      <span class="si">${</span><span class="nv">RESULT</span><span class="si">}</span> <span class="se">\</span>
+      <span class="o">[</span>--out-dir <span class="si">${</span><span class="nv">OUT_DIR</span><span class="si">}</span><span class="o">]</span> <span class="se">\</span>
+      <span class="o">[</span>--topk <span class="si">${</span><span class="nv">TOPK</span><span class="si">}</span><span class="o">]</span> <span class="se">\</span>
+      <span class="o">[</span>--cfg-options <span class="si">${</span><span class="nv">CFG_OPTIONS</span><span class="si">}</span><span class="o">]</span>
+</pre></div>
+</div>
+<p><strong>Description of all arguments</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">config</span></code> : The path of the model config file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">result</span></code>:  Output result file in json/pickle format from <code class="docutils literal notranslate"><span class="pre">tools/test.py</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--out_dir</span></code>: Directory to store output files.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--topk</span></code>: The number of images in successful or failed prediction with the highest <code class="docutils literal notranslate"><span class="pre">topk</span></code> scores to save. If not specified, it will be set to 20.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--cfg-options</span></code>: If specified, the key-value pair config will be merged into the config file, for more details please refer to <a class="reference internal" href="../tutorials/config.html"><span class="doc std std-doc">Tutorial 1: Learn about Configs</span></a></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">tools/test.py</span></code>, we support using <code class="docutils literal notranslate"><span class="pre">--out-items</span></code> option to select which kind of results will be saved. Please ensure the result file includes “pred_score”, “pred_label” and “pred_class” to use this tool.</p>
+</div>
+<p><strong>Examples</strong>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python tools/analysis_tools/analyze_results.py <span class="se">\</span>
+       configs/resnet/resnet50_b32x8_imagenet.py <span class="se">\</span>
+       result.pkl <span class="se">\</span>
+       --out_dir results <span class="se">\</span>
+       --topk <span class="m">50</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="model-complexity">
+<h2>Model Complexity<a class="headerlink" href="#model-complexity" title="Permalink to this heading">¶</a></h2>
+<section id="get-the-flops-and-params-experimental">
+<h3>Get the FLOPs and params (experimental)<a class="headerlink" href="#get-the-flops-and-params-experimental" title="Permalink to this heading">¶</a></h3>
+<p>We provide a script adapted from <a class="reference external" href="https://github.com/sovrasov/flops-counter.pytorch">flops-counter.pytorch</a> to compute the FLOPs and params of a given model.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python tools/analysis_tools/get_flops.py <span class="si">${</span><span class="nv">CONFIG_FILE</span><span class="si">}</span> <span class="o">[</span>--shape <span class="si">${</span><span class="nv">INPUT_SHAPE</span><span class="si">}</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>Description of all arguments:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">config</span></code> : The path of the model config file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--shape</span></code>: Input size, support single value or double value parameter, such as <code class="docutils literal notranslate"><span class="pre">--shape</span> <span class="pre">256</span></code> or <code class="docutils literal notranslate"><span class="pre">--shape</span> <span class="pre">224</span> <span class="pre">256</span></code>. If not set, default to be <code class="docutils literal notranslate"><span class="pre">224</span> <span class="pre">224</span></code>.</p></li>
+</ul>
+<p>You will get a result like this.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>==============================
+Input shape: (3, 224, 224)
+Flops: 4.12 GFLOPs
+Params: 25.56 M
+==============================
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This tool is still experimental and we do not guarantee that the number is correct. You may well use the result for simple comparisons, but double-check it before you adopt it in technical reports or papers.</p>
+<ul class="simple">
+<li><p>FLOPs are related to the input shape while parameters are not. The default input shape is (1, 3, 224, 224).</p></li>
+<li><p>Some operators are not counted into FLOPs like GN and custom operators. Refer to <a class="reference external" href="https://github.com/open-mmlab/mmcv/blob/master/mmcv/cnn/utils/flops_counter.py"><code class="docutils literal notranslate"><span class="pre">mmcv.cnn.get_model_complexity_info()</span></code></a> for details.</p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="faqs">
+<h2>FAQs<a class="headerlink" href="#faqs" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>None</p></li>
+</ul>
+</section>
+</section>
+
+
+              </article>
+              
+            </div>
+            <footer>
+  
+  <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+    
+    <a href="miscellaneous.html" class="btn btn-neutral float-right" title="Miscellaneous" accesskey="n"
+      rel="next">Next <img src="../_static/images/chevron-right-blue.svg"
+        class="next-page"></a>
+    
+    
+    <a href="visualization.html" class="btn btn-neutral" title="Visualization" accesskey="p"
+      rel="prev"><img src="../_static/images/chevron-right-blue.svg" class="previous-page"> Previous</a>
+    
+  </div>
+  
+
+  <hr>
+
+  <div role="contentinfo">
+    <p>
+      &copy; Copyright 2022, EarthNets.
+
+    </p>
+  </div>
+  
+  <div>
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a
+      href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the
+      Docs</a>.
+  </div>
+   
+
+</footer>
+          </div>
+        </div>
+
+        <div class="pytorch-content-right" id="pytorch-content-right">
+          <div class="pytorch-right-menu" id="pytorch-right-menu">
+            <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
+              <ul>
+<li><a class="reference internal" href="#">Analysis</a><ul>
+<li><a class="reference internal" href="#log-analysis">Log Analysis</a><ul>
+<li><a class="reference internal" href="#plot-curves">Plot Curves</a></li>
+<li><a class="reference internal" href="#calculate-training-time">Calculate Training Time</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#result-analysis">Result Analysis</a><ul>
+<li><a class="reference internal" href="#evaluate-results">Evaluate Results</a></li>
+<li><a class="reference internal" href="#view-typical-results">View Typical Results</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#model-complexity">Model Complexity</a><ul>
+<li><a class="reference internal" href="#get-the-flops-and-params-experimental">Get the FLOPs and params (experimental)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#faqs">FAQs</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+          </div>
+        </div>
+    </section>
+  </div>
+
+  
+
+
+  
+
+  
+  <script type="text/javascript" id="documentation_options" data-url_root="../"
+    src="../_static/documentation_options.js"></script>
+  <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+  <script src="../_static/jquery.js"></script>
+  <script src="../_static/underscore.js"></script>
+  <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+  <script src="../_static/doctools.js"></script>
+  <script src="../_static/clipboard.min.js"></script>
+  <script src="../_static/copybutton.js"></script>
+  <script src="../_static/js/custom.js"></script>
+  
+
+  
+
+  <script type="text/javascript" src="../_static/js/vendor/popper.min.js"></script>
+  <script type="text/javascript" src="../_static/js/vendor/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+    jQuery(function () {
+      SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+  <!-- Begin Footer -->
+
+  <div class="container-fluid docs-tutorials-resources" id="docs-tutorials-resources">
+  </div>
+
+  <!-- End Footer -->
+
+  <!-- Begin Mobile Menu -->
+
+  <div class="mobile-main-menu">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="mobile-main-menu-header-container">
+          <a class="header-logo" href="https://rsi-classification.readthedocs.io/en/latest/" aria-label="OpenMMLab"></a>
+          <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-main-menu-links-container">
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://github.com/EarthNets/RSI-Segmentation/blob/main/demo/rsi_classification_tutorial.ipynb" target="_blank">Tutorial</a>
+          </li>
+          <li>
+            <a href="https://github.com/EarthNets/RSI-Classification" target="_blank">GitHub</a>
+          </li>
+          <li class="resources-mobile-menu-title" >
+            About
+          </li>
+          <ul class="resources-mobile-menu-items">
+            <li>
+              <a href="https://github.com/open-mmlab/mmcv" target="_blank">MMCV</a>
+            </li>
+          </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Mobile Menu -->
+
+  <script type="text/javascript" src="../_static/js/vendor/anchor.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      mobileMenu.bind();
+      mobileTOC.bind();
+      pytorchAnchors.bind();
+      sideMenus.bind();
+      scrollToAnchor.bind();
+      highlightNavigation.bind();
+      mainMenuDropdown.bind();
+      filterTags.bind();
+
+      // Add class to links that have code blocks, since we cannot create links in code blocks
+      $("article.pytorch-article a span.pre").each(function (e) {
+        $(this).closest("a").addClass("has-code");
+      });
+    })
+  </script>
+</body>
+
+</html>

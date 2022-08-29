@@ -1,0 +1,902 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tutorial 1: Learn about Configs &mdash; RSI-Classification 0.23.1 documentation</title>
+  
+
+  <link rel="shortcut icon" href="../_static/images/favicon.ico" />
+  
+  
+
+  
+
+  
+  
+  
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> -->
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/readthedocs.css" type="text/css" />
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Search" href="../search.html" />
+  <link rel="next" title="Tutorial 2: Fine-tune Models" href="finetune.html" />
+  <link rel="prev" title="Getting Started" href="../getting_started.html" />
+  <!-- Google Analytics -->
+  <script type="text/javascript">
+    var collapsedSections = [];
+  </script>
+  
+  <!-- End Google Analytics -->
+  
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+  <script>
+    MathJax = {
+        chtml: {
+            scale: 1,
+            minScale: 1,
+        },
+        svg: {
+            scale: 1,
+            minScale: 1,
+        }
+    }
+</script>
+
+  <!-- Preload the theme fonts -->
+
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-book.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/IBMPlexMono/IBMPlexMono-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-medium-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/IBMPlexMono/IBMPlexMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+<!-- Preload the katex fonts -->
+
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Math-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size1-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size4-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size2-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size3-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Caligraphic-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+</head>
+
+<div class="container-fluid header-holder tutorials-header" id="header-holder">
+  <div class="container">
+    <div class="header-container">
+      <a class="header-logo" href="https://rsi-classification.readthedocs.io/en/latest/"
+        aria-label="OpenMMLab"></a>
+
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://github.com/EarthNets/RSI-Segmentation/blob/main/demo/rsi_classification_tutorial.ipynb" target="_blank">Tutorial</a>
+          </li>
+          <li>
+            <a href="https://github.com/EarthNets/RSI-Classification" target="_blank">GitHub</a>
+          </li>
+          <li >
+            <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
+              <a
+                class="resource-option with-down-arrow">
+                About
+              </a>
+              <div class="resources-dropdown-menu">
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/open-mmlab/mmcv" target="_blank">
+                  <span class="dropdown-title">MMCV </span>
+                  <p>Foundational library for computer vision</p>
+                </a>
+              </div>
+          </li>
+          <li >
+            <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
+              <a
+                class="resource-option with-down-arrow">
+                EarthNets
+              </a>
+              <div class="resources-dropdown-menu">
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/Dataset4EO" target="_blank">
+                  <span class="dropdown-title">Dataset4EO </span>
+                  <p>Re-organize remote sensing datasets.</p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/RSI-Classification" target="_blank">
+                  <span class="dropdown-title">RSI-Classification </span>
+                  <p>Image/scene classification for RS images.</p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/RSI-Segmentation" target="_blank">
+                  <span class="dropdown-title">RSI-Segmentation </span>
+                  <p>Pixel-wise semantic segmentation for RS images.</p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/RSI-Detection" target="_blank">
+                  <span class="dropdown-title">RSI-Detection </span>
+                  <p>Object detection for RS images.</p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/RSI-ChangeDetection" target="_blank">
+                  <span class="dropdown-title">RSI-ChangeDetection </span>
+                  <p>Change detection for RS images.</p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/RSI-SelfSupervised" target="_blank">
+                  <span class="dropdown-title">RSI-SelfSupervised </span>
+                  <p>Self-supervised learning for RS images.</p>
+                </a>
+              </div>
+          </li>
+        </ul>
+      </div>
+
+      <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
+    </div>
+  </div>
+</div>
+
+<body class="pytorch-body">
+
+   
+
+  
+
+  <div class="table-of-contents-link-wrapper">
+    <span>Table of Contents</span>
+    <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
+  </div>
+
+  <nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
+    <div class="pytorch-side-scroll">
+      <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <div class="pytorch-left-menu-search">
+          
+
+          
+          
+          
+          
+
+          
+
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search Docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        
+        
+        
+        
+        
+        <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html#installation">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial 1: Learn about Configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="finetune.html">Tutorial 2: Fine-tune Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_dataset.html">Tutorial 3: Customize Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_pipeline.html">Tutorial 4: Custom Data Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_modules.html">Tutorial 5: Adding New Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schedule.html">Tutorial 6: Customize Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="runtime.html">Tutorial 7: Customize Runtime Settings</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Model zoo</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../model_zoo.html">Model Zoo</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Useful Tools and Scripts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tools/pytorch2onnx.html">Pytorch to ONNX (Experimental)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/onnx2tensorrt.html">ONNX to TensorRT (Experimental)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/pytorch2torchscript.html">Pytorch to TorchScript (Experimental)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/model_serving.html">Model Serving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/visualization.html">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/analysis.html">Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/miscellaneous.html">Miscellaneous</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+</ul>
+
+        
+        
+      </div>
+    </div>
+  </nav>
+
+  <div class="pytorch-container">
+    <div class="pytorch-page-level-bar" id="pytorch-page-level-bar">
+      <div class="pytorch-breadcrumbs-wrapper">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="pytorch-breadcrumbs">
+    
+      <li>
+        <a href="../index.html">
+            Docs
+        </a> &gt;
+      </li>
+
+        
+      <li>Tutorial 1: Learn about Configs</li>
+    
+    
+      <li class="pytorch-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/tutorials/config.md.txt" rel="nofollow"><img src="../_static/images/view-page-source-icon.svg"></a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+</div>
+      </div>
+
+      <div class="pytorch-shortcuts-wrapper" id="pytorch-shortcuts-wrapper">
+        Shortcuts
+      </div>
+    </div>
+
+    <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
+      <div class="pytorch-content-left">
+        
+          <div class="rst-content">
+            
+            <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
+              <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
+                
+  <section id="tutorial-1-learn-about-configs">
+<h1>Tutorial 1: Learn about Configs<a class="headerlink" href="#tutorial-1-learn-about-configs" title="Permalink to this heading">¶</a></h1>
+<p>MMClassification mainly uses python files as configs. The design of our configuration file system integrates modularity and inheritance, facilitating users to conduct various experiments. All configuration files are placed in the <code class="docutils literal notranslate"><span class="pre">configs</span></code> folder, which mainly contains the primitive configuration folder of <code class="docutils literal notranslate"><span class="pre">_base_</span></code> and many algorithm folders such as <code class="docutils literal notranslate"><span class="pre">resnet</span></code>, <code class="docutils literal notranslate"><span class="pre">swin_transformer</span></code>, <code class="docutils literal notranslate"><span class="pre">vision_transformer</span></code>, etc.</p>
+<p>If you wish to inspect the config file, you may run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">tools/misc/print_config.py</span> <span class="pre">/PATH/TO/CONFIG</span></code> to see the complete config.</p>
+<!-- TOC -->
+<ul class="simple">
+<li><p><a class="reference internal" href="#config-file-and-checkpoint-naming-convention"><span class="std std-doc">Config  File and Checkpoint Naming Convention</span></a></p></li>
+<li><p><a class="reference internal" href="#config-file-structure"><span class="std std-doc">Config File Structure</span></a></p></li>
+<li><p><a class="reference internal" href="#inherit-and-modify-config-file"><span class="std std-doc">Inherit and Modify Config File</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#use-intermediate-variables-in-configs"><span class="std std-doc">Use intermediate variables in configs</span></a></p></li>
+<li><p><a class="reference internal" href="#ignore-some-fields-in-the-base-configs"><span class="std std-doc">Ignore some fields in the base configs</span></a></p></li>
+<li><p><a class="reference internal" href="#use-some-fields-in-the-base-configs"><span class="std std-doc">Use some fields in the base configs</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#modify-config-through-script-arguments"><span class="std std-doc">Modify config through script arguments</span></a></p></li>
+<li><p><a class="reference internal" href="#import-user-defined-modules"><span class="std std-doc">Import user-defined modules</span></a></p></li>
+<li><p><a class="reference internal" href="#faq"><span class="std std-doc">FAQ</span></a></p></li>
+</ul>
+<!-- TOC -->
+<section id="config-file-and-checkpoint-naming-convention">
+<h2>Config File and Checkpoint Naming Convention<a class="headerlink" href="#config-file-and-checkpoint-naming-convention" title="Permalink to this heading">¶</a></h2>
+<p>We follow the below convention to name config files. Contributors are advised to follow the same style. The config file names are divided into four parts: algorithm info, module information, training information and data information. Logically, different parts are concatenated by underscores <code class="docutils literal notranslate"><span class="pre">'_'</span></code>, and words in the same part are concatenated by dashes <code class="docutils literal notranslate"><span class="pre">'-'</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">algorithm</span> <span class="n">info</span><span class="p">}</span><span class="n">_</span><span class="p">{</span><span class="n">module</span> <span class="n">info</span><span class="p">}</span><span class="n">_</span><span class="p">{</span><span class="n">training</span> <span class="n">info</span><span class="p">}</span><span class="n">_</span><span class="p">{</span><span class="n">data</span> <span class="n">info</span><span class="p">}</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">algorithm</span> <span class="pre">info</span></code>：algorithm information, model name and neural network architecture, such as resnet, etc.;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">info</span></code>： module information is used to represent some special neck, head and pretrain information;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">training</span> <span class="pre">info</span></code>：Training information, some training schedule, including batch size, lr schedule, data augment and the like;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">info</span></code>：Data information, dataset name, input size and so on, such as imagenet, cifar, etc.;</p></li>
+</ul>
+<section id="algorithm-information">
+<h3>Algorithm information<a class="headerlink" href="#algorithm-information" title="Permalink to this heading">¶</a></h3>
+<p>The main algorithm name and the corresponding branch architecture information. E.g：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">resnet50</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mobilenet-v3-large</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vit-small-patch32</span></code>   : <code class="docutils literal notranslate"><span class="pre">patch32</span></code> represents the size of the partition in <code class="docutils literal notranslate"><span class="pre">ViT</span></code> algorithm;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">seresnext101-32x4d</span></code>  : <code class="docutils literal notranslate"><span class="pre">SeResNet101</span></code> network structure, <code class="docutils literal notranslate"><span class="pre">32x4d</span></code> means that <code class="docutils literal notranslate"><span class="pre">groups</span></code> and <code class="docutils literal notranslate"><span class="pre">width_per_group</span></code> are 32 and 4 respectively in <code class="docutils literal notranslate"><span class="pre">Bottleneck</span></code>;</p></li>
+</ul>
+</section>
+<section id="module-information">
+<h3>Module information<a class="headerlink" href="#module-information" title="Permalink to this heading">¶</a></h3>
+<p>Some special <code class="docutils literal notranslate"><span class="pre">neck</span></code>, <code class="docutils literal notranslate"><span class="pre">head</span></code> and <code class="docutils literal notranslate"><span class="pre">pretrain</span></code> information. In classification tasks, <code class="docutils literal notranslate"><span class="pre">pretrain</span></code> information is the most commonly used:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">in21k-pre</span></code> : pre-trained on ImageNet21k;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">in21k-pre-3rd-party</span></code> : pre-trained on ImageNet21k and the checkpoint is converted from a third-party repository;</p></li>
+</ul>
+</section>
+<section id="training-information">
+<h3>Training information<a class="headerlink" href="#training-information" title="Permalink to this heading">¶</a></h3>
+<p>Training schedule, including training type, <code class="docutils literal notranslate"><span class="pre">batch</span> <span class="pre">size</span></code>, <code class="docutils literal notranslate"><span class="pre">lr</span> <span class="pre">schedule</span></code>, data augment, special loss functions and so on:</p>
+<ul class="simple">
+<li><p>format <code class="docutils literal notranslate"><span class="pre">{gpu</span> <span class="pre">x</span> <span class="pre">batch_per_gpu}</span></code>, such as <code class="docutils literal notranslate"><span class="pre">8xb32</span></code></p></li>
+</ul>
+<p>Training type (mainly seen in the transformer network, such as the <code class="docutils literal notranslate"><span class="pre">ViT</span></code> algorithm, which is usually divided into two training type: pre-training and fine-tuning):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ft</span></code> : configuration file for fine-tuning</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pt</span></code> : configuration file for pretraining</p></li>
+</ul>
+<p>Training recipe. Usually, only the part that is different from the original paper will be marked. These methods will be arranged in the order <code class="docutils literal notranslate"><span class="pre">{pipeline</span> <span class="pre">aug}-{train</span> <span class="pre">aug}-{loss</span> <span class="pre">trick}-{scheduler}-{epochs}</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">coslr-200e</span></code> : use cosine scheduler to train 200 epochs</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">autoaug-mixup-lbs-coslr-50e</span></code> : use <code class="docutils literal notranslate"><span class="pre">autoaug</span></code>, <code class="docutils literal notranslate"><span class="pre">mixup</span></code>, <code class="docutils literal notranslate"><span class="pre">label</span> <span class="pre">smooth</span></code>, <code class="docutils literal notranslate"><span class="pre">cosine</span> <span class="pre">scheduler</span></code> to train 50 epochs</p></li>
+</ul>
+</section>
+<section id="data-information">
+<h3>Data information<a class="headerlink" href="#data-information" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">in1k</span></code> : <code class="docutils literal notranslate"><span class="pre">ImageNet1k</span></code> dataset, default to use the input image size of 224x224;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">in21k</span></code> : <code class="docutils literal notranslate"><span class="pre">ImageNet21k</span></code> dataset, also called <code class="docutils literal notranslate"><span class="pre">ImageNet22k</span></code> dataset, default to use the input image size of 224x224;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">in1k-384px</span></code> : Indicates that the input image size is 384x384;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cifar100</span></code></p></li>
+</ul>
+</section>
+<section id="config-file-name-example">
+<h3>Config File Name Example<a class="headerlink" href="#config-file-name-example" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">repvgg</span><span class="o">-</span><span class="n">D2se_deploy_4xb64</span><span class="o">-</span><span class="n">autoaug</span><span class="o">-</span><span class="n">lbs</span><span class="o">-</span><span class="n">mixup</span><span class="o">-</span><span class="n">coslr</span><span class="o">-</span><span class="mi">200</span><span class="n">e_in1k</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">repvgg-D2se</span></code>:  Algorithm information</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">repvgg</span></code>: The main algorithm.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">D2se</span></code>: The architecture.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">deploy</span></code>: Module information, means the backbone is in the deploy state.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">4xb64-autoaug-lbs-mixup-coslr-200e</span></code>: Training information.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">4xb64</span></code>: Use 4 GPUs and the size of batches per GPU is 64.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">autoaug</span></code>: Use <code class="docutils literal notranslate"><span class="pre">AutoAugment</span></code> in training pipeline.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lbs</span></code>: Use label smoothing loss.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mixup</span></code>: Use <code class="docutils literal notranslate"><span class="pre">mixup</span></code> training augment method.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">coslr</span></code>: Use cosine learning rate scheduler.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">200e</span></code>: Train the model for 200 epochs.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">in1k</span></code>: Dataset information. The config is for <code class="docutils literal notranslate"><span class="pre">ImageNet1k</span></code> dataset and the input size is <code class="docutils literal notranslate"><span class="pre">224x224</span></code>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some configuration files currently do not follow this naming convention, and related files will be updated in the near future.</p>
+</div>
+</section>
+<section id="checkpoint-naming-convention">
+<h3>Checkpoint Naming Convention<a class="headerlink" href="#checkpoint-naming-convention" title="Permalink to this heading">¶</a></h3>
+<p>The naming of the weight mainly includes the configuration file name, date and hash value.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">config_name</span><span class="p">}</span><span class="n">_</span><span class="p">{</span><span class="n">date</span><span class="p">}</span><span class="o">-</span><span class="p">{</span><span class="nb">hash</span><span class="p">}</span><span class="o">.</span><span class="n">pth</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="config-file-structure">
+<h2>Config File Structure<a class="headerlink" href="#config-file-structure" title="Permalink to this heading">¶</a></h2>
+<p>There are four kinds of basic component file in the <code class="docutils literal notranslate"><span class="pre">configs/_base_</span></code> folders, namely：</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/open-mmlab/mmclassification/tree/master/configs/_base_/models">models</a></p></li>
+<li><p><a class="reference external" href="https://github.com/open-mmlab/mmclassification/tree/master/configs/_base_/datasets">datasets</a></p></li>
+<li><p><a class="reference external" href="https://github.com/open-mmlab/mmclassification/tree/master/configs/_base_/schedules">schedules</a></p></li>
+<li><p><a class="reference external" href="https://github.com/open-mmlab/mmclassification/blob/master/configs/_base_/default_runtime.py">runtime</a></p></li>
+</ul>
+<p>You can easily build your own training config file by inherit some base config files. And the configs that are composed by components from <code class="docutils literal notranslate"><span class="pre">_base_</span></code> are called <em>primitive</em>.</p>
+<p>For easy understanding, we use <a class="reference external" href="https://github.com/open-mmlab/mmclassification/blob/master/configs/resnet/resnet50_8xb32_in1k.py">ResNet50 primitive config</a> as a example and comment the meaning of each line. For more detaile, please refer to the API documentation.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">_base_</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;../_base_/models/resnet50.py&#39;</span><span class="p">,</span>           <span class="c1"># model</span>
+    <span class="s1">&#39;../_base_/datasets/imagenet_bs32.py&#39;</span><span class="p">,</span>    <span class="c1"># data</span>
+    <span class="s1">&#39;../_base_/schedules/imagenet_bs256.py&#39;</span><span class="p">,</span>  <span class="c1"># training schedule</span>
+    <span class="s1">&#39;../_base_/default_runtime.py&#39;</span>            <span class="c1"># runtime setting</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>The four parts are explained separately below, and the above-mentioned ResNet50 primitive config are also used as an example.</p>
+<section id="model">
+<h3>model<a class="headerlink" href="#model" title="Permalink to this heading">¶</a></h3>
+<p>The parameter <code class="docutils literal notranslate"><span class="pre">&quot;model&quot;</span></code> is a python dictionary in the configuration file, which mainly includes information such as network structure and loss function:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code> ： Classifier name, MMCls supports <code class="docutils literal notranslate"><span class="pre">ImageClassifier</span></code>, refer to <a class="reference external" href="https://mmclassification.readthedocs.io/en/latest/api/models.html#classifier">API documentation</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">backbone</span></code> ： Backbone configs, refer to <a class="reference external" href="https://mmclassification.readthedocs.io/en/latest/api/models.html#backbones">API documentation</a> for available options.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">neck</span></code> ：Neck network name, MMCls supports <code class="docutils literal notranslate"><span class="pre">GlobalAveragePooling</span></code>, please refer to <a class="reference external" href="https://mmclassification.readthedocs.io/en/latest/api/models.html#necks">API documentation</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">head</span></code>: Head network name, MMCls supports single-label and multi-label classification head networks, available options refer to <a class="reference external" href="https://mmclassification.readthedocs.io/en/latest/api/models.html#heads">API documentation</a>.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">loss</span></code>: Loss function type, supports <code class="docutils literal notranslate"><span class="pre">CrossEntropyLoss</span></code>, <a class="reference external" href="https://github.com/open-mmlab/mmclassification/blob/master/configs/_base_/models/resnet50_label_smooth.py"><code class="docutils literal notranslate"><span class="pre">LabelSmoothLoss</span></code></a> etc., For available options, refer to <a class="reference external" href="https://mmclassification.readthedocs.io/en/latest/api/models.html#losses">API documentation</a>.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">train_cfg</span></code> ：Training augment config, MMCls supports <a class="reference external" href="https://github.com/open-mmlab/mmclassification/blob/master/configs/_base_/models/resnet50_mixup.py"><code class="docutils literal notranslate"><span class="pre">mixup</span></code></a>, <a class="reference external" href="https://github.com/open-mmlab/mmclassification/blob/master/configs/_base_/models/resnet50_cutmix.py"><code class="docutils literal notranslate"><span class="pre">cutmix</span></code></a> and other augments.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The ‘type’ in the configuration file is not a constructed parameter, but a class name.</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;ImageClassifier&#39;</span><span class="p">,</span>     <span class="c1"># Classifier name</span>
+    <span class="n">backbone</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+        <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;ResNet&#39;</span><span class="p">,</span>          <span class="c1"># Backbones name</span>
+        <span class="n">depth</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>               <span class="c1"># depth of backbone, ResNet has options of 18, 34, 50, 101, 152.</span>
+        <span class="n">num_stages</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>           <span class="c1"># number of stages，The feature maps generated by these states are used as the input for the subsequent neck and head.</span>
+        <span class="n">out_indices</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="p">),</span>      <span class="c1"># The output index of the output feature maps.</span>
+        <span class="n">frozen_stages</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>       <span class="c1"># the stage to be frozen, &#39;-1&#39; means not be forzen</span>
+        <span class="n">style</span><span class="o">=</span><span class="s1">&#39;pytorch&#39;</span><span class="p">),</span>        <span class="c1"># The style of backbone, &#39;pytorch&#39; means that stride 2 layers are in 3x3 conv, &#39;caffe&#39; means stride 2 layers are in 1x1 convs.</span>
+    <span class="n">neck</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;GlobalAveragePooling&#39;</span><span class="p">),</span>    <span class="c1"># neck network name</span>
+    <span class="n">head</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+        <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;LinearClsHead&#39;</span><span class="p">,</span>     <span class="c1"># linear classification head，</span>
+        <span class="n">num_classes</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>         <span class="c1"># The number of output categories, consistent with the number of categories in the dataset</span>
+        <span class="n">in_channels</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span>         <span class="c1"># The number of input channels, consistent with the output channel of the neck</span>
+        <span class="n">loss</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;CrossEntropyLoss&#39;</span><span class="p">,</span> <span class="n">loss_weight</span><span class="o">=</span><span class="mf">1.0</span><span class="p">),</span> <span class="c1"># Loss function configuration information</span>
+        <span class="n">topk</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>              <span class="c1"># Evaluation index, Top-k accuracy rate, here is the accuracy rate of top1 and top5</span>
+    <span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="data">
+<h3>data<a class="headerlink" href="#data" title="Permalink to this heading">¶</a></h3>
+<p>The parameter <code class="docutils literal notranslate"><span class="pre">&quot;data&quot;</span></code> is a python dictionary in the configuration file, which mainly includes information to construct dataloader:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">samples_per_gpu</span></code> : the BatchSize of each GPU when building the dataloader</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">workers_per_gpu</span></code> : the number of threads per GPU when building dataloader</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">train</span> <span class="pre">｜</span> <span class="pre">val</span> <span class="pre">｜</span> <span class="pre">test</span></code> : config to construct dataset</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code>: Dataset name, MMCls supports <code class="docutils literal notranslate"><span class="pre">ImageNet</span></code>, <code class="docutils literal notranslate"><span class="pre">Cifar</span></code> etc., refer to <a class="reference external" href="https://mmclassification.readthedocs.io/en/latest/api/datasets.html">API documentation</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data_prefix</span></code> : Dataset root directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pipeline</span></code> :  Data processing pipeline, refer to related tutorial <a class="reference external" href="https://mmclassification.readthedocs.io/en/latest/tutorials/data_pipeline.html">CUSTOM DATA PIPELINES</a></p></li>
+</ul>
+</li>
+</ul>
+<p>The parameter <code class="docutils literal notranslate"><span class="pre">evaluation</span></code> is also a dictionary, which is the configuration information of <code class="docutils literal notranslate"><span class="pre">evaluation</span> <span class="pre">hook</span></code>, mainly including evaluation interval, evaluation index, etc..</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># dataset settings</span>
+<span class="n">dataset_type</span> <span class="o">=</span> <span class="s1">&#39;ImageNet&#39;</span>  <span class="c1"># dataset name，</span>
+<span class="n">img_norm_cfg</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>        <span class="c1"># Image normalization config to normalize the input images</span>
+    <span class="n">mean</span><span class="o">=</span><span class="p">[</span><span class="mf">123.675</span><span class="p">,</span> <span class="mf">116.28</span><span class="p">,</span> <span class="mf">103.53</span><span class="p">],</span>  <span class="c1"># Mean values used to pre-training the pre-trained backbone models</span>
+    <span class="n">std</span><span class="o">=</span><span class="p">[</span><span class="mf">58.395</span><span class="p">,</span> <span class="mf">57.12</span><span class="p">,</span> <span class="mf">57.375</span><span class="p">],</span>     <span class="c1"># Standard variance used to pre-training the pre-trained backbone models</span>
+    <span class="n">to_rgb</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>                     <span class="c1"># Whether to invert the color channel, rgb2bgr or bgr2rgb.</span>
+<span class="c1"># train data pipeline</span>
+<span class="n">train_pipeline</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;LoadImageFromFile&#39;</span><span class="p">),</span>                <span class="c1"># First pipeline to load images from file path</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;RandomResizedCrop&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">224</span><span class="p">),</span>      <span class="c1"># RandomResizedCrop</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;RandomFlip&#39;</span><span class="p">,</span> <span class="n">flip_prob</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">),</span>  <span class="c1"># Randomly flip the picture horizontally with a probability of 0.5</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;Normalize&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">img_norm_cfg</span><span class="p">),</span>        <span class="c1"># normalization</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;ImageToTensor&#39;</span><span class="p">,</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;img&#39;</span><span class="p">]),</span>      <span class="c1"># convert image from numpy into torch.Tensor</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;ToTensor&#39;</span><span class="p">,</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;gt_label&#39;</span><span class="p">]),</span>      <span class="c1"># convert gt_label into torch.Tensor</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;Collect&#39;</span><span class="p">,</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;img&#39;</span><span class="p">,</span> <span class="s1">&#39;gt_label&#39;</span><span class="p">])</span> <span class="c1"># Pipeline that decides which keys in the data should be passed to the detector</span>
+<span class="p">]</span>
+<span class="c1"># test data pipeline</span>
+<span class="n">test_pipeline</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;LoadImageFromFile&#39;</span><span class="p">),</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;Resize&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)),</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;CenterCrop&#39;</span><span class="p">,</span> <span class="n">crop_size</span><span class="o">=</span><span class="mi">224</span><span class="p">),</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;Normalize&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">img_norm_cfg</span><span class="p">),</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;ImageToTensor&#39;</span><span class="p">,</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;img&#39;</span><span class="p">]),</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;Collect&#39;</span><span class="p">,</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;img&#39;</span><span class="p">])</span>             <span class="c1"># do not pass gt_label while testing</span>
+<span class="p">]</span>
+<span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">samples_per_gpu</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>     <span class="c1"># Batch size of a single GPU</span>
+    <span class="n">workers_per_gpu</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>      <span class="c1"># Worker to pre-fetch data for each single GPU</span>
+    <span class="n">train</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>  <span class="c1"># Train dataset config</span>
+    <span class="n">train</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>            <span class="c1"># train data config</span>
+        <span class="nb">type</span><span class="o">=</span><span class="n">dataset_type</span><span class="p">,</span>                  <span class="c1"># dataset name</span>
+        <span class="n">data_prefix</span><span class="o">=</span><span class="s1">&#39;data/imagenet/train&#39;</span><span class="p">,</span>  <span class="c1"># Dataset root, when ann_file does not exist, the category information is automatically obtained from the root folder</span>
+        <span class="n">pipeline</span><span class="o">=</span><span class="n">train_pipeline</span><span class="p">),</span>           <span class="c1"># train data pipeline</span>
+    <span class="n">val</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>              <span class="c1"># val data config</span>
+        <span class="nb">type</span><span class="o">=</span><span class="n">dataset_type</span><span class="p">,</span>
+        <span class="n">data_prefix</span><span class="o">=</span><span class="s1">&#39;data/imagenet/val&#39;</span><span class="p">,</span>
+        <span class="n">ann_file</span><span class="o">=</span><span class="s1">&#39;data/imagenet/meta/val.txt&#39;</span><span class="p">,</span>   <span class="c1">#  ann_file existes, the category information is obtained from file</span>
+        <span class="n">pipeline</span><span class="o">=</span><span class="n">test_pipeline</span><span class="p">),</span>
+    <span class="n">test</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>             <span class="c1"># test data config</span>
+        <span class="nb">type</span><span class="o">=</span><span class="n">dataset_type</span><span class="p">,</span>
+        <span class="n">data_prefix</span><span class="o">=</span><span class="s1">&#39;data/imagenet/val&#39;</span><span class="p">,</span>
+        <span class="n">ann_file</span><span class="o">=</span><span class="s1">&#39;data/imagenet/meta/val.txt&#39;</span><span class="p">,</span>
+        <span class="n">pipeline</span><span class="o">=</span><span class="n">test_pipeline</span><span class="p">))</span>
+<span class="n">evaluation</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>       <span class="c1"># The config to build the evaluation hook, refer to https://github.com/open-mmlab/mmdetection/blob/master/mmdet/core/evaluation/eval_hooks.py#L7 for more details.</span>
+    <span class="n">interval</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>          <span class="c1"># Evaluation interval</span>
+    <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;accuracy&#39;</span><span class="p">)</span>   <span class="c1"># Metrics used during evaluation</span>
+</pre></div>
+</div>
+</section>
+<section id="training-schedule">
+<h3>training schedule<a class="headerlink" href="#training-schedule" title="Permalink to this heading">¶</a></h3>
+<p>Mainly include optimizer settings, <code class="docutils literal notranslate"><span class="pre">optimizer</span> <span class="pre">hook</span></code> settings, learning rate schedule and <code class="docutils literal notranslate"><span class="pre">runner</span></code> settings:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">optimizer</span></code>: optimizer setting , support all optimizers in <code class="docutils literal notranslate"><span class="pre">pytorch</span></code>, refer to related <a class="reference external" href="https://mmcv.readthedocs.io/en/latest/_modules/mmcv/runner/optimizer/default_constructor.html#DefaultOptimizerConstructor">mmcv</a> documentation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">optimizer_config</span></code>: <code class="docutils literal notranslate"><span class="pre">optimizer</span> <span class="pre">hook</span></code> configuration file, such as setting gradient limit, refer to related <a class="reference external" href="https://github.com/open-mmlab/mmcv/blob/master/mmcv/runner/hooks/optimizer.py#L8">mmcv</a> code.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lr_config</span></code>: Learning rate scheduler, supports “CosineAnnealing”, “Step”, “Cyclic”, etc. refer to related <a class="reference external" href="https://mmcv.readthedocs.io/en/latest/_modules/mmcv/runner/hooks/lr_updater.html#LrUpdaterHook">mmcv</a> documentation for more options.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">runner</span></code>: For <code class="docutils literal notranslate"><span class="pre">runner</span></code>, please refer to <code class="docutils literal notranslate"><span class="pre">mmcv</span></code> for <a class="reference external" href="https://mmcv.readthedocs.io/en/latest/understand_mmcv/runner.html"><code class="docutils literal notranslate"><span class="pre">runner</span></code></a> introduction document.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># he configuration file used to build the optimizer, support all optimizers in PyTorch.</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;SGD&#39;</span><span class="p">,</span>         <span class="c1"># Optimizer type</span>
+                <span class="n">lr</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>              <span class="c1"># Learning rate of optimizers, see detail usages of the parameters in the documentation of PyTorch</span>
+                <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>        <span class="c1"># Momentum</span>
+                <span class="n">weight_decay</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">)</span> <span class="c1"># Weight decay of SGD</span>
+<span class="c1"># Config used to build the optimizer hook, refer to https://github.com/open-mmlab/mmcv/blob/master/mmcv/runner/hooks/optimizer.py#L8 for implementation details.</span>
+<span class="n">optimizer_config</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">grad_clip</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>  <span class="c1"># Most of the methods do not use gradient clip</span>
+<span class="c1"># Learning rate scheduler config used to register LrUpdater hook</span>
+<span class="n">lr_config</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">policy</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">,</span>          <span class="c1"># The policy of scheduler, also support CosineAnnealing, Cyclic, etc. Refer to details of supported LrUpdater from https://github.com/open-mmlab/mmcv/blob/master/mmcv/runner/hooks/lr_updater.py#L9.</span>
+                 <span class="n">step</span><span class="o">=</span><span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">90</span><span class="p">])</span>      <span class="c1"># Steps to decay the learning rate</span>
+<span class="n">runner</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;EpochBasedRunner&#39;</span><span class="p">,</span>   <span class="c1"># Type of runner to use (i.e. IterBasedRunner or EpochBasedRunner)</span>
+            <span class="n">max_epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>    <span class="c1"># Runner that runs the workflow in total max_epochs. For IterBasedRunner use `max_iters`</span>
+</pre></div>
+</div>
+</section>
+<section id="runtime-setting">
+<h3>runtime setting<a class="headerlink" href="#runtime-setting" title="Permalink to this heading">¶</a></h3>
+<p>This part mainly includes saving the checkpoint strategy, log configuration, training parameters, breakpoint weight path, working directory, etc..</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Config to set the checkpoint hook, Refer to https://github.com/open-mmlab/mmcv/blob/master/mmcv/runner/hooks/checkpoint.py for implementation.</span>
+<span class="n">checkpoint_config</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">interval</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>    <span class="c1"># The save interval is 1</span>
+<span class="c1"># config to register logger hook</span>
+<span class="n">log_config</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">interval</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>                       <span class="c1"># Interval to print the log</span>
+    <span class="n">hooks</span><span class="o">=</span><span class="p">[</span>
+        <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;TextLoggerHook&#39;</span><span class="p">),</span>           <span class="c1"># The Tensorboard logger is also supported</span>
+        <span class="c1"># dict(type=&#39;TensorboardLoggerHook&#39;)</span>
+    <span class="p">])</span>
+
+<span class="n">dist_params</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">backend</span><span class="o">=</span><span class="s1">&#39;nccl&#39;</span><span class="p">)</span>   <span class="c1"># Parameters to setup distributed training, the port can also be set.</span>
+<span class="n">log_level</span> <span class="o">=</span> <span class="s1">&#39;INFO&#39;</span>             <span class="c1"># The output level of the log.</span>
+<span class="n">resume_from</span> <span class="o">=</span> <span class="bp">None</span>             <span class="c1"># Resume checkpoints from a given path, the training will be resumed from the epoch when the checkpoint&#39;s is saved.</span>
+<span class="n">workflow</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;train&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>      <span class="c1"># Workflow for runner. [(&#39;train&#39;, 1)] means there is only one workflow and the workflow named &#39;train&#39; is executed once.</span>
+<span class="n">work_dir</span> <span class="o">=</span> <span class="s1">&#39;work_dir&#39;</span>          <span class="c1"># Directory to save the model checkpoints and logs for the current experiments.</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="inherit-and-modify-config-file">
+<h2>Inherit and Modify Config File<a class="headerlink" href="#inherit-and-modify-config-file" title="Permalink to this heading">¶</a></h2>
+<p>For easy understanding, we recommend contributors to inherit from existing methods.</p>
+<p>For all configs under the same folder, it is recommended to have only <strong>one</strong> <em>primitive</em> config. All other configs should inherit from the <em>primitive</em> config. In this way, the maximum of inheritance level is 3.</p>
+<p>For example, if your config file is based on ResNet with some other modification, you can first inherit the basic ResNet structure, dataset and other training setting by specifying <code class="docutils literal notranslate"><span class="pre">_base_</span> <span class="pre">='./resnet50_8xb32_in1k.py'</span></code> (The path relative to your config file), and then modify the necessary parameters in the config file. A more specific example, now we want to use almost all configs in <code class="docutils literal notranslate"><span class="pre">configs/resnet/resnet50_8xb32_in1k.py</span></code>, but change the number of training epochs from 100 to 300, modify when to decay the learning rate, and modify the dataset path, you can create a new config file <code class="docutils literal notranslate"><span class="pre">configs/resnet/resnet50_8xb32-300e_in1k.py</span></code> with content as below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">_base_</span> <span class="o">=</span> <span class="s1">&#39;./resnet50_8xb32_in1k.py&#39;</span>
+
+<span class="n">runner</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">max_epochs</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">lr_config</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">step</span><span class="o">=</span><span class="p">[</span><span class="mi">150</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">250</span><span class="p">])</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">train</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">data_prefix</span><span class="o">=</span><span class="s1">&#39;mydata/imagenet/train&#39;</span><span class="p">),</span>
+    <span class="n">val</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">data_prefix</span><span class="o">=</span><span class="s1">&#39;mydata/imagenet/train&#39;</span><span class="p">,</span> <span class="p">),</span>
+    <span class="n">test</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">data_prefix</span><span class="o">=</span><span class="s1">&#39;mydata/imagenet/train&#39;</span><span class="p">,</span> <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<section id="use-intermediate-variables-in-configs">
+<h3>Use intermediate variables in configs<a class="headerlink" href="#use-intermediate-variables-in-configs" title="Permalink to this heading">¶</a></h3>
+<p>Some intermediate variables are used in the configuration file. The intermediate variables make the configuration file clearer and easier to modify.</p>
+<p>For example, <code class="docutils literal notranslate"><span class="pre">train_pipeline</span></code> / <code class="docutils literal notranslate"><span class="pre">test_pipeline</span></code> is the intermediate variable of the data pipeline. We first need to define <code class="docutils literal notranslate"><span class="pre">train_pipeline</span></code> / <code class="docutils literal notranslate"><span class="pre">test_pipeline</span></code>, and then pass them to <code class="docutils literal notranslate"><span class="pre">data</span></code>. If you want to modify the size of the input image during training and testing, you need to modify the intermediate variables of <code class="docutils literal notranslate"><span class="pre">train_pipeline</span></code> / <code class="docutils literal notranslate"><span class="pre">test_pipeline</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">img_norm_cfg</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">mean</span><span class="o">=</span><span class="p">[</span><span class="mf">123.675</span><span class="p">,</span> <span class="mf">116.28</span><span class="p">,</span> <span class="mf">103.53</span><span class="p">],</span> <span class="n">std</span><span class="o">=</span><span class="p">[</span><span class="mf">58.395</span><span class="p">,</span> <span class="mf">57.12</span><span class="p">,</span> <span class="mf">57.375</span><span class="p">],</span> <span class="n">to_rgb</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">train_pipeline</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;LoadImageFromFile&#39;</span><span class="p">),</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;RandomResizedCrop&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">384</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="s1">&#39;pillow&#39;</span><span class="p">,),</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;RandomFlip&#39;</span><span class="p">,</span> <span class="n">flip_prob</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">),</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;Normalize&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">img_norm_cfg</span><span class="p">),</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;ImageToTensor&#39;</span><span class="p">,</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;img&#39;</span><span class="p">]),</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;ToTensor&#39;</span><span class="p">,</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;gt_label&#39;</span><span class="p">]),</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;Collect&#39;</span><span class="p">,</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;img&#39;</span><span class="p">,</span> <span class="s1">&#39;gt_label&#39;</span><span class="p">])</span>
+<span class="p">]</span>
+<span class="n">test_pipeline</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;LoadImageFromFile&#39;</span><span class="p">),</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;Resize&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">384</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="s1">&#39;pillow&#39;</span><span class="p">),</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;Normalize&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">img_norm_cfg</span><span class="p">),</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;ImageToTensor&#39;</span><span class="p">,</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;img&#39;</span><span class="p">]),</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;Collect&#39;</span><span class="p">,</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;img&#39;</span><span class="p">])</span>
+<span class="p">]</span>
+<span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">train</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">pipeline</span><span class="o">=</span><span class="n">train_pipeline</span><span class="p">),</span>
+    <span class="n">val</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">pipeline</span><span class="o">=</span><span class="n">test_pipeline</span><span class="p">),</span>
+    <span class="n">test</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">pipeline</span><span class="o">=</span><span class="n">test_pipeline</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="ignore-some-fields-in-the-base-configs">
+<h3>Ignore some fields in the base configs<a class="headerlink" href="#ignore-some-fields-in-the-base-configs" title="Permalink to this heading">¶</a></h3>
+<p>Sometimes, you need to set <code class="docutils literal notranslate"><span class="pre">_delete_=True</span></code> to ignore some domain content in the basic configuration file. You can refer to <a class="reference external" href="https://mmcv.readthedocs.io/en/latest/understand_mmcv/config.html#inherit-from-base-config-with-ignored-fields">mmcv</a> for more instructions.</p>
+<p>The following is an example. If you wangt to use cosine schedule in the above ResNet50 case, just using inheritance and directly modify it will report <code class="docutils literal notranslate"><span class="pre">get</span> <span class="pre">unexcepected</span> <span class="pre">keyword'step'</span></code> error, because the <code class="docutils literal notranslate"><span class="pre">'step'</span></code> field of the basic config in <code class="docutils literal notranslate"><span class="pre">lr_config</span></code> domain information is reserved, and you need to add <code class="docutils literal notranslate"><span class="pre">_delete_</span> <span class="pre">=True</span></code> to ignore the content of <code class="docutils literal notranslate"><span class="pre">lr_config</span></code> related fields in the basic configuration file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">_base_</span> <span class="o">=</span> <span class="s1">&#39;../../configs/resnet/resnet50_8xb32_in1k.py&#39;</span>
+
+<span class="n">lr_config</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">_delete_</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="n">policy</span><span class="o">=</span><span class="s1">&#39;CosineAnnealing&#39;</span><span class="p">,</span>
+    <span class="n">min_lr</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">warmup</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span>
+    <span class="n">by_epoch</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="n">warmup_iters</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">warmup_ratio</span><span class="o">=</span><span class="mf">0.1</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="use-some-fields-in-the-base-configs">
+<h3>Use some fields in the base configs<a class="headerlink" href="#use-some-fields-in-the-base-configs" title="Permalink to this heading">¶</a></h3>
+<p>Sometimes, you may refer to some fields in the <code class="docutils literal notranslate"><span class="pre">_base_</span></code> config, so as to avoid duplication of definitions. You can refer to <a class="reference external" href="https://mmcv.readthedocs.io/en/latest/understand_mmcv/config.html#reference-variables-from-base">mmcv</a> for some more instructions.</p>
+<p>The following is an example of using auto augment in the training data preprocessing pipeline， refer to <a class="reference external" href="https://github.com/open-mmlab/mmclassification/blob/master/configs/_base_/datasets/imagenet_bs64_autoaug.py"><code class="docutils literal notranslate"><span class="pre">configs/_base_/datasets/imagenet_bs64_autoaug.py</span></code></a>. When defining <code class="docutils literal notranslate"><span class="pre">train_pipeline</span></code>, just add the definition file name of auto augment to <code class="docutils literal notranslate"><span class="pre">_base_</span></code>, and then use <code class="docutils literal notranslate"><span class="pre">{{_base_.auto_increasing_policies}}</span></code> to reference the variables:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">_base_</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;./pipelines/auto_aug.py&#39;</span><span class="p">]</span>
+
+<span class="c1"># dataset settings</span>
+<span class="n">dataset_type</span> <span class="o">=</span> <span class="s1">&#39;ImageNet&#39;</span>
+<span class="n">img_norm_cfg</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">mean</span><span class="o">=</span><span class="p">[</span><span class="mf">123.675</span><span class="p">,</span> <span class="mf">116.28</span><span class="p">,</span> <span class="mf">103.53</span><span class="p">],</span> <span class="n">std</span><span class="o">=</span><span class="p">[</span><span class="mf">58.395</span><span class="p">,</span> <span class="mf">57.12</span><span class="p">,</span> <span class="mf">57.375</span><span class="p">],</span> <span class="n">to_rgb</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">train_pipeline</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;LoadImageFromFile&#39;</span><span class="p">),</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;RandomResizedCrop&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">224</span><span class="p">),</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;RandomFlip&#39;</span><span class="p">,</span> <span class="n">flip_prob</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">),</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;AutoAugment&#39;</span><span class="p">,</span> <span class="n">policies</span><span class="o">=</span><span class="p">{{</span><span class="n">_base_</span><span class="o">.</span><span class="n">auto_increasing_policies</span><span class="p">}}),</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;Normalize&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">img_norm_cfg</span><span class="p">),</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;ImageToTensor&#39;</span><span class="p">,</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;img&#39;</span><span class="p">]),</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;ToTensor&#39;</span><span class="p">,</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;gt_label&#39;</span><span class="p">]),</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;Collect&#39;</span><span class="p">,</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;img&#39;</span><span class="p">,</span> <span class="s1">&#39;gt_label&#39;</span><span class="p">])</span>
+<span class="p">]</span>
+<span class="n">test_pipeline</span> <span class="o">=</span> <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+<span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">samples_per_gpu</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
+    <span class="n">workers_per_gpu</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">train</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">pipeline</span><span class="o">=</span><span class="n">train_pipeline</span><span class="p">),</span>
+    <span class="n">val</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">pipeline</span><span class="o">=</span><span class="n">test_pipeline</span><span class="p">))</span>
+<span class="n">evaluation</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">interval</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;accuracy&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="modify-config-through-script-arguments">
+<h2>Modify config through script arguments<a class="headerlink" href="#modify-config-through-script-arguments" title="Permalink to this heading">¶</a></h2>
+<p>When users use the script “tools/train.py” or “tools/test.py” to submit tasks or use some other tools, they can directly modify the content of the configuration file used by specifying the <code class="docutils literal notranslate"><span class="pre">--cfg-options</span></code> parameter.</p>
+<ul>
+<li><p>Update config keys of dict chains.</p>
+<p>The config options can be specified following the order of the dict keys in the original config.
+For example, <code class="docutils literal notranslate"><span class="pre">--cfg-options</span> <span class="pre">model.backbone.norm_eval=False</span></code> changes the all BN modules in model backbones to <code class="docutils literal notranslate"><span class="pre">train</span></code> mode.</p>
+</li>
+<li><p>Update keys inside a list of configs.</p>
+<p>Some config dicts are composed as a list in your config. For example, the training pipeline <code class="docutils literal notranslate"><span class="pre">data.train.pipeline</span></code> is normally a list
+e.g. <code class="docutils literal notranslate"><span class="pre">[dict(type='LoadImageFromFile'),</span> <span class="pre">dict(type='TopDownRandomFlip',</span> <span class="pre">flip_prob=0.5),</span> <span class="pre">...]</span></code>. If you want to change <code class="docutils literal notranslate"><span class="pre">'flip_prob=0.5'</span></code> to <code class="docutils literal notranslate"><span class="pre">'flip_prob=0.0'</span></code> in the pipeline,
+you may specify <code class="docutils literal notranslate"><span class="pre">--cfg-options</span> <span class="pre">data.train.pipeline.1.flip_prob=0.0</span></code>.</p>
+</li>
+<li><p>Update values of list/tuples.</p>
+<p>If the value to be updated is a list or a tuple. For example, the config file normally sets <code class="docutils literal notranslate"><span class="pre">workflow=[('train',</span> <span class="pre">1)]</span></code>. If you want to
+change this key, you may specify <code class="docutils literal notranslate"><span class="pre">--cfg-options</span> <span class="pre">workflow=&quot;[(train,1),(val,1)]&quot;</span></code>. Note that the quotation mark ” is necessary to
+support list/tuple data types, and that <strong>NO</strong> white space is allowed inside the quotation marks in the specified value.</p>
+</li>
+</ul>
+</section>
+<section id="import-user-defined-modules">
+<h2>Import user-defined modules<a class="headerlink" href="#import-user-defined-modules" title="Permalink to this heading">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This part may only be used when using MMClassification as a third party library to build your own project, and beginners can skip it.</p>
+</div>
+<p>After studying the follow-up tutorials <a class="reference external" href="https://mmclassification.readthedocs.io/en/latest/tutorials/new_dataset.html">ADDING NEW DATASET</a>, <a class="reference external" href="https://mmclassification.readthedocs.io/en/latest/tutorials/data_pipeline.html">CUSTOM DATA PIPELINES</a>, <a class="reference external" href="https://mmclassification.readthedocs.io/en/latest/tutorials/new_modules.html">ADDING NEW MODULES</a>. You may use MMClassification to complete your project and create new classes of datasets, models, data enhancements, etc. in the project. In order to streamline the code, you can use MMClassification as a third-party library, you just need to keep your own extra code and import your own custom module in the configuration files. For examples, you may refer to <a class="reference external" href="https://github.com/zhangrui-wolf/openmmlab-competition-2021">OpenMMLab Algorithm Competition Project</a> .</p>
+<p>Add the following code to your own configuration files:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">custom_imports</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">imports</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;your_dataset_class&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;your_transforme_class&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;your_model_class&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;your_module_class&#39;</span><span class="p">],</span>
+    <span class="n">allow_failed_imports</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="faq">
+<h2>FAQ<a class="headerlink" href="#faq" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>None</p></li>
+</ul>
+</section>
+</section>
+
+
+              </article>
+              
+            </div>
+            <footer>
+  
+  <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+    
+    <a href="finetune.html" class="btn btn-neutral float-right" title="Tutorial 2: Fine-tune Models" accesskey="n"
+      rel="next">Next <img src="../_static/images/chevron-right-blue.svg"
+        class="next-page"></a>
+    
+    
+    <a href="../getting_started.html" class="btn btn-neutral" title="Getting Started" accesskey="p"
+      rel="prev"><img src="../_static/images/chevron-right-blue.svg" class="previous-page"> Previous</a>
+    
+  </div>
+  
+
+  <hr>
+
+  <div role="contentinfo">
+    <p>
+      &copy; Copyright 2022, EarthNets.
+
+    </p>
+  </div>
+  
+  <div>
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a
+      href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the
+      Docs</a>.
+  </div>
+   
+
+</footer>
+          </div>
+        </div>
+
+        <div class="pytorch-content-right" id="pytorch-content-right">
+          <div class="pytorch-right-menu" id="pytorch-right-menu">
+            <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
+              <ul>
+<li><a class="reference internal" href="#">Tutorial 1: Learn about Configs</a><ul>
+<li><a class="reference internal" href="#config-file-and-checkpoint-naming-convention">Config File and Checkpoint Naming Convention</a><ul>
+<li><a class="reference internal" href="#algorithm-information">Algorithm information</a></li>
+<li><a class="reference internal" href="#module-information">Module information</a></li>
+<li><a class="reference internal" href="#training-information">Training information</a></li>
+<li><a class="reference internal" href="#data-information">Data information</a></li>
+<li><a class="reference internal" href="#config-file-name-example">Config File Name Example</a></li>
+<li><a class="reference internal" href="#checkpoint-naming-convention">Checkpoint Naming Convention</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#config-file-structure">Config File Structure</a><ul>
+<li><a class="reference internal" href="#model">model</a></li>
+<li><a class="reference internal" href="#data">data</a></li>
+<li><a class="reference internal" href="#training-schedule">training schedule</a></li>
+<li><a class="reference internal" href="#runtime-setting">runtime setting</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#inherit-and-modify-config-file">Inherit and Modify Config File</a><ul>
+<li><a class="reference internal" href="#use-intermediate-variables-in-configs">Use intermediate variables in configs</a></li>
+<li><a class="reference internal" href="#ignore-some-fields-in-the-base-configs">Ignore some fields in the base configs</a></li>
+<li><a class="reference internal" href="#use-some-fields-in-the-base-configs">Use some fields in the base configs</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#modify-config-through-script-arguments">Modify config through script arguments</a></li>
+<li><a class="reference internal" href="#import-user-defined-modules">Import user-defined modules</a></li>
+<li><a class="reference internal" href="#faq">FAQ</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+          </div>
+        </div>
+    </section>
+  </div>
+
+  
+
+
+  
+
+  
+  <script type="text/javascript" id="documentation_options" data-url_root="../"
+    src="../_static/documentation_options.js"></script>
+  <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+  <script src="../_static/jquery.js"></script>
+  <script src="../_static/underscore.js"></script>
+  <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+  <script src="../_static/doctools.js"></script>
+  <script src="../_static/clipboard.min.js"></script>
+  <script src="../_static/copybutton.js"></script>
+  <script src="../_static/js/custom.js"></script>
+  
+
+  
+
+  <script type="text/javascript" src="../_static/js/vendor/popper.min.js"></script>
+  <script type="text/javascript" src="../_static/js/vendor/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+    jQuery(function () {
+      SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+  <!-- Begin Footer -->
+
+  <div class="container-fluid docs-tutorials-resources" id="docs-tutorials-resources">
+  </div>
+
+  <!-- End Footer -->
+
+  <!-- Begin Mobile Menu -->
+
+  <div class="mobile-main-menu">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="mobile-main-menu-header-container">
+          <a class="header-logo" href="https://rsi-classification.readthedocs.io/en/latest/" aria-label="OpenMMLab"></a>
+          <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-main-menu-links-container">
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://github.com/EarthNets/RSI-Segmentation/blob/main/demo/rsi_classification_tutorial.ipynb" target="_blank">Tutorial</a>
+          </li>
+          <li>
+            <a href="https://github.com/EarthNets/RSI-Classification" target="_blank">GitHub</a>
+          </li>
+          <li class="resources-mobile-menu-title" >
+            About
+          </li>
+          <ul class="resources-mobile-menu-items">
+            <li>
+              <a href="https://github.com/open-mmlab/mmcv" target="_blank">MMCV</a>
+            </li>
+          </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Mobile Menu -->
+
+  <script type="text/javascript" src="../_static/js/vendor/anchor.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      mobileMenu.bind();
+      mobileTOC.bind();
+      pytorchAnchors.bind();
+      sideMenus.bind();
+      scrollToAnchor.bind();
+      highlightNavigation.bind();
+      mainMenuDropdown.bind();
+      filterTags.bind();
+
+      // Add class to links that have code blocks, since we cannot create links in code blocks
+      $("article.pytorch-article a span.pre").each(function (e) {
+        $(this).closest("a").addClass("has-code");
+      });
+    })
+  </script>
+</body>
+
+</html>

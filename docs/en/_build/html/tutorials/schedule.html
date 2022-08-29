@@ -1,0 +1,798 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tutorial 6: Customize Schedule &mdash; RSI-Classification 0.23.1 documentation</title>
+  
+
+  <link rel="shortcut icon" href="../_static/images/favicon.ico" />
+  
+  
+
+  
+
+  
+  
+  
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> -->
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/readthedocs.css" type="text/css" />
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Search" href="../search.html" />
+  <link rel="next" title="Tutorial 7: Customize Runtime Settings" href="runtime.html" />
+  <link rel="prev" title="Tutorial 5: Adding New Modules" href="new_modules.html" />
+  <!-- Google Analytics -->
+  <script type="text/javascript">
+    var collapsedSections = [];
+  </script>
+  
+  <!-- End Google Analytics -->
+  
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+  <script>
+    MathJax = {
+        chtml: {
+            scale: 1,
+            minScale: 1,
+        },
+        svg: {
+            scale: 1,
+            minScale: 1,
+        }
+    }
+</script>
+
+  <!-- Preload the theme fonts -->
+
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-book.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/IBMPlexMono/IBMPlexMono-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-medium-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/IBMPlexMono/IBMPlexMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+<!-- Preload the katex fonts -->
+
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Math-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size1-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size4-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size2-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size3-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Caligraphic-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+</head>
+
+<div class="container-fluid header-holder tutorials-header" id="header-holder">
+  <div class="container">
+    <div class="header-container">
+      <a class="header-logo" href="https://rsi-classification.readthedocs.io/en/latest/"
+        aria-label="OpenMMLab"></a>
+
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://github.com/EarthNets/RSI-Segmentation/blob/main/demo/rsi_classification_tutorial.ipynb" target="_blank">Tutorial</a>
+          </li>
+          <li>
+            <a href="https://github.com/EarthNets/RSI-Classification" target="_blank">GitHub</a>
+          </li>
+          <li >
+            <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
+              <a
+                class="resource-option with-down-arrow">
+                About
+              </a>
+              <div class="resources-dropdown-menu">
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/open-mmlab/mmcv" target="_blank">
+                  <span class="dropdown-title">MMCV </span>
+                  <p>Foundational library for computer vision</p>
+                </a>
+              </div>
+          </li>
+          <li >
+            <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
+              <a
+                class="resource-option with-down-arrow">
+                EarthNets
+              </a>
+              <div class="resources-dropdown-menu">
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/Dataset4EO" target="_blank">
+                  <span class="dropdown-title">Dataset4EO </span>
+                  <p>Re-organize remote sensing datasets.</p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/RSI-Classification" target="_blank">
+                  <span class="dropdown-title">RSI-Classification </span>
+                  <p>Image/scene classification for RS images.</p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/RSI-Segmentation" target="_blank">
+                  <span class="dropdown-title">RSI-Segmentation </span>
+                  <p>Pixel-wise semantic segmentation for RS images.</p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/RSI-Detection" target="_blank">
+                  <span class="dropdown-title">RSI-Detection </span>
+                  <p>Object detection for RS images.</p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/RSI-ChangeDetection" target="_blank">
+                  <span class="dropdown-title">RSI-ChangeDetection </span>
+                  <p>Change detection for RS images.</p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/RSI-SelfSupervised" target="_blank">
+                  <span class="dropdown-title">RSI-SelfSupervised </span>
+                  <p>Self-supervised learning for RS images.</p>
+                </a>
+              </div>
+          </li>
+        </ul>
+      </div>
+
+      <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
+    </div>
+  </div>
+</div>
+
+<body class="pytorch-body">
+
+   
+
+  
+
+  <div class="table-of-contents-link-wrapper">
+    <span>Table of Contents</span>
+    <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
+  </div>
+
+  <nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
+    <div class="pytorch-side-scroll">
+      <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <div class="pytorch-left-menu-search">
+          
+
+          
+          
+          
+          
+
+          
+
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search Docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        
+        
+        
+        
+        
+        <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html#installation">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="config.html">Tutorial 1: Learn about Configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="finetune.html">Tutorial 2: Fine-tune Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_dataset.html">Tutorial 3: Customize Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_pipeline.html">Tutorial 4: Custom Data Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_modules.html">Tutorial 5: Adding New Modules</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial 6: Customize Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="runtime.html">Tutorial 7: Customize Runtime Settings</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Model zoo</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../model_zoo.html">Model Zoo</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Useful Tools and Scripts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tools/pytorch2onnx.html">Pytorch to ONNX (Experimental)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/onnx2tensorrt.html">ONNX to TensorRT (Experimental)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/pytorch2torchscript.html">Pytorch to TorchScript (Experimental)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/model_serving.html">Model Serving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/visualization.html">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/analysis.html">Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/miscellaneous.html">Miscellaneous</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+</ul>
+
+        
+        
+      </div>
+    </div>
+  </nav>
+
+  <div class="pytorch-container">
+    <div class="pytorch-page-level-bar" id="pytorch-page-level-bar">
+      <div class="pytorch-breadcrumbs-wrapper">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="pytorch-breadcrumbs">
+    
+      <li>
+        <a href="../index.html">
+            Docs
+        </a> &gt;
+      </li>
+
+        
+      <li>Tutorial 6: Customize Schedule</li>
+    
+    
+      <li class="pytorch-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/tutorials/schedule.md.txt" rel="nofollow"><img src="../_static/images/view-page-source-icon.svg"></a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+</div>
+      </div>
+
+      <div class="pytorch-shortcuts-wrapper" id="pytorch-shortcuts-wrapper">
+        Shortcuts
+      </div>
+    </div>
+
+    <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
+      <div class="pytorch-content-left">
+        
+          <div class="rst-content">
+            
+            <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
+              <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
+                
+  <section id="tutorial-6-customize-schedule">
+<h1>Tutorial 6: Customize Schedule<a class="headerlink" href="#tutorial-6-customize-schedule" title="Permalink to this heading">¶</a></h1>
+<p>In this tutorial, we will introduce some methods about how to construct optimizers, customize learning rate and momentum schedules, parameter-wise finely configuration, gradient clipping, gradient accumulation, and customize self-implemented methods for the project.</p>
+<!-- TOC -->
+<ul class="simple">
+<li><p><a class="reference internal" href="#customize-optimizer-supported-by-pytorch"><span class="std std-doc">Customize optimizer supported by PyTorch</span></a></p></li>
+<li><p><a class="reference internal" href="#customize-learning-rate-schedules"><span class="std std-doc">Customize learning rate schedules</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#learning-rate-decay"><span class="std std-doc">Learning rate decay</span></a></p></li>
+<li><p><a class="reference internal" href="#warmup-strategy"><span class="std std-doc">Warmup strategy</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#customize-momentum-schedules"><span class="std std-doc">Customize momentum schedules</span></a></p></li>
+<li><p><a class="reference internal" href="#parameter-wise-finely-configuration"><span class="std std-doc">Parameter-wise finely configuration</span></a></p></li>
+<li><p><a class="reference internal" href="#gradient-clipping-and-gradient-accumulation"><span class="std std-doc">Gradient clipping and gradient accumulation</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#gradient-clipping"><span class="std std-doc">Gradient clipping</span></a></p></li>
+<li><p><a class="reference internal" href="#gradient-accumulation"><span class="std std-doc">Gradient accumulation</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#customize-self-implemented-methods"><span class="std std-doc">Customize self-implemented methods</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#customize-self-implemented-optimizer"><span class="std std-doc">Customize self-implemented optimizer</span></a></p></li>
+<li><p><a class="reference internal" href="#customize-optimizer-constructor"><span class="std std-doc">Customize optimizer constructor</span></a></p></li>
+</ul>
+</li>
+</ul>
+<!-- TOC -->
+<section id="customize-optimizer-supported-by-pytorch">
+<h2>Customize optimizer supported by PyTorch<a class="headerlink" href="#customize-optimizer-supported-by-pytorch" title="Permalink to this heading">¶</a></h2>
+<p>We already support to use all the optimizers implemented by PyTorch, and to use and modify them, please change the <code class="docutils literal notranslate"><span class="pre">optimizer</span></code> field of config files.</p>
+<p>For example, if you want to use <code class="docutils literal notranslate"><span class="pre">SGD</span></code>, the modification could be as the following.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">optimizer</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;SGD&#39;</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.0003</span><span class="p">,</span> <span class="n">weight_decay</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To modify the learning rate of the model, just modify the <code class="docutils literal notranslate"><span class="pre">lr</span></code> in the config of optimizer.
+You can also directly set other arguments according to the <a class="reference external" href="https://pytorch.org/docs/stable/optim.html?highlight=optim#module-torch.optim">API doc</a> of PyTorch.</p>
+<p>For example, if you want to use <code class="docutils literal notranslate"><span class="pre">Adam</span></code> with the setting like <code class="docutils literal notranslate"><span class="pre">torch.optim.Adam(params,</span> <span class="pre">lr=0.001,</span> <span class="pre">betas=(0.9,</span> <span class="pre">0.999),</span> <span class="pre">eps=1e-08,</span> <span class="pre">weight_decay=0,</span> <span class="pre">amsgrad=False)</span></code> in PyTorch,
+the config should looks like.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">optimizer</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;Adam&#39;</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">betas</span><span class="o">=</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.999</span><span class="p">),</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-08</span><span class="p">,</span> <span class="n">weight_decay</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">amsgrad</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="customize-learning-rate-schedules">
+<h2>Customize learning rate schedules<a class="headerlink" href="#customize-learning-rate-schedules" title="Permalink to this heading">¶</a></h2>
+<section id="learning-rate-decay">
+<h3>Learning rate decay<a class="headerlink" href="#learning-rate-decay" title="Permalink to this heading">¶</a></h3>
+<p>Learning rate decay is widely used to improve performance. And to use learning rate decay, please set the <code class="docutils literal notranslate"><span class="pre">lr_confg</span></code> field in config files.</p>
+<p>For example, we use step policy as the default learning rate decay policy of ResNet, and the config is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lr_config</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">policy</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Then during training, the program will call <a class="reference external" href="https://github.com/open-mmlab/mmcv/blob/f48241a65aebfe07db122e9db320c31b685dc674/mmcv/runner/hooks/lr_updater.py#L153"><code class="docutils literal notranslate"><span class="pre">StepLRHook</span></code></a> periodically to update the learning rate.</p>
+<p>We also support many other learning rate schedules <a class="reference external" href="https://github.com/open-mmlab/mmcv/blob/master/mmcv/runner/hooks/lr_updater.py">here</a>, such as <code class="docutils literal notranslate"><span class="pre">CosineAnnealing</span></code> and <code class="docutils literal notranslate"><span class="pre">Poly</span></code> schedule. Here are some examples</p>
+<ul>
+<li><p>ConsineAnnealing schedule:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lr_config</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">policy</span><span class="o">=</span><span class="s1">&#39;CosineAnnealing&#39;</span><span class="p">,</span>
+    <span class="n">warmup</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span>
+    <span class="n">warmup_iters</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+    <span class="n">warmup_ratio</span><span class="o">=</span><span class="mf">1.0</span> <span class="o">/</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="n">min_lr_ratio</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Poly schedule:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lr_config</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">policy</span><span class="o">=</span><span class="s1">&#39;poly&#39;</span><span class="p">,</span> <span class="n">power</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">min_lr</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="n">by_epoch</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="warmup-strategy">
+<h3>Warmup strategy<a class="headerlink" href="#warmup-strategy" title="Permalink to this heading">¶</a></h3>
+<p>In the early stage, training is easy to be volatile, and warmup is a technique
+to reduce volatility. With warmup, the learning rate will increase gradually
+from a minor value to the expected value.</p>
+<p>In MMClassification, we use <code class="docutils literal notranslate"><span class="pre">lr_config</span></code> to configure the warmup strategy, the main parameters are as follows：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">warmup</span></code>: The warmup curve type. Please choose one from ‘constant’, ‘linear’, ‘exp’ and <code class="docutils literal notranslate"><span class="pre">None</span></code>, and <code class="docutils literal notranslate"><span class="pre">None</span></code> means disable warmup.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">warmup_by_epoch</span></code> : if warmup by epoch or not, default to be True, if set to be False, warmup by iter.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">warmup_iters</span></code> : the number of warm-up iterations, when <code class="docutils literal notranslate"><span class="pre">warmup_by_epoch=True</span></code>, the unit is epoch; when <code class="docutils literal notranslate"><span class="pre">warmup_by_epoch=False</span></code>, the unit is the number of iterations (iter).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">warmup_ratio</span></code> : warm-up initial learning rate will calculate as <code class="docutils literal notranslate"><span class="pre">lr</span> <span class="pre">=</span> <span class="pre">lr</span> <span class="pre">*</span> <span class="pre">warmup_ratio</span></code>。</p></li>
+</ul>
+<p>Here are some examples</p>
+<ol class="arabic">
+<li><p>linear &amp; warmup by iter</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lr_config</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">policy</span><span class="o">=</span><span class="s1">&#39;CosineAnnealing&#39;</span><span class="p">,</span>
+    <span class="n">by_epoch</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+    <span class="n">min_lr_ratio</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">,</span>
+    <span class="n">warmup</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span>
+    <span class="n">warmup_ratio</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span>
+    <span class="n">warmup_iters</span><span class="o">=</span><span class="mi">20</span> <span class="o">*</span> <span class="mi">1252</span><span class="p">,</span>
+    <span class="n">warmup_by_epoch</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>exp &amp; warmup by epoch</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lr_config</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">policy</span><span class="o">=</span><span class="s1">&#39;CosineAnnealing&#39;</span><span class="p">,</span>
+    <span class="n">min_lr</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">warmup</span><span class="o">=</span><span class="s1">&#39;exp&#39;</span><span class="p">,</span>
+    <span class="n">warmup_iters</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">warmup_ratio</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">warmup_by_epoch</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>After completing your configuration file，you could use <a class="reference external" href="https://mmclassification.readthedocs.io/en/latest/tools/visualization.html#learning-rate-schedule-visualization">learning rate visualization tool</a> to draw the corresponding learning rate adjustment curve.</p>
+</div>
+</section>
+</section>
+<section id="customize-momentum-schedules">
+<h2>Customize momentum schedules<a class="headerlink" href="#customize-momentum-schedules" title="Permalink to this heading">¶</a></h2>
+<p>We support the momentum scheduler to modify the model’s momentum according to learning rate, which could make the model converge in a faster way.</p>
+<p>Momentum scheduler is usually used with LR scheduler, for example, the following config is used to accelerate convergence.
+For more details, please refer to the implementation of <a class="reference external" href="https://github.com/open-mmlab/mmcv/blob/f48241a65aebfe07db122e9db320c31b685dc674/mmcv/runner/hooks/lr_updater.py#L327">CyclicLrUpdater</a>
+and <a class="reference external" href="https://github.com/open-mmlab/mmcv/blob/f48241a65aebfe07db122e9db320c31b685dc674/mmcv/runner/hooks/momentum_updater.py#L130">CyclicMomentumUpdater</a>.</p>
+<p>Here is an example</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lr_config</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">policy</span><span class="o">=</span><span class="s1">&#39;cyclic&#39;</span><span class="p">,</span>
+    <span class="n">target_ratio</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mf">1e-4</span><span class="p">),</span>
+    <span class="n">cyclic_times</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">step_ratio_up</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">momentum_config</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">policy</span><span class="o">=</span><span class="s1">&#39;cyclic&#39;</span><span class="p">,</span>
+    <span class="n">target_ratio</span><span class="o">=</span><span class="p">(</span><span class="mf">0.85</span> <span class="o">/</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="n">cyclic_times</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">step_ratio_up</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="parameter-wise-finely-configuration">
+<h2>Parameter-wise finely configuration<a class="headerlink" href="#parameter-wise-finely-configuration" title="Permalink to this heading">¶</a></h2>
+<p>Some models may have some parameter-specific settings for optimization, for example, no weight decay to the BatchNorm layer or using different learning rates for different network layers.
+To finely configuration them, we can use the <code class="docutils literal notranslate"><span class="pre">paramwise_cfg</span></code> option in <code class="docutils literal notranslate"><span class="pre">optimizer</span></code>.</p>
+<p>We provide some examples here and more usages refer to <a class="reference external" href="https://mmcv.readthedocs.io/en/latest/_modules/mmcv/runner/optimizer/default_constructor.html#DefaultOptimizerConstructor">DefaultOptimizerConstructor</a>.</p>
+<ul>
+<li><p>Using specified options</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">DefaultOptimizerConstructor</span></code> provides options including <code class="docutils literal notranslate"><span class="pre">bias_lr_mult</span></code>, <code class="docutils literal notranslate"><span class="pre">bias_decay_mult</span></code>, <code class="docutils literal notranslate"><span class="pre">norm_decay_mult</span></code>, <code class="docutils literal notranslate"><span class="pre">dwconv_decay_mult</span></code>, <code class="docutils literal notranslate"><span class="pre">dcn_offset_lr_mult</span></code> and <code class="docutils literal notranslate"><span class="pre">bypass_duplicate</span></code> to configure special optimizer behaviors of bias, normalization, depth-wise convolution, deformable convolution and duplicated parameter. E.g:</p>
+<ol class="arabic simple">
+<li><p>No weight decay to the BatchNorm layer</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">optimizer</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;SGD&#39;</span><span class="p">,</span>
+    <span class="n">lr</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
+    <span class="n">weight_decay</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span>
+    <span class="n">paramwise_cfg</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">norm_decay_mult</span><span class="o">=</span><span class="mf">0.</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+<li><p>Using <code class="docutils literal notranslate"><span class="pre">custom_keys</span></code> dict</p>
+<p>MMClassification can use <code class="docutils literal notranslate"><span class="pre">custom_keys</span></code> to specify different parameters to use different learning rates or weight decays, for example:</p>
+<ol class="arabic simple">
+<li><p>No weight decay for specific parameters</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">paramwise_cfg</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">custom_keys</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;backbone.cls_token&#39;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">decay_mult</span><span class="o">=</span><span class="mf">0.0</span><span class="p">),</span>
+        <span class="s1">&#39;backbone.pos_embed&#39;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">decay_mult</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+    <span class="p">})</span>
+
+<span class="n">optimizer</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;SGD&#39;</span><span class="p">,</span>
+    <span class="n">lr</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
+    <span class="n">weight_decay</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span>
+    <span class="n">paramwise_cfg</span><span class="o">=</span><span class="n">paramwise_cfg</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Using a smaller learning rate and a weight decay for the backbone layers</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">optimizer</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;SGD&#39;</span><span class="p">,</span>
+    <span class="n">lr</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
+    <span class="n">weight_decay</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span>
+    <span class="c1"># &#39;lr&#39; for backbone and &#39;weight_decay&#39; are 0.1 * lr and 0.9 * weight_decay</span>
+    <span class="n">paramwise_cfg</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+        <span class="n">custom_keys</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;backbone&#39;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">lr_mult</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">decay_mult</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)}))</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="gradient-clipping-and-gradient-accumulation">
+<h2>Gradient clipping and gradient accumulation<a class="headerlink" href="#gradient-clipping-and-gradient-accumulation" title="Permalink to this heading">¶</a></h2>
+<p>Besides the basic function of PyTorch optimizers, we also provide some enhancement functions, such as gradient clipping, gradient accumulation, etc., refer to <a class="reference external" href="https://github.com/open-mmlab/mmcv/blob/master/mmcv/runner/hooks/optimizer.py">MMCV</a>.</p>
+<section id="gradient-clipping">
+<h3>Gradient clipping<a class="headerlink" href="#gradient-clipping" title="Permalink to this heading">¶</a></h3>
+<p>During the training process, the loss function may get close to a cliffy region and cause gradient explosion. And gradient clipping is helpful to stabilize the training process. More introduction can be found in <a class="reference external" href="https://paperswithcode.com/method/gradient-clipping">this page</a>.</p>
+<p>Currently we support <code class="docutils literal notranslate"><span class="pre">grad_clip</span></code> option in <code class="docutils literal notranslate"><span class="pre">optimizer_config</span></code>, and the arguments refer to <a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.nn.utils.clip_grad_norm_.html">PyTorch Documentation</a>.</p>
+<p>Here is an example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">optimizer_config</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">grad_clip</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">max_norm</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span> <span class="n">norm_type</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+<span class="c1"># norm_type: type of the used p-norm, here norm_type is 2.</span>
+</pre></div>
+</div>
+<p>When inheriting from base and modifying configs, if <code class="docutils literal notranslate"><span class="pre">grad_clip=None</span></code> in base, <code class="docutils literal notranslate"><span class="pre">_delete_=True</span></code> is needed. For more details about <code class="docutils literal notranslate"><span class="pre">_delete_</span></code> you can refer to <a class="reference external" href="https://mmclassification.readthedocs.io/en/latest/tutorials/config.html#ignore-some-fields-in-the-base-configs">TUTORIAL 1: LEARN ABOUT CONFIGS</a>. For example,</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">_base_</span> <span class="o">=</span> <span class="p">[</span><span class="o">./</span><span class="n">_base_</span><span class="o">/</span><span class="n">schedules</span><span class="o">/</span><span class="n">imagenet_bs256_coslr</span><span class="o">.</span><span class="n">py</span><span class="p">]</span>
+
+<span class="n">optimizer_config</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">grad_clip</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">max_norm</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span> <span class="n">norm_type</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span> <span class="n">_delete_</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;OptimizerHook&#39;</span><span class="p">)</span>
+<span class="c1"># you can ignore type if type is &#39;OptimizerHook&#39;, otherwise you must add &quot;type=&#39;xxxxxOptimizerHook&#39;&quot; here</span>
+</pre></div>
+</div>
+</section>
+<section id="gradient-accumulation">
+<h3>Gradient accumulation<a class="headerlink" href="#gradient-accumulation" title="Permalink to this heading">¶</a></h3>
+<p>When computing resources are lacking, the batch size can only be set to a small value, which may affect the performance of models. Gradient accumulation can be used to solve this problem.</p>
+<p>Here is an example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">samples_per_gpu</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
+<span class="n">optimizer_config</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;GradientCumulativeOptimizerHook&quot;</span><span class="p">,</span> <span class="n">cumulative_iters</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Indicates that during training, back-propagation is performed every 4 iters. And the above is equivalent to:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">samples_per_gpu</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span>
+<span class="n">optimizer_config</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;OptimizerHook&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When the optimizer hook type is not specified in <code class="docutils literal notranslate"><span class="pre">optimizer_config</span></code>, <code class="docutils literal notranslate"><span class="pre">OptimizerHook</span></code> is used by default.</p>
+</div>
+</section>
+</section>
+<section id="customize-self-implemented-methods">
+<h2>Customize self-implemented methods<a class="headerlink" href="#customize-self-implemented-methods" title="Permalink to this heading">¶</a></h2>
+<p>In academic research and industrial practice, it may be necessary to use optimization methods not implemented by MMClassification, and you can add them through the following methods.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This part will modify the MMClassification source code or add code to the MMClassification framework, beginners can skip it.</p>
+</div>
+<section id="customize-self-implemented-optimizer">
+<h3>Customize self-implemented optimizer<a class="headerlink" href="#customize-self-implemented-optimizer" title="Permalink to this heading">¶</a></h3>
+<section id="define-a-new-optimizer">
+<h4>1. Define a new optimizer<a class="headerlink" href="#define-a-new-optimizer" title="Permalink to this heading">¶</a></h4>
+<p>A customized optimizer could be defined as below.</p>
+<p>Assume you want to add an optimizer named <code class="docutils literal notranslate"><span class="pre">MyOptimizer</span></code>, which has arguments <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, and <code class="docutils literal notranslate"><span class="pre">c</span></code>.
+You need to create a new directory named <code class="docutils literal notranslate"><span class="pre">rsicls/core/optimizer</span></code>.
+And then implement the new optimizer in a file, e.g., in <code class="docutils literal notranslate"><span class="pre">rsicls/core/optimizer/my_optimizer.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mmcv.runner</span> <span class="kn">import</span> <span class="n">OPTIMIZERS</span>
+<span class="kn">from</span> <span class="nn">torch.optim</span> <span class="kn">import</span> <span class="n">Optimizer</span>
+
+
+<span class="nd">@OPTIMIZERS.register_module</span><span class="p">()</span>
+<span class="k">class</span> <span class="nc">MyOptimizer</span><span class="p">(</span><span class="n">Optimizer</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+
+</pre></div>
+</div>
+</section>
+<section id="add-the-optimizer-to-registry">
+<h4>2. Add the optimizer to registry<a class="headerlink" href="#add-the-optimizer-to-registry" title="Permalink to this heading">¶</a></h4>
+<p>To find the above module defined above, this module should be imported into the main namespace at first. There are two ways to achieve it.</p>
+<ul>
+<li><p>Modify <code class="docutils literal notranslate"><span class="pre">rsicls/core/optimizer/__init__.py</span></code> to import it into <code class="docutils literal notranslate"><span class="pre">optimizer</span></code> package, and then modify <code class="docutils literal notranslate"><span class="pre">rsicls/core/__init__.py</span></code> to import the new <code class="docutils literal notranslate"><span class="pre">optimizer</span></code> package.</p>
+<p>Create the <code class="docutils literal notranslate"><span class="pre">rsicls/core/optimizer</span></code> folder and the <code class="docutils literal notranslate"><span class="pre">rsicls/core/optimizer/__init__.py</span></code> file if they don’t exist. The newly defined module should be imported in <code class="docutils literal notranslate"><span class="pre">rsicls/core/optimizer/__init__.py</span></code> and <code class="docutils literal notranslate"><span class="pre">rsicls/core/__init__.py</span></code> so that the registry will find the new module and add it:</p>
+</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># In rsicls/core/optimizer/__init__.py</span>
+<span class="kn">from</span> <span class="nn">.my_optimizer</span> <span class="kn">import</span> <span class="n">MyOptimizer</span> <span class="c1"># MyOptimizer maybe other class name</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;MyOptimizer&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># In rsicls/core/__init__.py</span>
+<span class="o">...</span>
+<span class="kn">from</span> <span class="nn">.optimizer</span> <span class="kn">import</span> <span class="o">*</span>  <span class="c1"># noqa: F401, F403</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">custom_imports</span></code> in the config to manually import it</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">custom_imports</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">imports</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;rsicls.core.optimizer.my_optimizer&#39;</span><span class="p">],</span> <span class="n">allow_failed_imports</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The module <code class="docutils literal notranslate"><span class="pre">rsicls.core.optimizer.my_optimizer</span></code> will be imported at the beginning of the program and the class <code class="docutils literal notranslate"><span class="pre">MyOptimizer</span></code> is then automatically registered.
+Note that only the package containing the class <code class="docutils literal notranslate"><span class="pre">MyOptimizer</span></code> should be imported. <code class="docutils literal notranslate"><span class="pre">rsicls.core.optimizer.my_optimizer.MyOptimizer</span></code> <strong>cannot</strong> be imported directly.</p>
+</section>
+<section id="specify-the-optimizer-in-the-config-file">
+<h4>3. Specify the optimizer in the config file<a class="headerlink" href="#specify-the-optimizer-in-the-config-file" title="Permalink to this heading">¶</a></h4>
+<p>Then you can use <code class="docutils literal notranslate"><span class="pre">MyOptimizer</span></code> in <code class="docutils literal notranslate"><span class="pre">optimizer</span></code> field of config files.
+In the configs, the optimizers are defined by the field <code class="docutils literal notranslate"><span class="pre">optimizer</span></code> like the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">optimizer</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;SGD&#39;</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">weight_decay</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To use your own optimizer, the field can be changed to</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">optimizer</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;MyOptimizer&#39;</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">a_value</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="n">b_value</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c_value</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="customize-optimizer-constructor">
+<h3>Customize optimizer constructor<a class="headerlink" href="#customize-optimizer-constructor" title="Permalink to this heading">¶</a></h3>
+<p>Some models may have some parameter-specific settings for optimization, e.g. weight decay for BatchNorm layers.</p>
+<p>Although our <code class="docutils literal notranslate"><span class="pre">DefaultOptimizerConstructor</span></code> is powerful, it may still not cover your need. If that, you can do those fine-grained parameter tuning through customizing optimizer constructor.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mmcv.runner.optimizer</span> <span class="kn">import</span> <span class="n">OPTIMIZER_BUILDERS</span>
+
+
+<span class="nd">@OPTIMIZER_BUILDERS.register_module</span><span class="p">()</span>
+<span class="k">class</span> <span class="nc">MyOptimizerConstructor</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">optimizer_cfg</span><span class="p">,</span> <span class="n">paramwise_cfg</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+        <span class="o">...</span>      <span class="c1"># Construct your optimzier here.</span>
+        <span class="k">return</span> <span class="n">my_optimizer</span>
+</pre></div>
+</div>
+<p>The default optimizer constructor is implemented <a class="reference external" href="https://github.com/open-mmlab/mmcv/blob/9ecd6b0d5ff9d2172c49a182eaa669e9f27bb8e7/mmcv/runner/optimizer/default_constructor.py#L11">here</a>, which could also serve as a template for new optimizer constructor.</p>
+</section>
+</section>
+</section>
+
+
+              </article>
+              
+            </div>
+            <footer>
+  
+  <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+    
+    <a href="runtime.html" class="btn btn-neutral float-right" title="Tutorial 7: Customize Runtime Settings" accesskey="n"
+      rel="next">Next <img src="../_static/images/chevron-right-blue.svg"
+        class="next-page"></a>
+    
+    
+    <a href="new_modules.html" class="btn btn-neutral" title="Tutorial 5: Adding New Modules" accesskey="p"
+      rel="prev"><img src="../_static/images/chevron-right-blue.svg" class="previous-page"> Previous</a>
+    
+  </div>
+  
+
+  <hr>
+
+  <div role="contentinfo">
+    <p>
+      &copy; Copyright 2022, EarthNets.
+
+    </p>
+  </div>
+  
+  <div>
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a
+      href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the
+      Docs</a>.
+  </div>
+   
+
+</footer>
+          </div>
+        </div>
+
+        <div class="pytorch-content-right" id="pytorch-content-right">
+          <div class="pytorch-right-menu" id="pytorch-right-menu">
+            <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
+              <ul>
+<li><a class="reference internal" href="#">Tutorial 6: Customize Schedule</a><ul>
+<li><a class="reference internal" href="#customize-optimizer-supported-by-pytorch">Customize optimizer supported by PyTorch</a></li>
+<li><a class="reference internal" href="#customize-learning-rate-schedules">Customize learning rate schedules</a><ul>
+<li><a class="reference internal" href="#learning-rate-decay">Learning rate decay</a></li>
+<li><a class="reference internal" href="#warmup-strategy">Warmup strategy</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#customize-momentum-schedules">Customize momentum schedules</a></li>
+<li><a class="reference internal" href="#parameter-wise-finely-configuration">Parameter-wise finely configuration</a></li>
+<li><a class="reference internal" href="#gradient-clipping-and-gradient-accumulation">Gradient clipping and gradient accumulation</a><ul>
+<li><a class="reference internal" href="#gradient-clipping">Gradient clipping</a></li>
+<li><a class="reference internal" href="#gradient-accumulation">Gradient accumulation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#customize-self-implemented-methods">Customize self-implemented methods</a><ul>
+<li><a class="reference internal" href="#customize-self-implemented-optimizer">Customize self-implemented optimizer</a><ul>
+<li><a class="reference internal" href="#define-a-new-optimizer">1. Define a new optimizer</a></li>
+<li><a class="reference internal" href="#add-the-optimizer-to-registry">2. Add the optimizer to registry</a></li>
+<li><a class="reference internal" href="#specify-the-optimizer-in-the-config-file">3. Specify the optimizer in the config file</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#customize-optimizer-constructor">Customize optimizer constructor</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+          </div>
+        </div>
+    </section>
+  </div>
+
+  
+
+
+  
+
+  
+  <script type="text/javascript" id="documentation_options" data-url_root="../"
+    src="../_static/documentation_options.js"></script>
+  <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+  <script src="../_static/jquery.js"></script>
+  <script src="../_static/underscore.js"></script>
+  <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+  <script src="../_static/doctools.js"></script>
+  <script src="../_static/clipboard.min.js"></script>
+  <script src="../_static/copybutton.js"></script>
+  <script src="../_static/js/custom.js"></script>
+  
+
+  
+
+  <script type="text/javascript" src="../_static/js/vendor/popper.min.js"></script>
+  <script type="text/javascript" src="../_static/js/vendor/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+    jQuery(function () {
+      SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+  <!-- Begin Footer -->
+
+  <div class="container-fluid docs-tutorials-resources" id="docs-tutorials-resources">
+  </div>
+
+  <!-- End Footer -->
+
+  <!-- Begin Mobile Menu -->
+
+  <div class="mobile-main-menu">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="mobile-main-menu-header-container">
+          <a class="header-logo" href="https://rsi-classification.readthedocs.io/en/latest/" aria-label="OpenMMLab"></a>
+          <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-main-menu-links-container">
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://github.com/EarthNets/RSI-Segmentation/blob/main/demo/rsi_classification_tutorial.ipynb" target="_blank">Tutorial</a>
+          </li>
+          <li>
+            <a href="https://github.com/EarthNets/RSI-Classification" target="_blank">GitHub</a>
+          </li>
+          <li class="resources-mobile-menu-title" >
+            About
+          </li>
+          <ul class="resources-mobile-menu-items">
+            <li>
+              <a href="https://github.com/open-mmlab/mmcv" target="_blank">MMCV</a>
+            </li>
+          </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Mobile Menu -->
+
+  <script type="text/javascript" src="../_static/js/vendor/anchor.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      mobileMenu.bind();
+      mobileTOC.bind();
+      pytorchAnchors.bind();
+      sideMenus.bind();
+      scrollToAnchor.bind();
+      highlightNavigation.bind();
+      mainMenuDropdown.bind();
+      filterTags.bind();
+
+      // Add class to links that have code blocks, since we cannot create links in code blocks
+      $("article.pytorch-article a span.pre").each(function (e) {
+        $(this).closest("a").addClass("has-code");
+      });
+    })
+  </script>
+</body>
+
+</html>

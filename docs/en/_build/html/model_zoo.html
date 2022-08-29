@@ -1,0 +1,1744 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Model Zoo &mdash; RSI-Classification 0.23.1 documentation</title>
+  
+
+  <link rel="shortcut icon" href="_static/images/favicon.ico" />
+  
+  
+
+  
+
+  
+  
+  
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> -->
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/readthedocs.css" type="text/css" />
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="next" title="Pytorch to ONNX (Experimental)" href="tools/pytorch2onnx.html" />
+  <link rel="prev" title="Tutorial 7: Customize Runtime Settings" href="tutorials/runtime.html" />
+  <!-- Google Analytics -->
+  <script type="text/javascript">
+    var collapsedSections = [];
+  </script>
+  
+  <!-- End Google Analytics -->
+  
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+  <script>
+    MathJax = {
+        chtml: {
+            scale: 1,
+            minScale: 1,
+        },
+        svg: {
+            scale: 1,
+            minScale: 1,
+        }
+    }
+</script>
+
+  <!-- Preload the theme fonts -->
+
+<link rel="preload" href="_static/fonts/FreightSans/freight-sans-book.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/FreightSans/freight-sans-medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/IBMPlexMono/IBMPlexMono-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/FreightSans/freight-sans-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/FreightSans/freight-sans-medium-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/IBMPlexMono/IBMPlexMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+<!-- Preload the katex fonts -->
+
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Math-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size1-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size4-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size2-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size3-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Caligraphic-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+</head>
+
+<div class="container-fluid header-holder tutorials-header" id="header-holder">
+  <div class="container">
+    <div class="header-container">
+      <a class="header-logo" href="https://rsi-classification.readthedocs.io/en/latest/"
+        aria-label="OpenMMLab"></a>
+
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://github.com/EarthNets/RSI-Segmentation/blob/main/demo/rsi_classification_tutorial.ipynb" target="_blank">Tutorial</a>
+          </li>
+          <li>
+            <a href="https://github.com/EarthNets/RSI-Classification" target="_blank">GitHub</a>
+          </li>
+          <li >
+            <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
+              <a
+                class="resource-option with-down-arrow">
+                About
+              </a>
+              <div class="resources-dropdown-menu">
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/open-mmlab/mmcv" target="_blank">
+                  <span class="dropdown-title">MMCV </span>
+                  <p>Foundational library for computer vision</p>
+                </a>
+              </div>
+          </li>
+          <li >
+            <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
+              <a
+                class="resource-option with-down-arrow">
+                EarthNets
+              </a>
+              <div class="resources-dropdown-menu">
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/Dataset4EO" target="_blank">
+                  <span class="dropdown-title">Dataset4EO </span>
+                  <p>Re-organize remote sensing datasets.</p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/RSI-Classification" target="_blank">
+                  <span class="dropdown-title">RSI-Classification </span>
+                  <p>Image/scene classification for RS images.</p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/RSI-Segmentation" target="_blank">
+                  <span class="dropdown-title">RSI-Segmentation </span>
+                  <p>Pixel-wise semantic segmentation for RS images.</p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/RSI-Detection" target="_blank">
+                  <span class="dropdown-title">RSI-Detection </span>
+                  <p>Object detection for RS images.</p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/RSI-ChangeDetection" target="_blank">
+                  <span class="dropdown-title">RSI-ChangeDetection </span>
+                  <p>Change detection for RS images.</p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/RSI-SelfSupervised" target="_blank">
+                  <span class="dropdown-title">RSI-SelfSupervised </span>
+                  <p>Self-supervised learning for RS images.</p>
+                </a>
+              </div>
+          </li>
+        </ul>
+      </div>
+
+      <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
+    </div>
+  </div>
+</div>
+
+<body class="pytorch-body">
+
+   
+
+  
+
+  <div class="table-of-contents-link-wrapper">
+    <span>Table of Contents</span>
+    <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
+  </div>
+
+  <nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
+    <div class="pytorch-side-scroll">
+      <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <div class="pytorch-left-menu-search">
+          
+
+          
+          
+          
+          
+
+          
+
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search Docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        
+        
+        
+        
+        
+        <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html#installation">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/config.html">Tutorial 1: Learn about Configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/finetune.html">Tutorial 2: Fine-tune Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/new_dataset.html">Tutorial 3: Customize Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/data_pipeline.html">Tutorial 4: Custom Data Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/new_modules.html">Tutorial 5: Adding New Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/schedule.html">Tutorial 6: Customize Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/runtime.html">Tutorial 7: Customize Runtime Settings</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Model zoo</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Model Zoo</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Useful Tools and Scripts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tools/pytorch2onnx.html">Pytorch to ONNX (Experimental)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/onnx2tensorrt.html">ONNX to TensorRT (Experimental)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/pytorch2torchscript.html">Pytorch to TorchScript (Experimental)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/model_serving.html">Model Serving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/visualization.html">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/analysis.html">Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/miscellaneous.html">Miscellaneous</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
+</ul>
+
+        
+        
+      </div>
+    </div>
+  </nav>
+
+  <div class="pytorch-container">
+    <div class="pytorch-page-level-bar" id="pytorch-page-level-bar">
+      <div class="pytorch-breadcrumbs-wrapper">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="pytorch-breadcrumbs">
+    
+      <li>
+        <a href="index.html">
+            Docs
+        </a> &gt;
+      </li>
+
+        
+      <li>Model Zoo</li>
+    
+    
+      <li class="pytorch-breadcrumbs-aside">
+        
+            
+            <a href="_sources/model_zoo.md.txt" rel="nofollow"><img src="_static/images/view-page-source-icon.svg"></a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+</div>
+      </div>
+
+      <div class="pytorch-shortcuts-wrapper" id="pytorch-shortcuts-wrapper">
+        Shortcuts
+      </div>
+    </div>
+
+    <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
+      <div class="pytorch-content-left">
+        
+          <div class="rst-content">
+            
+            <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
+              <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
+                
+  <section id="model-zoo">
+<h1>Model Zoo<a class="headerlink" href="#model-zoo" title="Permalink to this heading">¶</a></h1>
+<section id="imagenet">
+<h2>ImageNet<a class="headerlink" href="#imagenet" title="Permalink to this heading">¶</a></h2>
+<p>ImageNet has multiple versions, but the most commonly used one is <a class="reference external" href="http://www.image-net.org/challenges/LSVRC/2012/">ILSVRC 2012</a>.
+The ResNet family models below are trained by standard data augmentations, i.e., RandomResizedCrop, RandomHorizontalFlip and Normalize.</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th style="text-align: center;">Model</th>
+<th style="text-align: center;">Params(M)</th>
+<th style="text-align: center;">Flops(G)</th>
+<th style="text-align: center;">Top-1 (%)</th>
+<th style="text-align: center;">Top-5 (%)</th>
+<th style="text-align: center;">Config</th>
+<th style="text-align: center;">Download</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">VGG-11</td>
+<td style="text-align: center;">132.86</td>
+<td style="text-align: center;">7.63</td>
+<td style="text-align: center;">68.75</td>
+<td style="text-align: center;">88.87</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/vgg/vgg11_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/vgg/vgg11_batch256_imagenet_20210208-4271cd6c.pth">model</a> | <a href="https://download.openmmlab.com/mmclassification/v0/vgg/vgg11_batch256_imagenet_20210208-4271cd6c.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">VGG-13</td>
+<td style="text-align: center;">133.05</td>
+<td style="text-align: center;">11.34</td>
+<td style="text-align: center;">70.02</td>
+<td style="text-align: center;">89.46</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/vgg/vgg13_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/vgg/vgg13_batch256_imagenet_20210208-4d1d6080.pth">model</a> | <a href="https://download.openmmlab.com/mmclassification/v0/vgg/vgg13_batch256_imagenet_20210208-4d1d6080.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">VGG-16</td>
+<td style="text-align: center;">138.36</td>
+<td style="text-align: center;">15.5</td>
+<td style="text-align: center;">71.62</td>
+<td style="text-align: center;">90.49</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/vgg/vgg16_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/vgg/vgg16_batch256_imagenet_20210208-db26f1a5.pth">model</a> | <a href="https://download.openmmlab.com/mmclassification/v0/vgg/vgg16_batch256_imagenet_20210208-db26f1a5.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">VGG-19</td>
+<td style="text-align: center;">143.67</td>
+<td style="text-align: center;">19.67</td>
+<td style="text-align: center;">72.41</td>
+<td style="text-align: center;">90.80</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/vgg/vgg19_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/vgg/vgg19_batch256_imagenet_20210208-e6920e4a.pth">model</a> | <a href="https://download.openmmlab.com/mmclassification/v0/vgg/vgg19_batch256_imagenet_20210208-e6920e4a.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">VGG-11-BN</td>
+<td style="text-align: center;">132.87</td>
+<td style="text-align: center;">7.64</td>
+<td style="text-align: center;">70.75</td>
+<td style="text-align: center;">90.12</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/vgg/vgg11bn_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/vgg/vgg11_bn_batch256_imagenet_20210207-f244902c.pth">model</a> | <a href="https://download.openmmlab.com/mmclassification/v0/vgg/vgg11_bn_batch256_imagenet_20210207-f244902c.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">VGG-13-BN</td>
+<td style="text-align: center;">133.05</td>
+<td style="text-align: center;">11.36</td>
+<td style="text-align: center;">72.15</td>
+<td style="text-align: center;">90.71</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/vgg/vgg13bn_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/vgg/vgg13_bn_batch256_imagenet_20210207-1a8b7864.pth">model</a> | <a href="https://download.openmmlab.com/mmclassification/v0/vgg/vgg13_bn_batch256_imagenet_20210207-1a8b7864.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">VGG-16-BN</td>
+<td style="text-align: center;">138.37</td>
+<td style="text-align: center;">15.53</td>
+<td style="text-align: center;">73.72</td>
+<td style="text-align: center;">91.68</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/vgg/vgg16_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/vgg/vgg16_bn_batch256_imagenet_20210208-7e55cd29.pth">model</a> | <a href="https://download.openmmlab.com/mmclassification/v0/vgg/vgg16_bn_batch256_imagenet_20210208-7e55cd29.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">VGG-19-BN</td>
+<td style="text-align: center;">143.68</td>
+<td style="text-align: center;">19.7</td>
+<td style="text-align: center;">74.70</td>
+<td style="text-align: center;">92.24</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/vgg/vgg19bn_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/vgg/vgg19_bn_batch256_imagenet_20210208-da620c4f.pth">model</a> | <a href="https://download.openmmlab.com/mmclassification/v0/vgg/vgg19_bn_batch256_imagenet_20210208-da620c4f.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">RepVGG-A0*</td>
+<td style="text-align: center;">9.11（train) | 8.31 (deploy)</td>
+<td style="text-align: center;">1.52 (train) | 1.36 (deploy)</td>
+<td style="text-align: center;">72.41</td>
+<td style="text-align: center;">90.50</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/repvgg/repvgg-A0_4xb64-coslr-120e_in1k.py">config (train)</a> | <a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/repvgg/deploy/repvgg-A0_deploy_4xb64-coslr-120e_in1k.py">config (deploy)</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/repvgg/repvgg-A0_3rdparty_4xb64-coslr-120e_in1k_20210909-883ab98c.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">RepVGG-A1*</td>
+<td style="text-align: center;">14.09 (train) | 12.79 (deploy)</td>
+<td style="text-align: center;">2.64 (train) | 2.37 (deploy)</td>
+<td style="text-align: center;">74.47</td>
+<td style="text-align: center;">91.85</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/repvgg/repvgg-A1_4xb64-coslr-120e_in1k.py">config (train)</a> | <a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/repvgg/deploy/repvgg-A1_deploy_4xb64-coslr-120e_in1k.py">config (deploy)</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/repvgg/repvgg-A1_3rdparty_4xb64-coslr-120e_in1k_20210909-24003a24.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">RepVGG-A2*</td>
+<td style="text-align: center;">28.21 (train) | 25.5 (deploy)</td>
+<td style="text-align: center;">5.7 (train)  | 5.12 (deploy)</td>
+<td style="text-align: center;">76.48</td>
+<td style="text-align: center;">93.01</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/repvgg/repvgg-A2_4xb64-coslr-120e_in1k.py">config (train)</a> | <a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/repvgg/deploy/repvgg-A2_deploy_4xb64-coslr-120e_in1k.py">config (deploy)</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/repvgg/repvgg-A2_3rdparty_4xb64-coslr-120e_in1k_20210909-97d7695a.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">RepVGG-B0*</td>
+<td style="text-align: center;">15.82 (train) | 14.34 (deploy)</td>
+<td style="text-align: center;">3.42 (train) | 3.06 (deploy)</td>
+<td style="text-align: center;">75.14</td>
+<td style="text-align: center;">92.42</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/repvgg/repvgg-B0_4xb64-coslr-120e_in1k.py">config (train)</a> | <a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/repvgg/deploy/repvgg-B0_deploy_4xb64-coslr-120e_in1k.py">config (deploy)</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/repvgg/repvgg-B0_3rdparty_4xb64-coslr-120e_in1k_20210909-446375f4.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">RepVGG-B1*</td>
+<td style="text-align: center;">57.42 (train) | 51.83 (deploy)</td>
+<td style="text-align: center;">13.16 (train) | 11.82 (deploy)</td>
+<td style="text-align: center;">78.37</td>
+<td style="text-align: center;">94.11</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/repvgg/repvgg-B1_4xb64-coslr-120e_in1k.py">config (train)</a> | <a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/repvgg/deploy/repvgg-B1_deploy_4xb64-coslr-120e_in1k.py">config (deploy)</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/repvgg/repvgg-B1_3rdparty_4xb64-coslr-120e_in1k_20210909-750cdf67.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">RepVGG-B1g2*</td>
+<td style="text-align: center;">45.78 (train) | 41.36 (deploy)</td>
+<td style="text-align: center;">9.82 (train) | 8.82 (deploy)</td>
+<td style="text-align: center;">77.79</td>
+<td style="text-align: center;">93.88</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/repvgg/repvgg-B1g2_4xb64-coslr-120e_in1k.py">config (train)</a> | <a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/repvgg/deploy/repvgg-B1g2_deploy_4xb64-coslr-120e_in1k.py">config (deploy)</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/repvgg/repvgg-B1g2_3rdparty_4xb64-coslr-120e_in1k_20210909-344f6422.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">RepVGG-B1g4*</td>
+<td style="text-align: center;">39.97 (train) | 36.13 (deploy)</td>
+<td style="text-align: center;">8.15 (train) | 7.32 (deploy)</td>
+<td style="text-align: center;">77.58</td>
+<td style="text-align: center;">93.84</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/repvgg/repvgg-B1g4_4xb64-coslr-120e_in1k.py">config (train)</a> | <a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/repvgg/deploy/repvgg-B1g4_deploy_4xb64-coslr-120e_in1k.py">config (deploy)</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/repvgg/repvgg-B1g4_3rdparty_4xb64-coslr-120e_in1k_20210909-d4c1a642.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">RepVGG-B2*</td>
+<td style="text-align: center;">89.02 (train) | 80.32 (deploy)</td>
+<td style="text-align: center;">20.46 (train) | 18.39 (deploy)</td>
+<td style="text-align: center;">78.78</td>
+<td style="text-align: center;">94.42</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/repvgg/repvgg-B2_4xb64-coslr-120e_in1k.py">config (train)</a> | <a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/repvgg/deploy/repvgg-B2_deploy_4xb64-coslr-120e_in1k.py">config (deploy)</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/repvgg/repvgg-B2_3rdparty_4xb64-coslr-120e_in1k_20210909-bd6b937c.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">RepVGG-B2g4*</td>
+<td style="text-align: center;">61.76 (train) | 55.78 (deploy)</td>
+<td style="text-align: center;">12.63 (train) | 11.34 (deploy)</td>
+<td style="text-align: center;">79.38</td>
+<td style="text-align: center;">94.68</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/repvgg/repvgg-B2g4_4xb64-autoaug-lbs-mixup-coslr-200e_in1k.py">config (train)</a> | <a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/repvgg/deploy/repvgg-B2g4_deploy_4xb64-autoaug-lbs-mixup-coslr-200e_in1k.py">config (deploy)</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/repvgg/repvgg-B2g4_3rdparty_4xb64-autoaug-lbs-mixup-coslr-200e_in1k_20210909-7b7955f0.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">RepVGG-B3*</td>
+<td style="text-align: center;">123.09 (train) | 110.96 (deploy)</td>
+<td style="text-align: center;">29.17 (train) | 26.22 (deploy)</td>
+<td style="text-align: center;">80.52</td>
+<td style="text-align: center;">95.26</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/repvgg/repvgg-B3_4xb64-autoaug-lbs-mixup-coslr-200e_in1k.py">config (train)</a> | <a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/repvgg/deploy/repvgg-B3_deploy_4xb64-autoaug-lbs-mixup-coslr-200e_in1k.py">config (deploy)</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/repvgg/repvgg-B3_3rdparty_4xb64-autoaug-lbs-mixup-coslr-200e_in1k_20210909-dda968bf.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">RepVGG-B3g4*</td>
+<td style="text-align: center;">83.83 (train) | 75.63 (deploy)</td>
+<td style="text-align: center;">17.9 (train) | 16.08 (deploy)</td>
+<td style="text-align: center;">80.22</td>
+<td style="text-align: center;">95.10</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/repvgg/repvgg-B3g4_4xb64-autoaug-lbs-mixup-coslr-200e_in1k.py">config (train)</a> | <a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/repvgg/deploy/repvgg-B3g4_deploy_4xb64-autoaug-lbs-mixup-coslr-200e_in1k.py">config (deploy)</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/repvgg/repvgg-B3g4_3rdparty_4xb64-autoaug-lbs-mixup-coslr-200e_in1k_20210909-4e54846a.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">RepVGG-D2se*</td>
+<td style="text-align: center;">133.33 (train) | 120.39 (deploy)</td>
+<td style="text-align: center;">36.56 (train) | 32.85 (deploy)</td>
+<td style="text-align: center;">81.81</td>
+<td style="text-align: center;">95.94</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/repvgg/repvgg-D2se_4xb64-autoaug-lbs-mixup-coslr-200e_in1k.py">config (train)</a> | <a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/repvgg/deploy/repvgg-D2se_deploy_4xb64-autoaug-lbs-mixup-coslr-200e_in1k.py">config (deploy)</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/repvgg/repvgg-D2se_3rdparty_4xb64-autoaug-lbs-mixup-coslr-200e_in1k_20210909-cf3139b7.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">ResNet-18</td>
+<td style="text-align: center;">11.69</td>
+<td style="text-align: center;">1.82</td>
+<td style="text-align: center;">70.07</td>
+<td style="text-align: center;">89.44</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/resnet/resnet18_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/resnet/resnet18_batch256_imagenet_20200708-34ab8f90.pth">model</a> | <a href="https://download.openmmlab.com/mmclassification/v0/resnet/resnet18_batch256_imagenet_20200708-34ab8f90.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">ResNet-34</td>
+<td style="text-align: center;">21.8</td>
+<td style="text-align: center;">3.68</td>
+<td style="text-align: center;">73.85</td>
+<td style="text-align: center;">91.53</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/resnet/resnet34_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/resnet/resnet34_batch256_imagenet_20200708-32ffb4f7.pth">model</a> | <a href="https://download.openmmlab.com/mmclassification/v0/resnet/resnet34_batch256_imagenet_20200708-32ffb4f7.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">ResNet-50 (rsb-a1)</td>
+<td style="text-align: center;">25.56</td>
+<td style="text-align: center;">4.12</td>
+<td style="text-align: center;">80.12</td>
+<td style="text-align: center;">94.78</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/resnet/resnet50_8xb256-rsb-a1-600e_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/resnet/resnet50_8xb256-rsb-a1-600e_in1k_20211228-20e21305.pth">model</a> | <a href="https://download.openmmlab.com/mmclassification/v0/resnet/resnet50_8xb256-rsb-a1-600e_in1k_20211228-20e21305.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">ResNet-101</td>
+<td style="text-align: center;">44.55</td>
+<td style="text-align: center;">7.85</td>
+<td style="text-align: center;">78.18</td>
+<td style="text-align: center;">94.03</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/resnet/resnet101_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/resnet/resnet101_batch256_imagenet_20200708-753f3608.pth">model</a> | <a href="https://download.openmmlab.com/mmclassification/v0/resnet/resnet101_batch256_imagenet_20200708-753f3608.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">ResNet-152</td>
+<td style="text-align: center;">60.19</td>
+<td style="text-align: center;">11.58</td>
+<td style="text-align: center;">78.63</td>
+<td style="text-align: center;">94.16</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/resnet/resnet152_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/resnet/resnet152_batch256_imagenet_20200708-ec25b1f9.pth">model</a> | <a href="https://download.openmmlab.com/mmclassification/v0/resnet/resnet152_batch256_imagenet_20200708-ec25b1f9.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">Res2Net-50-14w-8s*</td>
+<td style="text-align: center;">25.06</td>
+<td style="text-align: center;">4.22</td>
+<td style="text-align: center;">78.14</td>
+<td style="text-align: center;">93.85</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/res2net/res2net50-w14-s8_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/res2net/res2net50-w14-s8_3rdparty_8xb32_in1k_20210927-bc967bf1.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">Res2Net-50-26w-8s*</td>
+<td style="text-align: center;">48.40</td>
+<td style="text-align: center;">8.39</td>
+<td style="text-align: center;">79.20</td>
+<td style="text-align: center;">94.36</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/res2net/res2net50-w26-s8_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/res2net/res2net50-w26-s8_3rdparty_8xb32_in1k_20210927-f547a94b.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">Res2Net-101-26w-4s*</td>
+<td style="text-align: center;">45.21</td>
+<td style="text-align: center;">8.12</td>
+<td style="text-align: center;">79.19</td>
+<td style="text-align: center;">94.44</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/res2net/res2net101-w26-s4_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/res2net/res2net101-w26-s4_3rdparty_8xb32_in1k_20210927-870b6c36.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">ResNeSt-50*</td>
+<td style="text-align: center;">27.48</td>
+<td style="text-align: center;">5.41</td>
+<td style="text-align: center;">81.13</td>
+<td style="text-align: center;">95.59</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/resnest/resnest50_32xb64_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/resnest/resnest50_imagenet_converted-1ebf0afe.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">ResNeSt-101*</td>
+<td style="text-align: center;">48.28</td>
+<td style="text-align: center;">10.27</td>
+<td style="text-align: center;">82.32</td>
+<td style="text-align: center;">96.24</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/resnest/resnest101_32xb64_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/resnest/resnest101_imagenet_converted-032caa52.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">ResNeSt-200*</td>
+<td style="text-align: center;">70.2</td>
+<td style="text-align: center;">17.53</td>
+<td style="text-align: center;">82.41</td>
+<td style="text-align: center;">96.22</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/resnest/resnest200_64xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/resnest/resnest200_imagenet_converted-581a60f2.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">ResNeSt-269*</td>
+<td style="text-align: center;">110.93</td>
+<td style="text-align: center;">22.58</td>
+<td style="text-align: center;">82.70</td>
+<td style="text-align: center;">96.28</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/resnest/resnest269_64xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/resnest/resnest269_imagenet_converted-59930960.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">ResNetV1D-50</td>
+<td style="text-align: center;">25.58</td>
+<td style="text-align: center;">4.36</td>
+<td style="text-align: center;">77.54</td>
+<td style="text-align: center;">93.57</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/resnet/resnetv1d50_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/resnet/resnetv1d50_b32x8_imagenet_20210531-db14775a.pth">model</a> | <a href="https://download.openmmlab.com/mmclassification/v0/resnet/resnetv1d50_b32x8_imagenet_20210531-db14775a.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">ResNetV1D-101</td>
+<td style="text-align: center;">44.57</td>
+<td style="text-align: center;">8.09</td>
+<td style="text-align: center;">78.93</td>
+<td style="text-align: center;">94.48</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/resnet/resnetv1d101_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/resnet/resnetv1d101_b32x8_imagenet_20210531-6e13bcd3.pth">model</a> | <a href="https://download.openmmlab.com/mmclassification/v0/resnet/resnetv1d101_b32x8_imagenet_20210531-6e13bcd3.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">ResNetV1D-152</td>
+<td style="text-align: center;">60.21</td>
+<td style="text-align: center;">11.82</td>
+<td style="text-align: center;">79.41</td>
+<td style="text-align: center;">94.7</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/resnet/resnetv1d152_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/resnet/resnetv1d152_b32x8_imagenet_20210531-278cf22a.pth">model</a> | <a href="https://download.openmmlab.com/mmclassification/v0/resnet/resnetv1d152_b32x8_imagenet_20210531-278cf22a.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">ResNeXt-32x4d-50</td>
+<td style="text-align: center;">25.03</td>
+<td style="text-align: center;">4.27</td>
+<td style="text-align: center;">77.90</td>
+<td style="text-align: center;">93.66</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/resnext/resnext50-32x4d_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/resnext/resnext50_32x4d_b32x8_imagenet_20210429-56066e27.pth">model</a> | <a href="https://download.openmmlab.com/mmclassification/v0/resnext/resnext50_32x4d_b32x8_imagenet_20210429-56066e27.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">ResNeXt-32x4d-101</td>
+<td style="text-align: center;">44.18</td>
+<td style="text-align: center;">8.03</td>
+<td style="text-align: center;">78.71</td>
+<td style="text-align: center;">94.12</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/resnext/resnext101-32x4d_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/resnext/resnext101_32x4d_b32x8_imagenet_20210506-e0fa3dd5.pth">model</a> | <a href="https://download.openmmlab.com/mmclassification/v0/resnext/resnext101_32x4d_b32x8_imagenet_20210506-e0fa3dd5.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">ResNeXt-32x8d-101</td>
+<td style="text-align: center;">88.79</td>
+<td style="text-align: center;">16.5</td>
+<td style="text-align: center;">79.23</td>
+<td style="text-align: center;">94.58</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/resnext/resnext101-32x8d_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/resnext/resnext101_32x8d_b32x8_imagenet_20210506-23a247d5.pth">model</a> | <a href="https://download.openmmlab.com/mmclassification/v0/resnext/resnext101_32x8d_b32x8_imagenet_20210506-23a247d5.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">ResNeXt-32x4d-152</td>
+<td style="text-align: center;">59.95</td>
+<td style="text-align: center;">11.8</td>
+<td style="text-align: center;">78.93</td>
+<td style="text-align: center;">94.41</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/resnext/resnext152-32x4d_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/resnext/resnext152_32x4d_b32x8_imagenet_20210524-927787be.pth">model</a> | <a href="https://download.openmmlab.com/mmclassification/v0/resnext/resnext152_32x4d_b32x8_imagenet_20210524-927787be.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">SE-ResNet-50</td>
+<td style="text-align: center;">28.09</td>
+<td style="text-align: center;">4.13</td>
+<td style="text-align: center;">77.74</td>
+<td style="text-align: center;">93.84</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/seresnet/seresnet50_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/se-resnet/se-resnet50_batch256_imagenet_20200804-ae206104.pth">model</a> | <a href="https://download.openmmlab.com/mmclassification/v0/se-resnet/se-resnet50_batch256_imagenet_20200708-657b3c36.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">SE-ResNet-101</td>
+<td style="text-align: center;">49.33</td>
+<td style="text-align: center;">7.86</td>
+<td style="text-align: center;">78.26</td>
+<td style="text-align: center;">94.07</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/seresnet/seresnet101_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/se-resnet/se-resnet101_batch256_imagenet_20200804-ba5b51d4.pth">model</a> | <a href="https://download.openmmlab.com/mmclassification/v0/se-resnet/se-resnet101_batch256_imagenet_20200708-038a4d04.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">RegNetX-400MF</td>
+<td style="text-align: center;">5.16</td>
+<td style="text-align: center;">0.41</td>
+<td style="text-align: center;">72.56</td>
+<td style="text-align: center;">90.78</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/regnet/regnetx-400mf_8xb128_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/regnet/regnetx-400mf_8xb128_in1k_20211213-89bfc226.pth">model</a> | <a href="https://download.openmmlab.com/mmclassification/v0/regnet/regnetx-400mf_8xb128_in1k_20211208_143316.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">RegNetX-800MF</td>
+<td style="text-align: center;">7.26</td>
+<td style="text-align: center;">0.81</td>
+<td style="text-align: center;">74.76</td>
+<td style="text-align: center;">92.32</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/regnet/regnetx-800mf_8xb128_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/regnet/regnetx-800mf_8xb128_in1k_20211213-222b0f11.pth">model</a> | <a href="https://download.openmmlab.com/mmclassification/v0/regnet/regnetx-800mf_8xb128_in1k_20211207_143037.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">RegNetX-1.6GF</td>
+<td style="text-align: center;">9.19</td>
+<td style="text-align: center;">1.63</td>
+<td style="text-align: center;">76.84</td>
+<td style="text-align: center;">93.31</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/regnet/regnetx-1.6gf_8xb128_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/regnet/regnetx-1.6gf_8xb128_in1k_20211213-d1b89758.pth">model</a> | <a href="https://download.openmmlab.com/mmclassification/v0/regnet/regnetx-1.6gf_8xb128_in1k_20211208_143018.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">RegNetX-3.2GF</td>
+<td style="text-align: center;">15.3</td>
+<td style="text-align: center;">3.21</td>
+<td style="text-align: center;">78.09</td>
+<td style="text-align: center;">94.08</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/regnet/regnetx-3.2gf_8xb64_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/regnet/regnetx-3.2gf_8xb64_in1k_20211213-1fdd82ae.pth">model</a>  | <a href="https://download.openmmlab.com/mmclassification/v0/regnet/regnetx-3.2gf_8xb64_in1k_20211208_142720.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">RegNetX-4.0GF</td>
+<td style="text-align: center;">22.12</td>
+<td style="text-align: center;">4.0</td>
+<td style="text-align: center;">78.60</td>
+<td style="text-align: center;">94.17</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/regnet/regnetx-4.0gf_8xb64_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/regnet/regnetx-4.0gf_8xb64_in1k_20211213-efed675c.pth">model</a>  | <a href="https://download.openmmlab.com/mmclassification/v0/regnet/regnetx-4.0gf_8xb64_in1k_20211207_150431.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">RegNetX-6.4GF</td>
+<td style="text-align: center;">26.21</td>
+<td style="text-align: center;">6.51</td>
+<td style="text-align: center;">79.38</td>
+<td style="text-align: center;">94.65</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/regnet/regnetx-6.4gf_8xb64_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/regnet/regnetx-6.4gf_8xb64_in1k_20211215-5c6089da.pth">model</a>  | <a href="https://download.openmmlab.com/mmclassification/v0/regnet/regnetx-6.4gf_8xb64_in1k_20211213_172748.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">RegNetX-8.0GF</td>
+<td style="text-align: center;">39.57</td>
+<td style="text-align: center;">8.03</td>
+<td style="text-align: center;">79.12</td>
+<td style="text-align: center;">94.51</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/regnet/regnetx-8.0gf_8xb64_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/regnet/regnetx-8.0gf_8xb64_in1k_20211213-9a9fcc76.pth">model</a>  | <a href="https://download.openmmlab.com/mmclassification/v0/regnet/regnetx-8.0gf_8xb64_in1k_20211208_103250.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">RegNetX-12GF</td>
+<td style="text-align: center;">46.11</td>
+<td style="text-align: center;">12.15</td>
+<td style="text-align: center;">79.67</td>
+<td style="text-align: center;">95.03</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/regnet/regnetx-12gf_8xb64_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/regnet/regnetx-12gf_8xb64_in1k_20211213-5df8c2f8.pth">model</a>  | <a href="https://download.openmmlab.com/mmclassification/v0/regnet/regnetx-12gf_8xb64_in1k_20211208_143713.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">ShuffleNetV1 1.0x (group=3)</td>
+<td style="text-align: center;">1.87</td>
+<td style="text-align: center;">0.146</td>
+<td style="text-align: center;">68.13</td>
+<td style="text-align: center;">87.81</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/shufflenet_v1/shufflenet-v1-1x_16xb64_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/shufflenet_v1/shufflenet_v1_batch1024_imagenet_20200804-5d6cec73.pth">model</a> | <a href="https://download.openmmlab.com/mmclassification/v0/shufflenet_v1/shufflenet_v1_batch1024_imagenet_20200804-5d6cec73.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">ShuffleNetV2 1.0x</td>
+<td style="text-align: center;">2.28</td>
+<td style="text-align: center;">0.149</td>
+<td style="text-align: center;">69.55</td>
+<td style="text-align: center;">88.92</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/shufflenet_v2/shufflenet-v2-1x_16xb64_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/shufflenet_v2/shufflenet_v2_batch1024_imagenet_20200812-5bf4721e.pth">model</a> | <a href="https://download.openmmlab.com/mmclassification/v0/shufflenet_v2/shufflenet_v2_batch1024_imagenet_20200804-8860eec9.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">MobileNet V2</td>
+<td style="text-align: center;">3.5</td>
+<td style="text-align: center;">0.319</td>
+<td style="text-align: center;">71.86</td>
+<td style="text-align: center;">90.42</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/mobilenet_v2/mobilenet-v2_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/mobilenet_v2/mobilenet_v2_batch256_imagenet_20200708-3b2dc3af.pth">model</a> | <a href="https://download.openmmlab.com/mmclassification/v0/mobilenet_v2/mobilenet_v2_batch256_imagenet_20200708-3b2dc3af.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">ViT-B/16*</td>
+<td style="text-align: center;">86.86</td>
+<td style="text-align: center;">33.03</td>
+<td style="text-align: center;">85.43</td>
+<td style="text-align: center;">97.77</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/vision_transformer/vit-base-p16_ft-64xb64_in1k-384.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/vit/finetune/vit-base-p16_in21k-pre-3rdparty_ft-64xb64_in1k-384_20210928-98e8652b.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">ViT-B/32*</td>
+<td style="text-align: center;">88.3</td>
+<td style="text-align: center;">8.56</td>
+<td style="text-align: center;">84.01</td>
+<td style="text-align: center;">97.08</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/vision_transformer/vit-base-p32_ft-64xb64_in1k-384.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/vit/finetune/vit-base-p32_in21k-pre-3rdparty_ft-64xb64_in1k-384_20210928-9cea8599.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">ViT-L/16*</td>
+<td style="text-align: center;">304.72</td>
+<td style="text-align: center;">116.68</td>
+<td style="text-align: center;">85.63</td>
+<td style="text-align: center;">97.63</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/vision_transformer/vit-large-p16_ft-64xb64_in1k-384.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/vit/finetune/vit-large-p16_in21k-pre-3rdparty_ft-64xb64_in1k-384_20210928-b20ba619.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">Swin-Transformer tiny</td>
+<td style="text-align: center;">28.29</td>
+<td style="text-align: center;">4.36</td>
+<td style="text-align: center;">81.18</td>
+<td style="text-align: center;">95.61</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/swin_transformer/swin-tiny_16xb64_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/swin-transformer/swin_tiny_224_b16x64_300e_imagenet_20210616_090925-66df6be6.pth">model</a>  | <a href="https://download.openmmlab.com/mmclassification/v0/swin-transformer/swin_tiny_224_b16x64_300e_imagenet_20210616_090925.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">Swin-Transformer small</td>
+<td style="text-align: center;">49.61</td>
+<td style="text-align: center;">8.52</td>
+<td style="text-align: center;">83.02</td>
+<td style="text-align: center;">96.29</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/swin_transformer/swin-small_16xb64_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/swin-transformer/swin_small_224_b16x64_300e_imagenet_20210615_110219-7f9d988b.pth">model</a>  | <a href="https://download.openmmlab.com/mmclassification/v0/swin-transformer/swin_small_224_b16x64_300e_imagenet_20210615_110219.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">Swin-Transformer base</td>
+<td style="text-align: center;">87.77</td>
+<td style="text-align: center;">15.14</td>
+<td style="text-align: center;">83.36</td>
+<td style="text-align: center;">96.44</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/swin_transformer/swin_base_224_b16x64_300e_imagenet.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/swin-transformer/swin_base_224_b16x64_300e_imagenet_20210616_190742-93230b0d.pth">model</a>  | <a href="https://download.openmmlab.com/mmclassification/v0/swin-transformer/swin_base_224_b16x64_300e_imagenet_20210616_190742.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">Transformer in Transformer small*</td>
+<td style="text-align: center;">23.76</td>
+<td style="text-align: center;">3.36</td>
+<td style="text-align: center;">81.52</td>
+<td style="text-align: center;">95.73</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/tnt/tnt-s-p16_16xb64_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/tnt/tnt-small-p16_3rdparty_in1k_20210903-c56ee7df.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">T2T-ViT_t-14</td>
+<td style="text-align: center;">21.47</td>
+<td style="text-align: center;">4.34</td>
+<td style="text-align: center;">81.83</td>
+<td style="text-align: center;">95.84</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/t2t_vit/t2t-vit-t-14_8xb64_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/t2t-vit/t2t-vit-t-14_8xb64_in1k_20211220-f7378dd5.pth">model</a>  | <a href="https://download.openmmlab.com/mmclassification/v0/t2t-vit/t2t-vit-t-14_8xb64_in1k_20211220-f7378dd5.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">T2T-ViT_t-19</td>
+<td style="text-align: center;">39.08</td>
+<td style="text-align: center;">7.80</td>
+<td style="text-align: center;">82.63</td>
+<td style="text-align: center;">96.18</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/t2t_vit/t2t-vit-t-19_8xb64_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/t2t-vit/t2t-vit-t-19_8xb64_in1k_20211214-7f5e3aaf.pth">model</a>  | <a href="https://download.openmmlab.com/mmclassification/v0/t2t-vit/t2t-vit-t-19_8xb64_in1k_20211214-7f5e3aaf.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">T2T-ViT_t-24</td>
+<td style="text-align: center;">64.00</td>
+<td style="text-align: center;">12.69</td>
+<td style="text-align: center;">82.71</td>
+<td style="text-align: center;">96.09</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/t2t_vit/t2t-vit-t-24_8xb64_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/t2t-vit/t2t-vit-t-24_8xb64_in1k_20211214-b2a68ae3.pth">model</a>  | <a href="https://download.openmmlab.com/mmclassification/v0/t2t-vit/t2t-vit-t-24_8xb64_in1k_20211214-b2a68ae3.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">Mixer-B/16*</td>
+<td style="text-align: center;">59.88</td>
+<td style="text-align: center;">12.61</td>
+<td style="text-align: center;">76.68</td>
+<td style="text-align: center;">92.25</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/mlp_mixer/mlp-mixer-base-p16_64xb64_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/mlp-mixer/mixer-base-p16_3rdparty_64xb64_in1k_20211124-1377e3e0.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">Mixer-L/16*</td>
+<td style="text-align: center;">208.2</td>
+<td style="text-align: center;">44.57</td>
+<td style="text-align: center;">72.34</td>
+<td style="text-align: center;">88.02</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/mlp_mixer/mlp-mixer-large-p16_64xb64_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/mlp-mixer/mixer-large-p16_3rdparty_64xb64_in1k_20211124-5a2519d2.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">DeiT-tiny</td>
+<td style="text-align: center;">5.72</td>
+<td style="text-align: center;">1.08</td>
+<td style="text-align: center;">74.50</td>
+<td style="text-align: center;">92.24</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/deit/deit-tiny_pt-4xb256_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/deit/deit-tiny_pt-4xb256_in1k_20220218-13b382a0.pth">model</a>  | <a href="https://download.openmmlab.com/mmclassification/v0/deit/deit-tiny_pt-4xb256_in1k_20220218-13b382a0.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">DeiT-tiny distilled*</td>
+<td style="text-align: center;">5.72</td>
+<td style="text-align: center;">1.08</td>
+<td style="text-align: center;">74.51</td>
+<td style="text-align: center;">91.90</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/deit/deit-tiny-distilled_pt-4xb256_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/deit/deit-tiny-distilled_3rdparty_pt-4xb256_in1k_20211216-c429839a.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">DeiT-small</td>
+<td style="text-align: center;">22.05</td>
+<td style="text-align: center;">4.24</td>
+<td style="text-align: center;">80.69</td>
+<td style="text-align: center;">95.06</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/deit/deit-small_pt-4xb256_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/deit/deit-small_pt-4xb256_in1k_20220218-9425b9bb.pth">model</a>  | <a href="https://download.openmmlab.com/mmclassification/v0/deit/deit-small_pt-4xb256_in1k_20220218-9425b9bb.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">DeiT-small distilled*</td>
+<td style="text-align: center;">22.05</td>
+<td style="text-align: center;">4.24</td>
+<td style="text-align: center;">81.17</td>
+<td style="text-align: center;">95.40</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/deit/deit-small-distilled_pt-4xb256_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/deit/deit-small-distilled_3rdparty_pt-4xb256_in1k_20211216-4de1d725.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">DeiT-base</td>
+<td style="text-align: center;">86.57</td>
+<td style="text-align: center;">16.86</td>
+<td style="text-align: center;">81.76</td>
+<td style="text-align: center;">95.81</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/deit/deit-base_pt-16xb64_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/deit/deit-base_pt-16xb64_in1k_20220216-db63c16c.pth">model</a>  | <a href="https://download.openmmlab.com/mmclassification/v0/deit/deit-base_pt-16xb64_in1k_20220216-db63c16c.log.json">log</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">DeiT-base distilled*</td>
+<td style="text-align: center;">86.57</td>
+<td style="text-align: center;">16.86</td>
+<td style="text-align: center;">83.33</td>
+<td style="text-align: center;">96.49</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/deit/deit-base-distilled_pt-16xb64_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/deit/deit-base-distilled_3rdparty_pt-16xb64_in1k_20211216-42891296.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">DeiT-base 384px*</td>
+<td style="text-align: center;">86.86</td>
+<td style="text-align: center;">49.37</td>
+<td style="text-align: center;">83.04</td>
+<td style="text-align: center;">96.31</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/deit/deit-base_ft-16xb32_in1k-384px.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/deit/deit-base_3rdparty_ft-16xb32_in1k-384px_20211124-822d02f2.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">DeiT-base distilled 384px*</td>
+<td style="text-align: center;">86.86</td>
+<td style="text-align: center;">49.37</td>
+<td style="text-align: center;">85.55</td>
+<td style="text-align: center;">97.35</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/deit/deit-base-distilled_ft-16xb32_in1k-384px.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/deit/deit-base-distilled_3rdparty_ft-16xb32_in1k-384px_20211216-e48d6000.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">Conformer-tiny-p16*</td>
+<td style="text-align: center;">23.52</td>
+<td style="text-align: center;">4.90</td>
+<td style="text-align: center;">81.31</td>
+<td style="text-align: center;">95.60</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/conformer/conformer-tiny-p16_8xb128_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/conformer/conformer-tiny-p16_3rdparty_8xb128_in1k_20211206-f6860372.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">Conformer-small-p32*</td>
+<td style="text-align: center;">38.85</td>
+<td style="text-align: center;">7.09</td>
+<td style="text-align: center;">81.96</td>
+<td style="text-align: center;">96.02</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/conformer/conformer-small-p32_8xb128_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/conformer/conformer-small-p32_8xb128_in1k_20211206-947a0816.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">Conformer-small-p16*</td>
+<td style="text-align: center;">37.67</td>
+<td style="text-align: center;">10.31</td>
+<td style="text-align: center;">83.32</td>
+<td style="text-align: center;">96.46</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/conformer/conformer-small-p16_8xb128_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/conformer/conformer-small-p16_3rdparty_8xb128_in1k_20211206-3065dcf5.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">Conformer-base-p16*</td>
+<td style="text-align: center;">83.29</td>
+<td style="text-align: center;">22.89</td>
+<td style="text-align: center;">83.82</td>
+<td style="text-align: center;">96.59</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/conformer/conformer-base-p16_8xb128_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/conformer/conformer-base-p16_3rdparty_8xb128_in1k_20211206-bfdf8637.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">PCPVT-small*</td>
+<td style="text-align: center;">24.11</td>
+<td style="text-align: center;">3.67</td>
+<td style="text-align: center;">81.14</td>
+<td style="text-align: center;">95.69</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/twins/twins-pcpvt-small_8xb128_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/twins/twins-pcpvt-small_3rdparty_8xb128_in1k_20220126-ef23c132.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">PCPVT-base*</td>
+<td style="text-align: center;">43.83</td>
+<td style="text-align: center;">6.45</td>
+<td style="text-align: center;">82.66</td>
+<td style="text-align: center;">96.26</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/twins/twins-pcpvt-base_8xb128_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/twins/twins-pcpvt-base_3rdparty_8xb128_in1k_20220126-f8c4b0d5.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">PCPVT-large*</td>
+<td style="text-align: center;">60.99</td>
+<td style="text-align: center;">9.51</td>
+<td style="text-align: center;">83.09</td>
+<td style="text-align: center;">96.59</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/twins/twins-pcpvt-large_16xb64_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/twins/twins-pcpvt-large_3rdparty_16xb64_in1k_20220126-c1ef8d80.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">SVT-small*</td>
+<td style="text-align: center;">24.06</td>
+<td style="text-align: center;">2.82</td>
+<td style="text-align: center;">81.77</td>
+<td style="text-align: center;">95.57</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/twins/twins-svt-small_8xb128_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/twins/twins-svt-small_3rdparty_8xb128_in1k_20220126-8fe5205b.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">SVT-base*</td>
+<td style="text-align: center;">56.07</td>
+<td style="text-align: center;">8.35</td>
+<td style="text-align: center;">83.13</td>
+<td style="text-align: center;">96.29</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/twins/twins-svt-base_8xb128_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/twins/twins-svt-base_3rdparty_8xb128_in1k_20220126-e31cc8e9.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">SVT-large*</td>
+<td style="text-align: center;">99.27</td>
+<td style="text-align: center;">14.82</td>
+<td style="text-align: center;">83.60</td>
+<td style="text-align: center;">96.50</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/twins/twins-svt-large_16xb64_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/twins/twins-svt-large_3rdparty_16xb64_in1k_20220126-4817645f.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">EfficientNet-B0*</td>
+<td style="text-align: center;">5.29</td>
+<td style="text-align: center;">0.02</td>
+<td style="text-align: center;">76.74</td>
+<td style="text-align: center;">93.17</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/efficientnet/efficientnet-b0_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/efficientnet/efficientnet-b0_3rdparty_8xb32_in1k_20220119-a7e2a0b1.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">EfficientNet-B0 (AA)*</td>
+<td style="text-align: center;">5.29</td>
+<td style="text-align: center;">0.02</td>
+<td style="text-align: center;">77.26</td>
+<td style="text-align: center;">93.41</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/efficientnet/efficientnet-b0_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/efficientnet/efficientnet-b0_3rdparty_8xb32-aa_in1k_20220119-8d939117.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">EfficientNet-B0 (AA + AdvProp)*</td>
+<td style="text-align: center;">5.29</td>
+<td style="text-align: center;">0.02</td>
+<td style="text-align: center;">77.53</td>
+<td style="text-align: center;">93.61</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/efficientnet/efficientnet-b0_8xb32-01norm_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/efficientnet/efficientnet-b0_3rdparty_8xb32-aa-advprop_in1k_20220119-26434485.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">EfficientNet-B1*</td>
+<td style="text-align: center;">7.79</td>
+<td style="text-align: center;">0.03</td>
+<td style="text-align: center;">78.68</td>
+<td style="text-align: center;">94.28</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/efficientnet/efficientnet-b1_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/efficientnet/efficientnet-b1_3rdparty_8xb32_in1k_20220119-002556d9.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">EfficientNet-B1 (AA)*</td>
+<td style="text-align: center;">7.79</td>
+<td style="text-align: center;">0.03</td>
+<td style="text-align: center;">79.20</td>
+<td style="text-align: center;">94.42</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/efficientnet/efficientnet-b1_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/efficientnet/efficientnet-b1_3rdparty_8xb32-aa_in1k_20220119-619d8ae3.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">EfficientNet-B1 (AA + AdvProp)*</td>
+<td style="text-align: center;">7.79</td>
+<td style="text-align: center;">0.03</td>
+<td style="text-align: center;">79.52</td>
+<td style="text-align: center;">94.43</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/efficientnet/efficientnet-b1_8xb32-01norm_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/efficientnet/efficientnet-b1_3rdparty_8xb32-aa-advprop_in1k_20220119-5715267d.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">EfficientNet-B2*</td>
+<td style="text-align: center;">9.11</td>
+<td style="text-align: center;">0.03</td>
+<td style="text-align: center;">79.64</td>
+<td style="text-align: center;">94.80</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/efficientnet/efficientnet-b2_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/efficientnet/efficientnet-b2_3rdparty_8xb32_in1k_20220119-ea374a30.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">EfficientNet-B2 (AA)*</td>
+<td style="text-align: center;">9.11</td>
+<td style="text-align: center;">0.03</td>
+<td style="text-align: center;">80.21</td>
+<td style="text-align: center;">94.96</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/efficientnet/efficientnet-b2_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/efficientnet/efficientnet-b2_3rdparty_8xb32-aa_in1k_20220119-dd61e80b.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">EfficientNet-B2 (AA + AdvProp)*</td>
+<td style="text-align: center;">9.11</td>
+<td style="text-align: center;">0.03</td>
+<td style="text-align: center;">80.45</td>
+<td style="text-align: center;">95.07</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/efficientnet/efficientnet-b2_8xb32-01norm_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/efficientnet/efficientnet-b2_3rdparty_8xb32-aa-advprop_in1k_20220119-1655338a.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">EfficientNet-B3*</td>
+<td style="text-align: center;">12.23</td>
+<td style="text-align: center;">0.06</td>
+<td style="text-align: center;">81.01</td>
+<td style="text-align: center;">95.34</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/efficientnet/efficientnet-b3_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/efficientnet/efficientnet-b3_3rdparty_8xb32_in1k_20220119-4b4d7487.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">EfficientNet-B3 (AA)*</td>
+<td style="text-align: center;">12.23</td>
+<td style="text-align: center;">0.06</td>
+<td style="text-align: center;">81.58</td>
+<td style="text-align: center;">95.67</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/efficientnet/efficientnet-b3_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/efficientnet/efficientnet-b3_3rdparty_8xb32-aa_in1k_20220119-5b4887a0.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">EfficientNet-B3 (AA + AdvProp)*</td>
+<td style="text-align: center;">12.23</td>
+<td style="text-align: center;">0.06</td>
+<td style="text-align: center;">81.81</td>
+<td style="text-align: center;">95.69</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/efficientnet/efficientnet-b3_8xb32-01norm_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/efficientnet/efficientnet-b3_3rdparty_8xb32-aa-advprop_in1k_20220119-53b41118.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">EfficientNet-B4*</td>
+<td style="text-align: center;">19.34</td>
+<td style="text-align: center;">0.12</td>
+<td style="text-align: center;">82.57</td>
+<td style="text-align: center;">96.09</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/efficientnet/efficientnet-b4_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/efficientnet/efficientnet-b4_3rdparty_8xb32_in1k_20220119-81fd4077.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">EfficientNet-B4 (AA)*</td>
+<td style="text-align: center;">19.34</td>
+<td style="text-align: center;">0.12</td>
+<td style="text-align: center;">82.95</td>
+<td style="text-align: center;">96.26</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/efficientnet/efficientnet-b4_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/efficientnet/efficientnet-b4_3rdparty_8xb32-aa_in1k_20220119-45b8bd2b.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">EfficientNet-B4 (AA + AdvProp)*</td>
+<td style="text-align: center;">19.34</td>
+<td style="text-align: center;">0.12</td>
+<td style="text-align: center;">83.25</td>
+<td style="text-align: center;">96.44</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/efficientnet/efficientnet-b4_8xb32-01norm_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/efficientnet/efficientnet-b4_3rdparty_8xb32-aa-advprop_in1k_20220119-38c2238c.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">EfficientNet-B5*</td>
+<td style="text-align: center;">30.39</td>
+<td style="text-align: center;">0.24</td>
+<td style="text-align: center;">83.18</td>
+<td style="text-align: center;">96.47</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/efficientnet/efficientnet-b5_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/efficientnet/efficientnet-b5_3rdparty_8xb32_in1k_20220119-e9814430.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">EfficientNet-B5 (AA)*</td>
+<td style="text-align: center;">30.39</td>
+<td style="text-align: center;">0.24</td>
+<td style="text-align: center;">83.82</td>
+<td style="text-align: center;">96.76</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/efficientnet/efficientnet-b5_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/efficientnet/efficientnet-b5_3rdparty_8xb32-aa_in1k_20220119-2cab8b78.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">EfficientNet-B5 (AA + AdvProp)*</td>
+<td style="text-align: center;">30.39</td>
+<td style="text-align: center;">0.24</td>
+<td style="text-align: center;">84.21</td>
+<td style="text-align: center;">96.98</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/efficientnet/efficientnet-b5_8xb32-01norm_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/efficientnet/efficientnet-b5_3rdparty_8xb32-aa-advprop_in1k_20220119-f57a895a.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">EfficientNet-B6 (AA)*</td>
+<td style="text-align: center;">43.04</td>
+<td style="text-align: center;">0.41</td>
+<td style="text-align: center;">84.05</td>
+<td style="text-align: center;">96.82</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/efficientnet/efficientnet-b6_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/efficientnet/efficientnet-b6_3rdparty_8xb32-aa_in1k_20220119-45b03310.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">EfficientNet-B6 (AA + AdvProp)*</td>
+<td style="text-align: center;">43.04</td>
+<td style="text-align: center;">0.41</td>
+<td style="text-align: center;">84.74</td>
+<td style="text-align: center;">97.14</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/efficientnet/efficientnet-b6_8xb32-01norm_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/efficientnet/efficientnet-b6_3rdparty_8xb32-aa-advprop_in1k_20220119-bfe3485e.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">EfficientNet-B7 (AA)*</td>
+<td style="text-align: center;">66.35</td>
+<td style="text-align: center;">0.72</td>
+<td style="text-align: center;">84.38</td>
+<td style="text-align: center;">96.88</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/efficientnet/efficientnet-b7_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/efficientnet/efficientnet-b7_3rdparty_8xb32-aa_in1k_20220119-bf03951c.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">EfficientNet-B7 (AA + AdvProp)*</td>
+<td style="text-align: center;">66.35</td>
+<td style="text-align: center;">0.72</td>
+<td style="text-align: center;">85.14</td>
+<td style="text-align: center;">97.23</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/efficientnet/efficientnet-b7_8xb32-01norm_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/efficientnet/efficientnet-b7_3rdparty_8xb32-aa-advprop_in1k_20220119-c6dbff10.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">EfficientNet-B8 (AA + AdvProp)*</td>
+<td style="text-align: center;">87.41</td>
+<td style="text-align: center;">1.09</td>
+<td style="text-align: center;">85.38</td>
+<td style="text-align: center;">97.28</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/efficientnet/efficientnet-b8_8xb32-01norm_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/efficientnet/efficientnet-b8_3rdparty_8xb32-aa-advprop_in1k_20220119-297ce1b7.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">ConvNeXt-T*</td>
+<td style="text-align: center;">28.59</td>
+<td style="text-align: center;">4.46</td>
+<td style="text-align: center;">82.05</td>
+<td style="text-align: center;">95.86</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/convnext/convnext-tiny_32xb128_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/convnext/convnext-tiny_3rdparty_32xb128_in1k_20220124-18abde00.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">ConvNeXt-S*</td>
+<td style="text-align: center;">50.22</td>
+<td style="text-align: center;">8.69</td>
+<td style="text-align: center;">83.13</td>
+<td style="text-align: center;">96.44</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/convnext/convnext-small_32xb128_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/convnext/convnext-small_3rdparty_32xb128_in1k_20220124-d39b5192.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">ConvNeXt-B*</td>
+<td style="text-align: center;">88.59</td>
+<td style="text-align: center;">15.36</td>
+<td style="text-align: center;">83.85</td>
+<td style="text-align: center;">96.74</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/convnext/convnext-base_32xb128_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/convnext/convnext-base_3rdparty_32xb128_in1k_20220124-d0915162.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">ConvNeXt-B*</td>
+<td style="text-align: center;">88.59</td>
+<td style="text-align: center;">15.36</td>
+<td style="text-align: center;">85.81</td>
+<td style="text-align: center;">97.86</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/convnext/convnext-base_32xb128_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/convnext/convnext-base_in21k-pre-3rdparty_32xb128_in1k_20220124-eb2d6ada.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">ConvNeXt-L*</td>
+<td style="text-align: center;">197.77</td>
+<td style="text-align: center;">34.37</td>
+<td style="text-align: center;">84.30</td>
+<td style="text-align: center;">96.89</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/convnext/convnext-large_64xb64_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/convnext/convnext-large_3rdparty_64xb64_in1k_20220124-f8a0ded0.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">ConvNeXt-L*</td>
+<td style="text-align: center;">197.77</td>
+<td style="text-align: center;">34.37</td>
+<td style="text-align: center;">86.61</td>
+<td style="text-align: center;">98.04</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/convnext/convnext-large_64xb64_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/convnext/convnext-large_in21k-pre-3rdparty_64xb64_in1k_20220124-2412403d.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">ConvNeXt-XL*</td>
+<td style="text-align: center;">350.20</td>
+<td style="text-align: center;">60.93</td>
+<td style="text-align: center;">86.97</td>
+<td style="text-align: center;">98.20</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/convnext/convnext-xlarge_64xb64_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/convnext/convnext-xlarge_in21k-pre-3rdparty_64xb64_in1k_20220124-76b6863d.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">HRNet-W18*</td>
+<td style="text-align: center;">21.30</td>
+<td style="text-align: center;">4.33</td>
+<td style="text-align: center;">76.75</td>
+<td style="text-align: center;">93.44</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/hrnet/hrnet-w18_4xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/hrnet/hrnet-w18_3rdparty_8xb32_in1k_20220120-0c10b180.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">HRNet-W30*</td>
+<td style="text-align: center;">37.71</td>
+<td style="text-align: center;">8.17</td>
+<td style="text-align: center;">78.19</td>
+<td style="text-align: center;">94.22</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/hrnet/hrnet-w30_4xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/hrnet/hrnet-w30_3rdparty_8xb32_in1k_20220120-8aa3832f.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">HRNet-W32*</td>
+<td style="text-align: center;">41.23</td>
+<td style="text-align: center;">8.99</td>
+<td style="text-align: center;">78.44</td>
+<td style="text-align: center;">94.19</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/hrnet/hrnet-w32_4xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/hrnet/hrnet-w32_3rdparty_8xb32_in1k_20220120-c394f1ab.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">HRNet-W40*</td>
+<td style="text-align: center;">57.55</td>
+<td style="text-align: center;">12.77</td>
+<td style="text-align: center;">78.94</td>
+<td style="text-align: center;">94.47</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/hrnet/hrnet-w40_4xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/hrnet/hrnet-w40_3rdparty_8xb32_in1k_20220120-9a2dbfc5.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">HRNet-W44*</td>
+<td style="text-align: center;">67.06</td>
+<td style="text-align: center;">14.96</td>
+<td style="text-align: center;">78.88</td>
+<td style="text-align: center;">94.37</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/hrnet/hrnet-w44_4xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/hrnet/hrnet-w44_3rdparty_8xb32_in1k_20220120-35d07f73.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">HRNet-W48*</td>
+<td style="text-align: center;">77.47</td>
+<td style="text-align: center;">17.36</td>
+<td style="text-align: center;">79.32</td>
+<td style="text-align: center;">94.52</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/hrnet/hrnet-w48_4xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/hrnet/hrnet-w48_3rdparty_8xb32_in1k_20220120-e555ef50.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">HRNet-W64*</td>
+<td style="text-align: center;">128.06</td>
+<td style="text-align: center;">29.00</td>
+<td style="text-align: center;">79.46</td>
+<td style="text-align: center;">94.65</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/hrnet/hrnet-w64_4xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/hrnet/hrnet-w64_3rdparty_8xb32_in1k_20220120-19126642.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">HRNet-W18 (ssld)*</td>
+<td style="text-align: center;">21.30</td>
+<td style="text-align: center;">4.33</td>
+<td style="text-align: center;">81.06</td>
+<td style="text-align: center;">95.70</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/hrnet/hrnet-w18_4xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/hrnet/hrnet-w18_3rdparty_8xb32-ssld_in1k_20220120-455f69ea.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">HRNet-W48 (ssld)*</td>
+<td style="text-align: center;">77.47</td>
+<td style="text-align: center;">17.36</td>
+<td style="text-align: center;">83.63</td>
+<td style="text-align: center;">96.79</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/hrnet/hrnet-w48_4xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/hrnet/hrnet-w48_3rdparty_8xb32-ssld_in1k_20220120-d0459c38.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">WRN-50*</td>
+<td style="text-align: center;">68.88</td>
+<td style="text-align: center;">11.44</td>
+<td style="text-align: center;">81.45</td>
+<td style="text-align: center;">95.53</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/wrn/wide-resnet50_timm_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/wrn/wide-resnet50_3rdparty-timm_8xb32_in1k_20220304-83ae4399.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">WRN-101*</td>
+<td style="text-align: center;">126.89</td>
+<td style="text-align: center;">22.81</td>
+<td style="text-align: center;">78.84</td>
+<td style="text-align: center;">94.28</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/wrn/wide-resnet101_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/wrn/wide-resnet101_3rdparty_8xb32_in1k_20220304-8d5f9d61.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">CSPDarkNet50*</td>
+<td style="text-align: center;">27.64</td>
+<td style="text-align: center;">5.04</td>
+<td style="text-align: center;">80.05</td>
+<td style="text-align: center;">95.07</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/cspnet/cspdarknet50_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/cspnet/cspdarknet50_3rdparty_8xb32_in1k_20220329-bd275287.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">CSPResNet50*</td>
+<td style="text-align: center;">21.62</td>
+<td style="text-align: center;">3.48</td>
+<td style="text-align: center;">79.55</td>
+<td style="text-align: center;">94.68</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/cspnet/cspresnet50_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/cspnet/cspresnet50_3rdparty_8xb32_in1k_20220329-dd6dddfb.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">CSPResNeXt50*</td>
+<td style="text-align: center;">20.57</td>
+<td style="text-align: center;">3.11</td>
+<td style="text-align: center;">79.96</td>
+<td style="text-align: center;">94.96</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/cspnet/cspresnext50_8xb32_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/cspnet/cspresnext50_3rdparty_8xb32_in1k_20220329-2cc84d21.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">DenseNet121*</td>
+<td style="text-align: center;">7.98</td>
+<td style="text-align: center;">2.88</td>
+<td style="text-align: center;">74.96</td>
+<td style="text-align: center;">92.21</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/densenet/densenet121_4xb256_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/densenet/densenet121_4xb256_in1k_20220426-07450f99.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">DenseNet169*</td>
+<td style="text-align: center;">14.15</td>
+<td style="text-align: center;">3.42</td>
+<td style="text-align: center;">76.08</td>
+<td style="text-align: center;">93.11</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/densenet/densenet169_4xb256_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/densenet/densenet169_4xb256_in1k_20220426-a2889902.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">DenseNet201*</td>
+<td style="text-align: center;">20.01</td>
+<td style="text-align: center;">4.37</td>
+<td style="text-align: center;">77.32</td>
+<td style="text-align: center;">93.64</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/densenet/densenet201_4xb256_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/densenet/densenet201_4xb256_in1k_20220426-05cae4ef.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">DenseNet161*</td>
+<td style="text-align: center;">28.68</td>
+<td style="text-align: center;">7.82</td>
+<td style="text-align: center;">77.61</td>
+<td style="text-align: center;">93.83</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/densenet/densenet161_4xb256_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/densenet/densenet161_4xb256_in1k_20220426-ee6a80a9.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">VAN-T*</td>
+<td style="text-align: center;">4.11</td>
+<td style="text-align: center;">0.88</td>
+<td style="text-align: center;">75.41</td>
+<td style="text-align: center;">93.02</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/van/van-tiny_8xb128_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/van/van-tiny_8xb128_in1k_20220501-385941af.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">VAN-S*</td>
+<td style="text-align: center;">13.86</td>
+<td style="text-align: center;">2.52</td>
+<td style="text-align: center;">81.01</td>
+<td style="text-align: center;">95.63</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/van/van-small_8xb128_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/van/van-small_8xb128_in1k_20220501-17bc91aa.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">VAN-B*</td>
+<td style="text-align: center;">26.58</td>
+<td style="text-align: center;">5.03</td>
+<td style="text-align: center;">82.80</td>
+<td style="text-align: center;">96.21</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/van/van-base_8xb128_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/van/van-base_8xb128_in1k_20220501-6a4cc31b.pth">model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">VAN-L*</td>
+<td style="text-align: center;">44.77</td>
+<td style="text-align: center;">8.99</td>
+<td style="text-align: center;">83.86</td>
+<td style="text-align: center;">96.73</td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/van/van-large_8xb128_in1k.py">config</a></td>
+<td style="text-align: center;"><a href="https://download.openmmlab.com/mmclassification/v0/van/van-large_8xb128_in1k_20220501-f212ba21.pth">model</a></td>
+</tr>
+</tbody>
+</table>
+<p><em>Models with * are converted from other repos, others are trained by ourselves.</em></p>
+</section>
+<section id="cifar10">
+<h2>CIFAR10<a class="headerlink" href="#cifar10" title="Permalink to this heading">¶</a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th style="text-align: center;">Model</th>
+<th style="text-align: center;">Params(M)</th>
+<th style="text-align: center;">Flops(G)</th>
+<th style="text-align: center;">Top-1 (%)</th>
+<th style="text-align: center;">Config</th>
+<th style="text-align: center;">Download</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">ResNet-18-b16x8</td>
+<td style="text-align: center;">11.17</td>
+<td style="text-align: center;">0.56</td>
+<td style="text-align: center;">94.82</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/resnet/resnet18_8xb16_cifar10.py">config</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">ResNet-34-b16x8</td>
+<td style="text-align: center;">21.28</td>
+<td style="text-align: center;">1.16</td>
+<td style="text-align: center;">95.34</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/resnet/resnet34_8xb16_cifar10.py">config</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">ResNet-50-b16x8</td>
+<td style="text-align: center;">23.52</td>
+<td style="text-align: center;">1.31</td>
+<td style="text-align: center;">95.55</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/resnet/resnet50_8xb16_cifar10.py">config</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">ResNet-101-b16x8</td>
+<td style="text-align: center;">42.51</td>
+<td style="text-align: center;">2.52</td>
+<td style="text-align: center;">95.58</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/resnet/resnet101_8xb16_cifar10.py">config</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">ResNet-152-b16x8</td>
+<td style="text-align: center;">58.16</td>
+<td style="text-align: center;">3.74</td>
+<td style="text-align: center;">95.76</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><a href="https://github.com/open-mmlab/mmclassification/blob/master/configs/resnet/resnet152_8xb16_cifar10.py">config</a></td>
+</tr>
+</tbody>
+</table></section>
+</section>
+
+
+              </article>
+              
+            </div>
+            <footer>
+  
+  <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+    
+    <a href="tools/pytorch2onnx.html" class="btn btn-neutral float-right" title="Pytorch to ONNX (Experimental)" accesskey="n"
+      rel="next">Next <img src="_static/images/chevron-right-blue.svg"
+        class="next-page"></a>
+    
+    
+    <a href="tutorials/runtime.html" class="btn btn-neutral" title="Tutorial 7: Customize Runtime Settings" accesskey="p"
+      rel="prev"><img src="_static/images/chevron-right-blue.svg" class="previous-page"> Previous</a>
+    
+  </div>
+  
+
+  <hr>
+
+  <div role="contentinfo">
+    <p>
+      &copy; Copyright 2022, EarthNets.
+
+    </p>
+  </div>
+  
+  <div>
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a
+      href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the
+      Docs</a>.
+  </div>
+   
+
+</footer>
+          </div>
+        </div>
+
+        <div class="pytorch-content-right" id="pytorch-content-right">
+          <div class="pytorch-right-menu" id="pytorch-right-menu">
+            <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
+              <ul>
+<li><a class="reference internal" href="#">Model Zoo</a><ul>
+<li><a class="reference internal" href="#imagenet">ImageNet</a></li>
+<li><a class="reference internal" href="#cifar10">CIFAR10</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+          </div>
+        </div>
+    </section>
+  </div>
+
+  
+
+
+  
+
+  
+  <script type="text/javascript" id="documentation_options" data-url_root="./"
+    src="_static/documentation_options.js"></script>
+  <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+  <script src="_static/jquery.js"></script>
+  <script src="_static/underscore.js"></script>
+  <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+  <script src="_static/doctools.js"></script>
+  <script src="_static/clipboard.min.js"></script>
+  <script src="_static/copybutton.js"></script>
+  <script src="_static/js/custom.js"></script>
+  
+
+  
+
+  <script type="text/javascript" src="_static/js/vendor/popper.min.js"></script>
+  <script type="text/javascript" src="_static/js/vendor/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+    jQuery(function () {
+      SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+  <!-- Begin Footer -->
+
+  <div class="container-fluid docs-tutorials-resources" id="docs-tutorials-resources">
+  </div>
+
+  <!-- End Footer -->
+
+  <!-- Begin Mobile Menu -->
+
+  <div class="mobile-main-menu">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="mobile-main-menu-header-container">
+          <a class="header-logo" href="https://rsi-classification.readthedocs.io/en/latest/" aria-label="OpenMMLab"></a>
+          <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-main-menu-links-container">
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://github.com/EarthNets/RSI-Segmentation/blob/main/demo/rsi_classification_tutorial.ipynb" target="_blank">Tutorial</a>
+          </li>
+          <li>
+            <a href="https://github.com/EarthNets/RSI-Classification" target="_blank">GitHub</a>
+          </li>
+          <li class="resources-mobile-menu-title" >
+            About
+          </li>
+          <ul class="resources-mobile-menu-items">
+            <li>
+              <a href="https://github.com/open-mmlab/mmcv" target="_blank">MMCV</a>
+            </li>
+          </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Mobile Menu -->
+
+  <script type="text/javascript" src="_static/js/vendor/anchor.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      mobileMenu.bind();
+      mobileTOC.bind();
+      pytorchAnchors.bind();
+      sideMenus.bind();
+      scrollToAnchor.bind();
+      highlightNavigation.bind();
+      mainMenuDropdown.bind();
+      filterTags.bind();
+
+      // Add class to links that have code blocks, since we cannot create links in code blocks
+      $("article.pytorch-article a span.pre").each(function (e) {
+        $(this).closest("a").addClass("has-code");
+      });
+    })
+  </script>
+</body>
+
+</html>

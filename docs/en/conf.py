@@ -21,9 +21,9 @@ sys.path.insert(0, os.path.abspath('../../'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'MMClassification'
-copyright = '2020, OpenMMLab'
-author = 'MMClassification Authors'
+project = 'RSI-Classification'
+copyright = '2022, EarthNets'
+author = 'RSI-Classification Authors'
 
 # The full version, including alpha/beta/rc tags
 version_file = '../../rsicls/version.py'
@@ -90,31 +90,25 @@ html_theme_path = [pytorch_sphinx_theme.get_html_theme_path()]
 #
 html_theme_options = {
     'logo_url':
-    'https://mmclassification.readthedocs.io/en/latest/',
+    'https://rsi-classification.readthedocs.io/en/latest/',
     'menu': [
         {
+            'name': 'Tutorial',
+            'url': 'https://github.com/EarthNets/RSI-Segmentation/blob/main/'
+            'demo/rsi_classification_tutorial.ipynb'
+        },
+        {
             'name': 'GitHub',
-            'url': 'https://github.com/open-mmlab/mmclassification'
+            'url': 'https://github.com/EarthNets/RSI-Classification'
         },
         {
             'name':
-            'Colab Tutorials',
+            'About',
             'children': [
                 {
-                    'name':
-                    'Train and inference with shell commands',
-                    'url':
-                    'https://colab.research.google.com/github/'
-                    'open-mmlab/mmclassification/blob/master/docs/en/'
-                    'tutorials/MMClassification_tools.ipynb',
-                },
-                {
-                    'name':
-                    'Train and inference with Python APIs',
-                    'url':
-                    'https://colab.research.google.com/github/'
-                    'open-mmlab/mmclassification/blob/master/docs/en/'
-                    'tutorials/MMClassification_python.ipynb',
+                    'name': 'MMCV',
+                    'url': 'https://github.com/open-mmlab/mmcv',
+                    'description': 'Foundational library for computer vision'
                 },
             ]
         },

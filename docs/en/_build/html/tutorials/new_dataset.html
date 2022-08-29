@@ -1,0 +1,683 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tutorial 3: Customize Dataset &mdash; RSI-Classification 0.23.1 documentation</title>
+  
+
+  <link rel="shortcut icon" href="../_static/images/favicon.ico" />
+  
+  
+
+  
+
+  
+  
+  
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> -->
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/readthedocs.css" type="text/css" />
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Search" href="../search.html" />
+  <link rel="next" title="Tutorial 4: Custom Data Pipelines" href="data_pipeline.html" />
+  <link rel="prev" title="Tutorial 2: Fine-tune Models" href="finetune.html" />
+  <!-- Google Analytics -->
+  <script type="text/javascript">
+    var collapsedSections = [];
+  </script>
+  
+  <!-- End Google Analytics -->
+  
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+  <script>
+    MathJax = {
+        chtml: {
+            scale: 1,
+            minScale: 1,
+        },
+        svg: {
+            scale: 1,
+            minScale: 1,
+        }
+    }
+</script>
+
+  <!-- Preload the theme fonts -->
+
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-book.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/IBMPlexMono/IBMPlexMono-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-medium-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/IBMPlexMono/IBMPlexMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+<!-- Preload the katex fonts -->
+
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Math-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size1-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size4-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size2-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size3-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Caligraphic-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+</head>
+
+<div class="container-fluid header-holder tutorials-header" id="header-holder">
+  <div class="container">
+    <div class="header-container">
+      <a class="header-logo" href="https://rsi-classification.readthedocs.io/en/latest/"
+        aria-label="OpenMMLab"></a>
+
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://github.com/EarthNets/RSI-Segmentation/blob/main/demo/rsi_classification_tutorial.ipynb" target="_blank">Tutorial</a>
+          </li>
+          <li>
+            <a href="https://github.com/EarthNets/RSI-Classification" target="_blank">GitHub</a>
+          </li>
+          <li >
+            <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
+              <a
+                class="resource-option with-down-arrow">
+                About
+              </a>
+              <div class="resources-dropdown-menu">
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/open-mmlab/mmcv" target="_blank">
+                  <span class="dropdown-title">MMCV </span>
+                  <p>Foundational library for computer vision</p>
+                </a>
+              </div>
+          </li>
+          <li >
+            <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
+              <a
+                class="resource-option with-down-arrow">
+                EarthNets
+              </a>
+              <div class="resources-dropdown-menu">
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/Dataset4EO" target="_blank">
+                  <span class="dropdown-title">Dataset4EO </span>
+                  <p>Re-organize remote sensing datasets.</p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/RSI-Classification" target="_blank">
+                  <span class="dropdown-title">RSI-Classification </span>
+                  <p>Image/scene classification for RS images.</p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/RSI-Segmentation" target="_blank">
+                  <span class="dropdown-title">RSI-Segmentation </span>
+                  <p>Pixel-wise semantic segmentation for RS images.</p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/RSI-Detection" target="_blank">
+                  <span class="dropdown-title">RSI-Detection </span>
+                  <p>Object detection for RS images.</p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/RSI-ChangeDetection" target="_blank">
+                  <span class="dropdown-title">RSI-ChangeDetection </span>
+                  <p>Change detection for RS images.</p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/RSI-SelfSupervised" target="_blank">
+                  <span class="dropdown-title">RSI-SelfSupervised </span>
+                  <p>Self-supervised learning for RS images.</p>
+                </a>
+              </div>
+          </li>
+        </ul>
+      </div>
+
+      <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
+    </div>
+  </div>
+</div>
+
+<body class="pytorch-body">
+
+   
+
+  
+
+  <div class="table-of-contents-link-wrapper">
+    <span>Table of Contents</span>
+    <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
+  </div>
+
+  <nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
+    <div class="pytorch-side-scroll">
+      <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <div class="pytorch-left-menu-search">
+          
+
+          
+          
+          
+          
+
+          
+
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search Docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        
+        
+        
+        
+        
+        <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html#installation">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="config.html">Tutorial 1: Learn about Configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="finetune.html">Tutorial 2: Fine-tune Models</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial 3: Customize Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_pipeline.html">Tutorial 4: Custom Data Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_modules.html">Tutorial 5: Adding New Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schedule.html">Tutorial 6: Customize Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="runtime.html">Tutorial 7: Customize Runtime Settings</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Model zoo</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../model_zoo.html">Model Zoo</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Useful Tools and Scripts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tools/pytorch2onnx.html">Pytorch to ONNX (Experimental)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/onnx2tensorrt.html">ONNX to TensorRT (Experimental)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/pytorch2torchscript.html">Pytorch to TorchScript (Experimental)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/model_serving.html">Model Serving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/visualization.html">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/analysis.html">Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/miscellaneous.html">Miscellaneous</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+</ul>
+
+        
+        
+      </div>
+    </div>
+  </nav>
+
+  <div class="pytorch-container">
+    <div class="pytorch-page-level-bar" id="pytorch-page-level-bar">
+      <div class="pytorch-breadcrumbs-wrapper">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="pytorch-breadcrumbs">
+    
+      <li>
+        <a href="../index.html">
+            Docs
+        </a> &gt;
+      </li>
+
+        
+      <li>Tutorial 3: Customize Dataset</li>
+    
+    
+      <li class="pytorch-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/tutorials/new_dataset.md.txt" rel="nofollow"><img src="../_static/images/view-page-source-icon.svg"></a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+</div>
+      </div>
+
+      <div class="pytorch-shortcuts-wrapper" id="pytorch-shortcuts-wrapper">
+        Shortcuts
+      </div>
+    </div>
+
+    <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
+      <div class="pytorch-content-left">
+        
+          <div class="rst-content">
+            
+            <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
+              <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
+                
+  <section id="tutorial-3-customize-dataset">
+<h1>Tutorial 3: Customize Dataset<a class="headerlink" href="#tutorial-3-customize-dataset" title="Permalink to this heading">¶</a></h1>
+<p>We support many common public datasets for image classification task, you can find them in
+<a class="reference external" href="https://mmclassification.readthedocs.io/en/latest/api/datasets.html">this page</a>.</p>
+<p>In this section, we demonstrate how to <a class="reference internal" href="#use-your-own-dataset"><span class="std std-doc">use your own dataset</span></a>
+and <a class="reference internal" href="#use-dataset-wrapper"><span class="std std-doc">use dataset wrapper</span></a>.</p>
+<section id="use-your-own-dataset">
+<h2>Use your own dataset<a class="headerlink" href="#use-your-own-dataset" title="Permalink to this heading">¶</a></h2>
+<section id="reorganize-dataset-to-existing-format">
+<h3>Reorganize dataset to existing format<a class="headerlink" href="#reorganize-dataset-to-existing-format" title="Permalink to this heading">¶</a></h3>
+<p>The simplest way to use your own dataset is to convert it to existing dataset formats.</p>
+<p>For multi-class classification task, we recommend to use the format of
+<a class="reference external" href="https://mmclassification.readthedocs.io/en/latest/api/datasets.html#rsicls.datasets.CustomDataset"><code class="docutils literal notranslate"><span class="pre">CustomDataset</span></code></a>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">CustomDataset</span></code> supports two kinds of format:</p>
+<ol class="arabic">
+<li><p>An annotation file is provided, and each line indicates a sample image.</p>
+<p>The sample images can be organized in any structure, like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>train/
+├── folder_1
+│   ├── xxx.png
+│   ├── xxy.png
+│   └── ...
+├── 123.png
+├── nsdf3.png
+└── ...
+</pre></div>
+</div>
+<p>And an annotation file records all paths of samples and corresponding
+category index. The first column is the image path relative to the folder
+(in this example, <code class="docutils literal notranslate"><span class="pre">train</span></code>) and the second column is the index of category:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">folder_1</span><span class="o">/</span><span class="n">xxx</span><span class="o">.</span><span class="n">png</span> <span class="mi">0</span>
+<span class="n">folder_1</span><span class="o">/</span><span class="n">xxy</span><span class="o">.</span><span class="n">png</span> <span class="mi">1</span>
+<span class="mf">123.</span><span class="n">png</span> <span class="mi">1</span>
+<span class="n">nsdf3</span><span class="o">.</span><span class="n">png</span> <span class="mi">2</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The value of the category indices should fall in range <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">num_classes</span> <span class="pre">-</span> <span class="pre">1]</span></code>.</p>
+</div>
+</li>
+<li><p>The sample images are arranged in the special structure:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>train/
+├── cat
+│   ├── xxx.png
+│   ├── xxy.png
+│   └── ...
+│       └── xxz.png
+├── bird
+│   ├── bird1.png
+│   ├── bird2.png
+│   └── ...
+└── dog
+    ├── 123.png
+    ├── nsdf3.png
+    ├── ...
+    └── asd932_.png
+</pre></div>
+</div>
+<p>In this case, you don’t need provide annotation file, and all images in the directory <code class="docutils literal notranslate"><span class="pre">cat</span></code> will be
+recognized as samples of <code class="docutils literal notranslate"><span class="pre">cat</span></code>.</p>
+</li>
+</ol>
+<p>Usually, we will split the whole dataset to three sub datasets: <code class="docutils literal notranslate"><span class="pre">train</span></code>, <code class="docutils literal notranslate"><span class="pre">val</span></code>
+and <code class="docutils literal notranslate"><span class="pre">test</span></code> for training, validation and test. And <strong>every</strong> sub dataset should
+be organized as one of the above structures.</p>
+<p>For example, the whole dataset is as below (using the first structure):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>mmclassification
+└── data
+    └── my_dataset
+        ├── meta
+        │   ├── train.txt
+        │   ├── val.txt
+        │   └── test.txt
+        ├── train
+        ├── val
+        └── test
+</pre></div>
+</div>
+<p>And in your config file, you can modify the <code class="docutils literal notranslate"><span class="pre">data</span></code> field as below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="n">dataset_type</span> <span class="o">=</span> <span class="s1">&#39;CustomDataset&#39;</span>
+<span class="n">classes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;bird&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">]</span>  <span class="c1"># The category names of your dataset</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">train</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+        <span class="nb">type</span><span class="o">=</span><span class="n">dataset_type</span><span class="p">,</span>
+        <span class="n">data_prefix</span><span class="o">=</span><span class="s1">&#39;data/my_dataset/train&#39;</span><span class="p">,</span>
+        <span class="n">ann_file</span><span class="o">=</span><span class="s1">&#39;data/my_dataset/meta/train.txt&#39;</span><span class="p">,</span>
+        <span class="n">classes</span><span class="o">=</span><span class="n">classes</span><span class="p">,</span>
+        <span class="n">pipeline</span><span class="o">=</span><span class="n">train_pipeline</span>
+    <span class="p">),</span>
+    <span class="n">val</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+        <span class="nb">type</span><span class="o">=</span><span class="n">dataset_type</span><span class="p">,</span>
+        <span class="n">data_prefix</span><span class="o">=</span><span class="s1">&#39;data/my_dataset/val&#39;</span><span class="p">,</span>
+        <span class="n">ann_file</span><span class="o">=</span><span class="s1">&#39;data/my_dataset/meta/val.txt&#39;</span><span class="p">,</span>
+        <span class="n">classes</span><span class="o">=</span><span class="n">classes</span><span class="p">,</span>
+        <span class="n">pipeline</span><span class="o">=</span><span class="n">test_pipeline</span>
+    <span class="p">),</span>
+    <span class="n">test</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+        <span class="nb">type</span><span class="o">=</span><span class="n">dataset_type</span><span class="p">,</span>
+        <span class="n">data_prefix</span><span class="o">=</span><span class="s1">&#39;data/my_dataset/test&#39;</span><span class="p">,</span>
+        <span class="n">ann_file</span><span class="o">=</span><span class="s1">&#39;data/my_dataset/meta/test.txt&#39;</span><span class="p">,</span>
+        <span class="n">classes</span><span class="o">=</span><span class="n">classes</span><span class="p">,</span>
+        <span class="n">pipeline</span><span class="o">=</span><span class="n">test_pipeline</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+</section>
+<section id="create-a-new-dataset-class">
+<h3>Create a new dataset class<a class="headerlink" href="#create-a-new-dataset-class" title="Permalink to this heading">¶</a></h3>
+<p>You can write a new dataset class inherited from <code class="docutils literal notranslate"><span class="pre">BaseDataset</span></code>, and overwrite <code class="docutils literal notranslate"><span class="pre">load_annotations(self)</span></code>,
+like <a class="reference external" href="https://github.com/open-mmlab/mmclassification/blob/master/rsicls/datasets/cifar.py">CIFAR10</a> and
+<a class="reference external" href="https://github.com/open-mmlab/mmclassification/blob/master/rsicls/datasets/custom.py">CustomDataset</a>.</p>
+<p>Typically, this function returns a list, where each sample is a dict, containing necessary data information,
+e.g., <code class="docutils literal notranslate"><span class="pre">img</span></code> and <code class="docutils literal notranslate"><span class="pre">gt_label</span></code>.</p>
+<p>Assume we are going to implement a <code class="docutils literal notranslate"><span class="pre">Filelist</span></code> dataset, which takes filelists for both training and testing.
+The format of annotation list is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">000001.</span><span class="n">jpg</span> <span class="mi">0</span>
+<span class="mf">000002.</span><span class="n">jpg</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>We can create a new dataset in <code class="docutils literal notranslate"><span class="pre">rsicls/datasets/filelist.py</span></code> to load the data.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mmcv</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">.builder</span> <span class="kn">import</span> <span class="n">DATASETS</span>
+<span class="kn">from</span> <span class="nn">.base_dataset</span> <span class="kn">import</span> <span class="n">BaseDataset</span>
+
+
+<span class="nd">@DATASETS.register_module</span><span class="p">()</span>
+<span class="k">class</span> <span class="nc">Filelist</span><span class="p">(</span><span class="n">BaseDataset</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">load_annotations</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ann_file</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+
+        <span class="n">data_infos</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ann_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">samples</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()]</span>
+            <span class="k">for</span> <span class="n">filename</span><span class="p">,</span> <span class="n">gt_label</span> <span class="ow">in</span> <span class="n">samples</span><span class="p">:</span>
+                <span class="n">info</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;img_prefix&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_prefix</span><span class="p">}</span>
+                <span class="n">info</span><span class="p">[</span><span class="s1">&#39;img_info&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;filename&#39;</span><span class="p">:</span> <span class="n">filename</span><span class="p">}</span>
+                <span class="n">info</span><span class="p">[</span><span class="s1">&#39;gt_label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">gt_label</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+                <span class="n">data_infos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">data_infos</span>
+
+</pre></div>
+</div>
+<p>And add this dataset class in <code class="docutils literal notranslate"><span class="pre">rsicls/datasets/__init__.py</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">.base_dataset</span> <span class="kn">import</span> <span class="n">BaseDataset</span>
+<span class="o">...</span>
+<span class="kn">from</span> <span class="nn">.filelist</span> <span class="kn">import</span> <span class="n">Filelist</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;BaseDataset&#39;</span><span class="p">,</span> <span class="o">...</span> <span class="p">,</span><span class="s1">&#39;Filelist&#39;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Then in the config, to use <code class="docutils literal notranslate"><span class="pre">Filelist</span></code> you can modify the config as the following</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">train</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;Filelist&#39;</span><span class="p">,</span>
+    <span class="n">ann_file</span><span class="o">=</span><span class="s1">&#39;image_list.txt&#39;</span><span class="p">,</span>
+    <span class="n">pipeline</span><span class="o">=</span><span class="n">train_pipeline</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="use-dataset-wrapper">
+<h2>Use dataset wrapper<a class="headerlink" href="#use-dataset-wrapper" title="Permalink to this heading">¶</a></h2>
+<p>The dataset wrapper is a kind of class to change the behavior of dataset class, such as repeat the dataset or
+re-balance the samples of different categories.</p>
+<section id="repeat-dataset">
+<h3>Repeat dataset<a class="headerlink" href="#repeat-dataset" title="Permalink to this heading">¶</a></h3>
+<p>We use <code class="docutils literal notranslate"><span class="pre">RepeatDataset</span></code> as wrapper to repeat the dataset. For example, suppose the original dataset is
+<code class="docutils literal notranslate"><span class="pre">Dataset_A</span></code>, to repeat it, the config looks like the following</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">train</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+        <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;RepeatDataset&#39;</span><span class="p">,</span>
+        <span class="n">times</span><span class="o">=</span><span class="n">N</span><span class="p">,</span>
+        <span class="n">dataset</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>  <span class="c1"># This is the original config of Dataset_A</span>
+            <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;Dataset_A&#39;</span><span class="p">,</span>
+            <span class="o">...</span>
+            <span class="n">pipeline</span><span class="o">=</span><span class="n">train_pipeline</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">...</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="class-balanced-dataset">
+<h3>Class balanced dataset<a class="headerlink" href="#class-balanced-dataset" title="Permalink to this heading">¶</a></h3>
+<p>We use <code class="docutils literal notranslate"><span class="pre">ClassBalancedDataset</span></code> as wrapper to repeat the dataset based on category frequency. The dataset to
+repeat needs to implement method <code class="docutils literal notranslate"><span class="pre">get_cat_ids(idx)</span></code> to support <code class="docutils literal notranslate"><span class="pre">ClassBalancedDataset</span></code>. For example, to repeat
+<code class="docutils literal notranslate"><span class="pre">Dataset_A</span></code> with <code class="docutils literal notranslate"><span class="pre">oversample_thr=1e-3</span></code>, the config looks like the following</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">train</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+        <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;ClassBalancedDataset&#39;</span><span class="p">,</span>
+        <span class="n">oversample_thr</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span>
+        <span class="n">dataset</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>  <span class="c1"># This is the original config of Dataset_A</span>
+            <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;Dataset_A&#39;</span><span class="p">,</span>
+            <span class="o">...</span>
+            <span class="n">pipeline</span><span class="o">=</span><span class="n">train_pipeline</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">...</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>You may refer to <a class="reference external" href="https://mmclassification.readthedocs.io/en/latest/api/datasets.html#rsicls.datasets.ClassBalancedDataset">API reference</a> for details.</p>
+</section>
+</section>
+</section>
+
+
+              </article>
+              
+            </div>
+            <footer>
+  
+  <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+    
+    <a href="data_pipeline.html" class="btn btn-neutral float-right" title="Tutorial 4: Custom Data Pipelines" accesskey="n"
+      rel="next">Next <img src="../_static/images/chevron-right-blue.svg"
+        class="next-page"></a>
+    
+    
+    <a href="finetune.html" class="btn btn-neutral" title="Tutorial 2: Fine-tune Models" accesskey="p"
+      rel="prev"><img src="../_static/images/chevron-right-blue.svg" class="previous-page"> Previous</a>
+    
+  </div>
+  
+
+  <hr>
+
+  <div role="contentinfo">
+    <p>
+      &copy; Copyright 2022, EarthNets.
+
+    </p>
+  </div>
+  
+  <div>
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a
+      href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the
+      Docs</a>.
+  </div>
+   
+
+</footer>
+          </div>
+        </div>
+
+        <div class="pytorch-content-right" id="pytorch-content-right">
+          <div class="pytorch-right-menu" id="pytorch-right-menu">
+            <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
+              <ul>
+<li><a class="reference internal" href="#">Tutorial 3: Customize Dataset</a><ul>
+<li><a class="reference internal" href="#use-your-own-dataset">Use your own dataset</a><ul>
+<li><a class="reference internal" href="#reorganize-dataset-to-existing-format">Reorganize dataset to existing format</a></li>
+<li><a class="reference internal" href="#create-a-new-dataset-class">Create a new dataset class</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#use-dataset-wrapper">Use dataset wrapper</a><ul>
+<li><a class="reference internal" href="#repeat-dataset">Repeat dataset</a></li>
+<li><a class="reference internal" href="#class-balanced-dataset">Class balanced dataset</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+          </div>
+        </div>
+    </section>
+  </div>
+
+  
+
+
+  
+
+  
+  <script type="text/javascript" id="documentation_options" data-url_root="../"
+    src="../_static/documentation_options.js"></script>
+  <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+  <script src="../_static/jquery.js"></script>
+  <script src="../_static/underscore.js"></script>
+  <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+  <script src="../_static/doctools.js"></script>
+  <script src="../_static/clipboard.min.js"></script>
+  <script src="../_static/copybutton.js"></script>
+  <script src="../_static/js/custom.js"></script>
+  
+
+  
+
+  <script type="text/javascript" src="../_static/js/vendor/popper.min.js"></script>
+  <script type="text/javascript" src="../_static/js/vendor/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+    jQuery(function () {
+      SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+  <!-- Begin Footer -->
+
+  <div class="container-fluid docs-tutorials-resources" id="docs-tutorials-resources">
+  </div>
+
+  <!-- End Footer -->
+
+  <!-- Begin Mobile Menu -->
+
+  <div class="mobile-main-menu">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="mobile-main-menu-header-container">
+          <a class="header-logo" href="https://rsi-classification.readthedocs.io/en/latest/" aria-label="OpenMMLab"></a>
+          <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-main-menu-links-container">
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://github.com/EarthNets/RSI-Segmentation/blob/main/demo/rsi_classification_tutorial.ipynb" target="_blank">Tutorial</a>
+          </li>
+          <li>
+            <a href="https://github.com/EarthNets/RSI-Classification" target="_blank">GitHub</a>
+          </li>
+          <li class="resources-mobile-menu-title" >
+            About
+          </li>
+          <ul class="resources-mobile-menu-items">
+            <li>
+              <a href="https://github.com/open-mmlab/mmcv" target="_blank">MMCV</a>
+            </li>
+          </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Mobile Menu -->
+
+  <script type="text/javascript" src="../_static/js/vendor/anchor.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      mobileMenu.bind();
+      mobileTOC.bind();
+      pytorchAnchors.bind();
+      sideMenus.bind();
+      scrollToAnchor.bind();
+      highlightNavigation.bind();
+      mainMenuDropdown.bind();
+      filterTags.bind();
+
+      // Add class to links that have code blocks, since we cannot create links in code blocks
+      $("article.pytorch-article a span.pre").each(function (e) {
+        $(this).closest("a").addClass("has-code");
+      });
+    })
+  </script>
+</body>
+
+</html>

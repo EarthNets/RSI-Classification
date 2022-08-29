@@ -1,0 +1,1446 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Changelog &mdash; RSI-Classification 0.23.1 documentation</title>
+  
+
+  <link rel="shortcut icon" href="_static/images/favicon.ico" />
+  
+  
+
+  
+
+  
+  
+  
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> -->
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/readthedocs.css" type="text/css" />
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="next" title="Frequently Asked Questions" href="faq.html" />
+  <link rel="prev" title="Miscellaneous" href="tools/miscellaneous.html" />
+  <!-- Google Analytics -->
+  <script type="text/javascript">
+    var collapsedSections = [];
+  </script>
+  
+  <!-- End Google Analytics -->
+  
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+  <script>
+    MathJax = {
+        chtml: {
+            scale: 1,
+            minScale: 1,
+        },
+        svg: {
+            scale: 1,
+            minScale: 1,
+        }
+    }
+</script>
+
+  <!-- Preload the theme fonts -->
+
+<link rel="preload" href="_static/fonts/FreightSans/freight-sans-book.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/FreightSans/freight-sans-medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/IBMPlexMono/IBMPlexMono-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/FreightSans/freight-sans-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/FreightSans/freight-sans-medium-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/IBMPlexMono/IBMPlexMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+<!-- Preload the katex fonts -->
+
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Math-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size1-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size4-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size2-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size3-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Caligraphic-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+</head>
+
+<div class="container-fluid header-holder tutorials-header" id="header-holder">
+  <div class="container">
+    <div class="header-container">
+      <a class="header-logo" href="https://rsi-classification.readthedocs.io/en/latest/"
+        aria-label="OpenMMLab"></a>
+
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://github.com/EarthNets/RSI-Segmentation/blob/main/demo/rsi_classification_tutorial.ipynb" target="_blank">Tutorial</a>
+          </li>
+          <li>
+            <a href="https://github.com/EarthNets/RSI-Classification" target="_blank">GitHub</a>
+          </li>
+          <li >
+            <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
+              <a
+                class="resource-option with-down-arrow">
+                About
+              </a>
+              <div class="resources-dropdown-menu">
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/open-mmlab/mmcv" target="_blank">
+                  <span class="dropdown-title">MMCV </span>
+                  <p>Foundational library for computer vision</p>
+                </a>
+              </div>
+          </li>
+          <li >
+            <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
+              <a
+                class="resource-option with-down-arrow">
+                EarthNets
+              </a>
+              <div class="resources-dropdown-menu">
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/Dataset4EO" target="_blank">
+                  <span class="dropdown-title">Dataset4EO </span>
+                  <p>Re-organize remote sensing datasets.</p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/RSI-Classification" target="_blank">
+                  <span class="dropdown-title">RSI-Classification </span>
+                  <p>Image/scene classification for RS images.</p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/RSI-Segmentation" target="_blank">
+                  <span class="dropdown-title">RSI-Segmentation </span>
+                  <p>Pixel-wise semantic segmentation for RS images.</p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/RSI-Detection" target="_blank">
+                  <span class="dropdown-title">RSI-Detection </span>
+                  <p>Object detection for RS images.</p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/RSI-ChangeDetection" target="_blank">
+                  <span class="dropdown-title">RSI-ChangeDetection </span>
+                  <p>Change detection for RS images.</p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/EarthNets/RSI-SelfSupervised" target="_blank">
+                  <span class="dropdown-title">RSI-SelfSupervised </span>
+                  <p>Self-supervised learning for RS images.</p>
+                </a>
+              </div>
+          </li>
+        </ul>
+      </div>
+
+      <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
+    </div>
+  </div>
+</div>
+
+<body class="pytorch-body">
+
+   
+
+  
+
+  <div class="table-of-contents-link-wrapper">
+    <span>Table of Contents</span>
+    <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
+  </div>
+
+  <nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
+    <div class="pytorch-side-scroll">
+      <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <div class="pytorch-left-menu-search">
+          
+
+          
+          
+          
+          
+
+          
+
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search Docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        
+        
+        
+        
+        
+        <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html#installation">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/config.html">Tutorial 1: Learn about Configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/finetune.html">Tutorial 2: Fine-tune Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/new_dataset.html">Tutorial 3: Customize Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/data_pipeline.html">Tutorial 4: Custom Data Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/new_modules.html">Tutorial 5: Adding New Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/schedule.html">Tutorial 6: Customize Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/runtime.html">Tutorial 7: Customize Runtime Settings</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Model zoo</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="model_zoo.html">Model Zoo</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Useful Tools and Scripts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tools/pytorch2onnx.html">Pytorch to ONNX (Experimental)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/onnx2tensorrt.html">ONNX to TensorRT (Experimental)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/pytorch2torchscript.html">Pytorch to TorchScript (Experimental)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/model_serving.html">Model Serving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/visualization.html">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/analysis.html">Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/miscellaneous.html">Miscellaneous</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
+</ul>
+
+        
+        
+      </div>
+    </div>
+  </nav>
+
+  <div class="pytorch-container">
+    <div class="pytorch-page-level-bar" id="pytorch-page-level-bar">
+      <div class="pytorch-breadcrumbs-wrapper">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="pytorch-breadcrumbs">
+    
+      <li>
+        <a href="index.html">
+            Docs
+        </a> &gt;
+      </li>
+
+        
+      <li>Changelog</li>
+    
+    
+      <li class="pytorch-breadcrumbs-aside">
+        
+            
+            <a href="_sources/changelog.md.txt" rel="nofollow"><img src="_static/images/view-page-source-icon.svg"></a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+</div>
+      </div>
+
+      <div class="pytorch-shortcuts-wrapper" id="pytorch-shortcuts-wrapper">
+        Shortcuts
+      </div>
+    </div>
+
+    <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
+      <div class="pytorch-content-left">
+        
+          <div class="rst-content">
+            
+            <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
+              <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
+                
+  <section id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this heading">¶</a></h1>
+<section id="v0-23-1-2-6-2022">
+<h2>v0.23.1(2/6/2022)<a class="headerlink" href="#v0-23-1-2-6-2022" title="Permalink to this heading">¶</a></h2>
+<section id="new-features">
+<h3>New Features<a class="headerlink" href="#new-features" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Dedicated MMClsWandbHook for MMClassification (Weights and Biases Integration) (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/764">#764</a>)</p></li>
+</ul>
+</section>
+<section id="improvements">
+<h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Use mdformat instead of markdownlint to format markdown. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/844">#844</a>)</p></li>
+</ul>
+</section>
+<section id="bug-fixes">
+<h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Fix wrong <code class="docutils literal notranslate"><span class="pre">--local_rank</span></code>.</p></li>
+</ul>
+</section>
+<section id="docs-update">
+<h3>Docs Update<a class="headerlink" href="#docs-update" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Update install tutorials. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/854">#854</a>)</p></li>
+<li><p>Fix wrong link in README. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/835">#835</a>)</p></li>
+</ul>
+</section>
+</section>
+<section id="v0-23-0-1-5-2022">
+<h2>v0.23.0(1/5/2022)<a class="headerlink" href="#v0-23-0-1-5-2022" title="Permalink to this heading">¶</a></h2>
+<section id="id1">
+<h3>New Features<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Support DenseNet. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/750">#750</a>)</p></li>
+<li><p>Support VAN. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/739">#739</a>)</p></li>
+</ul>
+</section>
+<section id="id2">
+<h3>Improvements<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Support training on IPU and add fine-tuning configs of ViT. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/723">#723</a>)</p></li>
+</ul>
+</section>
+<section id="id3">
+<h3>Docs Update<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>New style API reference, and easier to use! Welcome <a class="reference external" href="https://mmclassification.readthedocs.io/en/master/api/models.html">view it</a>. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/774">#774</a>)</p></li>
+</ul>
+</section>
+</section>
+<section id="v0-22-1-15-4-2022">
+<h2>v0.22.1(15/4/2022)<a class="headerlink" href="#v0-22-1-15-4-2022" title="Permalink to this heading">¶</a></h2>
+<section id="id4">
+<h3>New Features<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>[Feature] Support resize relative position embedding in <code class="docutils literal notranslate"><span class="pre">SwinTransformer</span></code>. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/749">#749</a>)</p></li>
+<li><p>[Feature] Add PoolFormer backbone and checkpoints. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/746">#746</a>)</p></li>
+</ul>
+</section>
+<section id="id5">
+<h3>Improvements<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>[Enhance] Improve CPE performance by reduce memory copy. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/762">#762</a>)</p></li>
+<li><p>[Enhance] Add extra dataloader settings in configs. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/752">#752</a>)</p></li>
+</ul>
+</section>
+</section>
+<section id="v0-22-0-30-3-2022">
+<h2>v0.22.0(30/3/2022)<a class="headerlink" href="#v0-22-0-30-3-2022" title="Permalink to this heading">¶</a></h2>
+<section id="highlights">
+<h3>Highlights<a class="headerlink" href="#highlights" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Support a series of CSP Network, such as CSP-ResNet, CSP-ResNeXt and CSP-DarkNet.</p></li>
+<li><p>A new <code class="docutils literal notranslate"><span class="pre">CustomDataset</span></code> class to help you build dataset of yourself!</p></li>
+<li><p>Support ConvMixer, RepMLP and new dataset - CUB dataset.</p></li>
+</ul>
+</section>
+<section id="id6">
+<h3>New Features<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>[Feature] Add CSPNet and backbone and checkpoints (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/735">#735</a>)</p></li>
+<li><p>[Feature] Add <code class="docutils literal notranslate"><span class="pre">CustomDataset</span></code>. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/738">#738</a>)</p></li>
+<li><p>[Feature] Add diff seeds to diff ranks.  (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/744">#744</a>)</p></li>
+<li><p>[Feature] Support ConvMixer. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/716">#716</a>)</p></li>
+<li><p>[Feature] Our <code class="docutils literal notranslate"><span class="pre">dist_train</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">dist_test</span></code> tools support distributed training on multiple machines. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/734">#734</a>)</p></li>
+<li><p>[Feature] Add RepMLP backbone and checkpoints. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/709">#709</a>)</p></li>
+<li><p>[Feature] Support CUB dataset. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/703">#703</a>)</p></li>
+<li><p>[Feature] Support ResizeMix. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/676">#676</a>)</p></li>
+</ul>
+</section>
+<section id="id7">
+<h3>Improvements<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>[Enhance] Use <code class="docutils literal notranslate"><span class="pre">--a-b</span></code> instead of <code class="docutils literal notranslate"><span class="pre">--a_b</span></code> in arguments. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/754">#754</a>)</p></li>
+<li><p>[Enhance] Add <code class="docutils literal notranslate"><span class="pre">get_cat_ids</span></code> and <code class="docutils literal notranslate"><span class="pre">get_gt_labels</span></code> to KFoldDataset. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/721">#721</a>)</p></li>
+<li><p>[Enhance] Set torch seed in <code class="docutils literal notranslate"><span class="pre">worker_init_fn</span></code>. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/733">#733</a>)</p></li>
+</ul>
+</section>
+<section id="id8">
+<h3>Bug Fixes<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>[Fix] Fix the discontiguous output feature map of ConvNeXt. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/743">#743</a>)</p></li>
+</ul>
+</section>
+<section id="id9">
+<h3>Docs Update<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>[Docs] Add brief installation steps in README for copy&amp;paste. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/755">#755</a>)</p></li>
+<li><p>[Docs] fix logo url link from mmocr to rsicls. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/732">#732</a>)</p></li>
+</ul>
+</section>
+</section>
+<section id="v0-21-0-04-03-2022">
+<h2>v0.21.0(04/03/2022)<a class="headerlink" href="#v0-21-0-04-03-2022" title="Permalink to this heading">¶</a></h2>
+<section id="id10">
+<h3>Highlights<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Support ResNetV1c and Wide-ResNet, and provide pre-trained models.</p></li>
+<li><p>Support dynamic input shape for ViT-based algorithms. Now our ViT, DeiT, Swin-Transformer and T2T-ViT support forwarding with any input shape.</p></li>
+<li><p>Reproduce training results of DeiT. And our DeiT-T and DeiT-S have higher accuracy comparing with the official weights.</p></li>
+</ul>
+</section>
+<section id="id11">
+<h3>New Features<a class="headerlink" href="#id11" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Add ResNetV1c. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/692">#692</a>)</p></li>
+<li><p>Support Wide-ResNet. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/715">#715</a>)</p></li>
+<li><p>Support gem pooling (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/677">#677</a>)</p></li>
+</ul>
+</section>
+<section id="id12">
+<h3>Improvements<a class="headerlink" href="#id12" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Reproduce training results of DeiT. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/711">#711</a>)</p></li>
+<li><p>Add ConvNeXt pretrain models on ImageNet-1k. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/707">#707</a>)</p></li>
+<li><p>Support dynamic input shape for ViT-based algorithms. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/706">#706</a>)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">evaluate</span></code> function for ConcatDataset. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/650">#650</a>)</p></li>
+<li><p>Enhance vis-pipeline tool. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/604">#604</a>)</p></li>
+<li><p>Return code 1 if scripts runs failed. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/694">#694</a>)</p></li>
+<li><p>Use PyTorch official <code class="docutils literal notranslate"><span class="pre">one_hot</span></code> to implement <code class="docutils literal notranslate"><span class="pre">convert_to_one_hot</span></code>. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/696">#696</a>)</p></li>
+<li><p>Add a new pre-commit-hook to automatically add a copyright. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/710">#710</a>)</p></li>
+<li><p>Add deprecation message for deploy tools. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/697">#697</a>)</p></li>
+<li><p>Upgrade isort pre-commit hooks. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/687">#687</a>)</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">--gpu-id</span></code> instead of <code class="docutils literal notranslate"><span class="pre">--gpu-ids</span></code> in non-distributed multi-gpu training/testing. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/688">#688</a>)</p></li>
+<li><p>Remove deprecation. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/633">#633</a>)</p></li>
+</ul>
+</section>
+<section id="id13">
+<h3>Bug Fixes<a class="headerlink" href="#id13" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Fix Conformer forward with irregular input size. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/686">#686</a>)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">dist.barrier</span></code> to fix a bug in directory checking. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/666">#666</a>)</p></li>
+</ul>
+</section>
+</section>
+<section id="v0-20-1-07-02-2022">
+<h2>v0.20.1(07/02/2022)<a class="headerlink" href="#v0-20-1-07-02-2022" title="Permalink to this heading">¶</a></h2>
+<section id="id14">
+<h3>Bug Fixes<a class="headerlink" href="#id14" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Fix the MMCV dependency version.</p></li>
+</ul>
+</section>
+</section>
+<section id="v0-20-0-30-01-2022">
+<h2>v0.20.0(30/01/2022)<a class="headerlink" href="#v0-20-0-30-01-2022" title="Permalink to this heading">¶</a></h2>
+<section id="id15">
+<h3>Highlights<a class="headerlink" href="#id15" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Support K-fold cross-validation. The tutorial will be released later.</p></li>
+<li><p>Support HRNet, ConvNeXt, Twins and EfficientNet.</p></li>
+<li><p>Support model conversion from PyTorch to Core-ML by a tool.</p></li>
+</ul>
+</section>
+<section id="id16">
+<h3>New Features<a class="headerlink" href="#id16" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Support K-fold cross-validation. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/563">#563</a>)</p></li>
+<li><p>Support HRNet and add pre-trained models. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/660">#660</a>)</p></li>
+<li><p>Support ConvNeXt and add pre-trained models. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/670">#670</a>)</p></li>
+<li><p>Support Twins and add pre-trained models. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/642">#642</a>)</p></li>
+<li><p>Support EfficientNet and add pre-trained models.(<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/649">#649</a>)</p></li>
+<li><p>Support <code class="docutils literal notranslate"><span class="pre">features_only</span></code> option in <code class="docutils literal notranslate"><span class="pre">TIMMBackbone</span></code>. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/668">#668</a>)</p></li>
+<li><p>Add conversion script from pytorch to Core-ML model. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/597">#597</a>)</p></li>
+</ul>
+</section>
+<section id="id17">
+<h3>Improvements<a class="headerlink" href="#id17" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>New-style CPU training and inference. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/674">#674</a>)</p></li>
+<li><p>Add setup multi-processing both in train and test. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/671">#671</a>)</p></li>
+<li><p>Rewrite channel split operation in ShufflenetV2. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/632">#632</a>)</p></li>
+<li><p>Deprecate the support for “python setup.py test”. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/646">#646</a>)</p></li>
+<li><p>Support single-label, softmax, custom eps by asymmetric loss. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/609">#609</a>)</p></li>
+<li><p>Save class names in best checkpoint created by evaluation hook. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/641">#641</a>)</p></li>
+</ul>
+</section>
+<section id="id18">
+<h3>Bug Fixes<a class="headerlink" href="#id18" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Fix potential unexcepted behaviors if <code class="docutils literal notranslate"><span class="pre">metric_options</span></code> is not specified in multi-label evaluation. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/647">#647</a>)</p></li>
+<li><p>Fix API changes in  <code class="docutils literal notranslate"><span class="pre">pytorch-grad-cam&amp;gt;=1.3.7</span></code>. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/656">#656</a>)</p></li>
+<li><p>Fix bug which breaks <code class="docutils literal notranslate"><span class="pre">cal_train_time</span></code> in <code class="docutils literal notranslate"><span class="pre">analyze_logs.py</span></code>. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/662">#662</a>)</p></li>
+</ul>
+</section>
+<section id="id19">
+<h3>Docs Update<a class="headerlink" href="#id19" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Update README in configs according to OpenMMLab standard. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/672">#672</a>)</p></li>
+<li><p>Update installation guide and README. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/624">#624</a>)</p></li>
+</ul>
+</section>
+</section>
+<section id="v0-19-0-31-12-2021">
+<h2>v0.19.0(31/12/2021)<a class="headerlink" href="#v0-19-0-31-12-2021" title="Permalink to this heading">¶</a></h2>
+<section id="id20">
+<h3>Highlights<a class="headerlink" href="#id20" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>The feature extraction function has been enhanced. See <a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/593">#593</a> for more details.</p></li>
+<li><p>Provide the high-acc ResNet-50 training settings from <a class="reference external" href="https://arxiv.org/abs/2110.00476"><em>ResNet strikes back</em></a>.</p></li>
+<li><p>Reproduce the training accuracy of T2T-ViT &amp; RegNetX, and provide self-training checkpoints.</p></li>
+<li><p>Support DeiT &amp; Conformer backbone and checkpoints.</p></li>
+<li><p>Provide a CAM visualization tool based on <a class="reference external" href="https://github.com/jacobgil/pytorch-grad-cam">pytorch-grad-cam</a>, and detailed <a class="reference external" href="https://mmclassification.readthedocs.io/en/latest/tools/visualization.html#class-activation-map-visualization">user guide</a>!</p></li>
+</ul>
+</section>
+<section id="id21">
+<h3>New Features<a class="headerlink" href="#id21" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Support Precise BN. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/401">#401</a>)</p></li>
+<li><p>Add CAM visualization tool. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/577">#577</a>)</p></li>
+<li><p>Repeated Aug and Sampler Registry. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/588">#588</a>)</p></li>
+<li><p>Add DeiT backbone and checkpoints. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/576">#576</a>)</p></li>
+<li><p>Support LAMB optimizer. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/591">#591</a>)</p></li>
+<li><p>Implement the conformer backbone. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/494">#494</a>)</p></li>
+<li><p>Add the frozen function for Swin Transformer model. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/574">#574</a>)</p></li>
+<li><p>Support using checkpoint in Swin Transformer to save memory. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/557">#557</a>)</p></li>
+</ul>
+</section>
+<section id="id22">
+<h3>Improvements<a class="headerlink" href="#id22" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>[Reproduction] Reproduce RegNetX training accuracy. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/587">#587</a>)</p></li>
+<li><p>[Reproduction] Reproduce training results of T2T-ViT. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/610">#610</a>)</p></li>
+<li><p>[Enhance] Provide high-acc training settings of ResNet. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/572">#572</a>)</p></li>
+<li><p>[Enhance] Set a random seed when the user does not set a seed. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/554">#554</a>)</p></li>
+<li><p>[Enhance] Added <code class="docutils literal notranslate"><span class="pre">NumClassCheckHook</span></code> and unit tests. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/559">#559</a>)</p></li>
+<li><p>[Enhance] Enhance feature extraction function. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/593">#593</a>)</p></li>
+<li><p>[Enhance] Improve efficiency of precision, recall, f1_score and support. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/595">#595</a>)</p></li>
+<li><p>[Enhance] Improve accuracy calculation performance. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/592">#592</a>)</p></li>
+<li><p>[Refactor] Refactor <code class="docutils literal notranslate"><span class="pre">analysis_log.py</span></code>. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/529">#529</a>)</p></li>
+<li><p>[Refactor] Use new API of matplotlib to handle blocking input in visualization. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/568">#568</a>)</p></li>
+<li><p>[CI] Cancel previous runs that are not completed. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/583">#583</a>)</p></li>
+<li><p>[CI] Skip build CI if only configs or docs modification. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/575">#575</a>)</p></li>
+</ul>
+</section>
+<section id="id23">
+<h3>Bug Fixes<a class="headerlink" href="#id23" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Fix test sampler bug. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/611">#611</a>)</p></li>
+<li><p>Try to create a symbolic link, otherwise copy. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/580">#580</a>)</p></li>
+<li><p>Fix a bug for multiple output in swin transformer. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/571">#571</a>)</p></li>
+</ul>
+</section>
+<section id="id24">
+<h3>Docs Update<a class="headerlink" href="#id24" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Update mmcv, torch, cuda version in Dockerfile and docs. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/594">#594</a>)</p></li>
+<li><p>Add analysis&amp;misc docs. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/525">#525</a>)</p></li>
+<li><p>Fix docs build dependency. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/584">#584</a>)</p></li>
+</ul>
+</section>
+</section>
+<section id="v0-18-0-30-11-2021">
+<h2>v0.18.0(30/11/2021)<a class="headerlink" href="#v0-18-0-30-11-2021" title="Permalink to this heading">¶</a></h2>
+<section id="id25">
+<h3>Highlights<a class="headerlink" href="#id25" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Support MLP-Mixer backbone and provide pre-trained checkpoints.</p></li>
+<li><p>Add a tool to visualize the learning rate curve of the training phase. Welcome to use with the <a class="reference external" href="https://mmclassification.readthedocs.io/en/latest/tools/visualization.html#learning-rate-schedule-visualization">tutorial</a>!</p></li>
+</ul>
+</section>
+<section id="id26">
+<h3>New Features<a class="headerlink" href="#id26" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Add MLP Mixer Backbone. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/528">#528</a>, <a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/539">#539</a>)</p></li>
+<li><p>Support positive weights in BCE. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/516">#516</a>)</p></li>
+<li><p>Add a tool to visualize learning rate in each iterations. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/498">#498</a>)</p></li>
+</ul>
+</section>
+<section id="id27">
+<h3>Improvements<a class="headerlink" href="#id27" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Use CircleCI to do unit tests. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/567">#567</a>)</p></li>
+<li><p>Focal loss for single label tasks. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/548">#548</a>)</p></li>
+<li><p>Remove useless <code class="docutils literal notranslate"><span class="pre">import_modules_from_string</span></code>. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/544">#544</a>)</p></li>
+<li><p>Rename config files according to the config name standard. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/508">#508</a>)</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">reset_classifier</span></code> to remove head of timm backbones. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/534">#534</a>)</p></li>
+<li><p>Support passing arguments to loss from head. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/523">#523</a>)</p></li>
+<li><p>Refactor <code class="docutils literal notranslate"><span class="pre">Resize</span></code> transform and add <code class="docutils literal notranslate"><span class="pre">Pad</span></code> transform. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/506">#506</a>)</p></li>
+<li><p>Update mmcv dependency version. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/509">#509</a>)</p></li>
+</ul>
+</section>
+<section id="id28">
+<h3>Bug Fixes<a class="headerlink" href="#id28" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Fix bug when using <code class="docutils literal notranslate"><span class="pre">ClassBalancedDataset</span></code>. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/555">#555</a>)</p></li>
+<li><p>Fix a bug when using iter-based runner with ‘val’ workflow. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/542">#542</a>)</p></li>
+<li><p>Fix interpolation method checking in <code class="docutils literal notranslate"><span class="pre">Resize</span></code>. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/547">#547</a>)</p></li>
+<li><p>Fix a bug when load checkpoints in mulit-GPUs environment. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/527">#527</a>)</p></li>
+<li><p>Fix an error on indexing scalar metrics in <code class="docutils literal notranslate"><span class="pre">analyze_result.py</span></code>. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/518">#518</a>)</p></li>
+<li><p>Fix wrong condition judgment in <code class="docutils literal notranslate"><span class="pre">analyze_logs.py</span></code> and prevent empty curve. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/510">#510</a>)</p></li>
+</ul>
+</section>
+<section id="id29">
+<h3>Docs Update<a class="headerlink" href="#id29" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Fix vit config and model broken links. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/564">#564</a>)</p></li>
+<li><p>Add abstract and image for every paper. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/546">#546</a>)</p></li>
+<li><p>Add mmflow and mim in banner and readme. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/543">#543</a>)</p></li>
+<li><p>Add schedule and runtime tutorial docs. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/499">#499</a>)</p></li>
+<li><p>Add the top-5 acc in ResNet-CIFAR README. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/531">#531</a>)</p></li>
+<li><p>Fix TOC of <code class="docutils literal notranslate"><span class="pre">visualization.md</span></code> and add example images. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/513">#513</a>)</p></li>
+<li><p>Use docs link of other projects and add MMCV docs. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/511">#511</a>)</p></li>
+</ul>
+</section>
+</section>
+<section id="v0-17-0-29-10-2021">
+<h2>v0.17.0(29/10/2021)<a class="headerlink" href="#v0-17-0-29-10-2021" title="Permalink to this heading">¶</a></h2>
+<section id="id30">
+<h3>Highlights<a class="headerlink" href="#id30" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Support Tokens-to-Token ViT backbone and Res2Net backbone. Welcome to use!</p></li>
+<li><p>Support ImageNet21k dataset.</p></li>
+<li><p>Add a pipeline visualization tool. Try it with the <a class="reference external" href="https://mmclassification.readthedocs.io/en/latest/tools/visualization.html#pipeline-visualization">tutorials</a>!</p></li>
+</ul>
+</section>
+<section id="id31">
+<h3>New Features<a class="headerlink" href="#id31" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Add Tokens-to-Token ViT backbone and converted checkpoints. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/467">#467</a>)</p></li>
+<li><p>Add Res2Net backbone and converted weights. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/465">#465</a>)</p></li>
+<li><p>Support ImageNet21k dataset. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/461">#461</a>)</p></li>
+<li><p>Support seesaw loss. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/500">#500</a>)</p></li>
+<li><p>Add a pipeline visualization tool. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/406">#406</a>)</p></li>
+<li><p>Add a tool to find broken files. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/482">#482</a>)</p></li>
+<li><p>Add a tool to test TorchServe. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/468">#468</a>)</p></li>
+</ul>
+</section>
+<section id="id32">
+<h3>Improvements<a class="headerlink" href="#id32" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Refator Vision Transformer. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/395">#395</a>)</p></li>
+<li><p>Use context manager to reuse matplotlib figures. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/432">#432</a>)</p></li>
+</ul>
+</section>
+<section id="id33">
+<h3>Bug Fixes<a class="headerlink" href="#id33" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Remove <code class="docutils literal notranslate"><span class="pre">DistSamplerSeedHook</span></code> if use <code class="docutils literal notranslate"><span class="pre">IterBasedRunner</span></code>. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/501">#501</a>)</p></li>
+<li><p>Set the priority of <code class="docutils literal notranslate"><span class="pre">EvalHook</span></code> to “LOW” to avoid a bug when using <code class="docutils literal notranslate"><span class="pre">IterBasedRunner</span></code>. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/488">#488</a>)</p></li>
+<li><p>Fix a wrong parameter of <code class="docutils literal notranslate"><span class="pre">get_root_logger</span></code> in <code class="docutils literal notranslate"><span class="pre">apis/train.py</span></code>. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/486">#486</a>)</p></li>
+<li><p>Fix version check in dataset builder. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/474">#474</a>)</p></li>
+</ul>
+</section>
+<section id="id34">
+<h3>Docs Update<a class="headerlink" href="#id34" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Add English Colab tutorials and update Chinese Colab tutorials. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/483">#483</a>, <a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/497">#497</a>)</p></li>
+<li><p>Add tutuorial for config files. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/487">#487</a>)</p></li>
+<li><p>Add model-pages in Model Zoo. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/480">#480</a>)</p></li>
+<li><p>Add code-spell pre-commit hook and fix a large mount of typos. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/470">#470</a>)</p></li>
+</ul>
+</section>
+</section>
+<section id="v0-16-0-30-9-2021">
+<h2>v0.16.0(30/9/2021)<a class="headerlink" href="#v0-16-0-30-9-2021" title="Permalink to this heading">¶</a></h2>
+<section id="id35">
+<h3>Highlights<a class="headerlink" href="#id35" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>We have improved compatibility with downstream repositories like MMDetection and MMSegmentation. We will add some examples about how to use our backbones in MMDetection.</p></li>
+<li><p>Add RepVGG backbone and checkpoints. Welcome to use it!</p></li>
+<li><p>Add timm backbones wrapper, now you can simply use backbones of pytorch-image-models in MMClassification!</p></li>
+</ul>
+</section>
+<section id="id36">
+<h3>New Features<a class="headerlink" href="#id36" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Add RepVGG backbone and checkpoints. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/414">#414</a>)</p></li>
+<li><p>Add timm backbones wrapper. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/427">#427</a>)</p></li>
+</ul>
+</section>
+<section id="id37">
+<h3>Improvements<a class="headerlink" href="#id37" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Fix TnT compatibility and verbose warning. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/436">#436</a>)</p></li>
+<li><p>Support setting <code class="docutils literal notranslate"><span class="pre">--out-items</span></code> in <code class="docutils literal notranslate"><span class="pre">tools/test.py</span></code>.  (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/437">#437</a>)</p></li>
+<li><p>Add datetime info and saving model using torch&lt;1.6 format. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/439">#439</a>)</p></li>
+<li><p>Improve downstream repositories compatibility. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/421">#421</a>)</p></li>
+<li><p>Rename the option <code class="docutils literal notranslate"><span class="pre">--options</span></code> to <code class="docutils literal notranslate"><span class="pre">--cfg-options</span></code> in some tools. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/425">#425</a>)</p></li>
+<li><p>Add PyTorch 1.9 and Python 3.9 build workflow, and remove some CI. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/422">#422</a>)</p></li>
+</ul>
+</section>
+<section id="id38">
+<h3>Bug Fixes<a class="headerlink" href="#id38" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Fix format error in <code class="docutils literal notranslate"><span class="pre">test.py</span></code> when metric returns <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code>. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/441">#441</a>)</p></li>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">publish_model</span></code> bug if no parent of <code class="docutils literal notranslate"><span class="pre">out_file</span></code>. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/463">#463</a>)</p></li>
+<li><p>Fix num_classes bug in pytorch2onnx.py. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/458">#458</a>)</p></li>
+<li><p>Fix missing runtime requirement <code class="docutils literal notranslate"><span class="pre">packaging</span></code>. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/459">#459</a>)</p></li>
+<li><p>Fix saving simplified model bug in ONNX export tool. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/438">#438</a>)</p></li>
+</ul>
+</section>
+<section id="id39">
+<h3>Docs Update<a class="headerlink" href="#id39" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Update <code class="docutils literal notranslate"><span class="pre">getting_started.md</span></code> and <code class="docutils literal notranslate"><span class="pre">install.md</span></code>. And rewrite <code class="docutils literal notranslate"><span class="pre">finetune.md</span></code>. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/466">#466</a>)</p></li>
+<li><p>Use PyTorch style docs theme. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/457">#457</a>)</p></li>
+<li><p>Update metafile and Readme. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/435">#435</a>)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">CITATION.cff</span></code>. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/428">#428</a>)</p></li>
+</ul>
+</section>
+</section>
+<section id="v0-15-0-31-8-2021">
+<h2>v0.15.0(31/8/2021)<a class="headerlink" href="#v0-15-0-31-8-2021" title="Permalink to this heading">¶</a></h2>
+<section id="id40">
+<h3>Highlights<a class="headerlink" href="#id40" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Support <code class="docutils literal notranslate"><span class="pre">hparams</span></code> argument in <code class="docutils literal notranslate"><span class="pre">AutoAugment</span></code> and <code class="docutils literal notranslate"><span class="pre">RandAugment</span></code> to provide hyperparameters for sub-policies.</p></li>
+<li><p>Support custom squeeze channels in <code class="docutils literal notranslate"><span class="pre">SELayer</span></code>.</p></li>
+<li><p>Support classwise weight in losses.</p></li>
+</ul>
+</section>
+<section id="id41">
+<h3>New Features<a class="headerlink" href="#id41" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">hparams</span></code> argument in <code class="docutils literal notranslate"><span class="pre">AutoAugment</span></code> and <code class="docutils literal notranslate"><span class="pre">RandAugment</span></code> and some other improvement. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/398">#398</a>)</p></li>
+<li><p>Support classwise weight in losses. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/388">#388</a>)</p></li>
+<li><p>Enhance <code class="docutils literal notranslate"><span class="pre">SELayer</span></code> to support custom squeeze channels. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/417">#417</a>)</p></li>
+</ul>
+</section>
+<section id="code-refactor">
+<h3>Code Refactor<a class="headerlink" href="#code-refactor" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Better result visualization. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/419">#419</a>)</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">post_process</span></code> function to handle pred result processing. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/390">#390</a>)</p></li>
+<li><p>Update <code class="docutils literal notranslate"><span class="pre">digit_version</span></code> function. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/402">#402</a>)</p></li>
+<li><p>Avoid albumentations to install both opencv and opencv-headless. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/397">#397</a>)</p></li>
+<li><p>Avoid unnecessary listdir when building ImageNet. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/396">#396</a>)</p></li>
+<li><p>Use dynamic mmcv download link in TorchServe dockerfile. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/387">#387</a>)</p></li>
+</ul>
+</section>
+<section id="docs-improvement">
+<h3>Docs Improvement<a class="headerlink" href="#docs-improvement" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Add readme of some algorithms and update meta yml. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/418">#418</a>)</p></li>
+<li><p>Add Copyright information. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/413">#413</a>)</p></li>
+<li><p>Fix typo ‘metirc’. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/411">#411</a>)</p></li>
+<li><p>Update QQ group QR code. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/393">#393</a>)</p></li>
+<li><p>Add PR template and modify issue template. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/380">#380</a>)</p></li>
+</ul>
+</section>
+</section>
+<section id="v0-14-0-4-8-2021">
+<h2>v0.14.0(4/8/2021)<a class="headerlink" href="#v0-14-0-4-8-2021" title="Permalink to this heading">¶</a></h2>
+<section id="id42">
+<h3>Highlights<a class="headerlink" href="#id42" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Add transformer-in-transformer backbone and pretrain checkpoints, refers to <a class="reference external" href="https://arxiv.org/abs/2103.00112">the paper</a>.</p></li>
+<li><p>Add Chinese colab tutorial.</p></li>
+<li><p>Provide dockerfile to build rsicls dev docker image.</p></li>
+</ul>
+</section>
+<section id="id43">
+<h3>New Features<a class="headerlink" href="#id43" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Add transformer in transformer backbone and pretrain checkpoints. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/339">#339</a>)</p></li>
+<li><p>Support mim, welcome to use mim to manage your rsicls project. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/376">#376</a>)</p></li>
+<li><p>Add Dockerfile. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/365">#365</a>)</p></li>
+<li><p>Add ResNeSt configs. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/332">#332</a>)</p></li>
+</ul>
+</section>
+<section id="id44">
+<h3>Improvements<a class="headerlink" href="#id44" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">presistent_works</span></code> option if available, to accelerate training. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/349">#349</a>)</p></li>
+<li><p>Add Chinese ipynb tutorial. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/306">#306</a>)</p></li>
+<li><p>Refactor unit tests. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/321">#321</a>)</p></li>
+<li><p>Support to test mmdet inference with rsicls backbone. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/343">#343</a>)</p></li>
+<li><p>Use zero as default value of <code class="docutils literal notranslate"><span class="pre">thrs</span></code> in metrics. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/341">#341</a>)</p></li>
+</ul>
+</section>
+<section id="id45">
+<h3>Bug Fixes<a class="headerlink" href="#id45" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Fix ImageNet dataset annotation file parse bug. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/370">#370</a>)</p></li>
+<li><p>Fix docstring typo and init bug in ShuffleNetV1. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/374">#374</a>)</p></li>
+<li><p>Use local ATTENTION registry to avoid conflict with other repositories. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/375">#376</a>)</p></li>
+<li><p>Fix swin transformer config bug. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/355">#355</a>)</p></li>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">patch_cfg</span></code> argument bug in SwinTransformer. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/368">#368</a>)</p></li>
+<li><p>Fix duplicate <code class="docutils literal notranslate"><span class="pre">init_weights</span></code> call in ViT init function. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/373">#373</a>)</p></li>
+<li><p>Fix broken <code class="docutils literal notranslate"><span class="pre">_base_</span></code> link in a resnet config. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/361">#361</a>)</p></li>
+<li><p>Fix vgg-19 model link missing. (<a class="reference external" href="https://github.com/open-mmlab/mmclassification/pull/363">#363</a>)</p></li>
+</ul>
+</section>
+</section>
+<section id="v0-13-0-3-7-2021">
+<h2>v0.13.0(3/7/2021)<a class="headerlink" href="#v0-13-0-3-7-2021" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Support Swin-Transformer backbone and add training configs for Swin-Transformer on ImageNet.</p></li>
+</ul>
+<section id="id46">
+<h3>New Features<a class="headerlink" href="#id46" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Support Swin-Transformer backbone and add training configs for Swin-Transformer on ImageNet. (#271)</p></li>
+<li><p>Add pretained model of RegNetX. (#269)</p></li>
+<li><p>Support adding custom hooks in config file. (#305)</p></li>
+<li><p>Improve and add Chinese translation of <code class="docutils literal notranslate"><span class="pre">CONTRIBUTING.md</span></code> and all tools tutorials. (#320)</p></li>
+<li><p>Dump config before training. (#282)</p></li>
+<li><p>Add torchscript and torchserve deployment tools. (#279, #284)</p></li>
+</ul>
+</section>
+<section id="id47">
+<h3>Improvements<a class="headerlink" href="#id47" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Improve test tools and add some new tools. (#322)</p></li>
+<li><p>Correct MobilenetV3 backbone structure and add pretained models. (#291)</p></li>
+<li><p>Refactor <code class="docutils literal notranslate"><span class="pre">PatchEmbed</span></code> and <code class="docutils literal notranslate"><span class="pre">HybridEmbed</span></code> as independent components. (#330)</p></li>
+<li><p>Refactor mixup and cutmix as <code class="docutils literal notranslate"><span class="pre">Augments</span></code> to support more functions. (#278)</p></li>
+<li><p>Refactor weights initialization method. (#270, #318, #319)</p></li>
+<li><p>Refactor <code class="docutils literal notranslate"><span class="pre">LabelSmoothLoss</span></code> to support multiple calculation formulas. (#285)</p></li>
+</ul>
+</section>
+<section id="id48">
+<h3>Bug Fixes<a class="headerlink" href="#id48" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Fix bug for CPU training. (#286)</p></li>
+<li><p>Fix missing test data when <code class="docutils literal notranslate"><span class="pre">num_imgs</span></code> can not be evenly divided by <code class="docutils literal notranslate"><span class="pre">num_gpus</span></code>. (#299)</p></li>
+<li><p>Fix build compatible with pytorch v1.3-1.5. (#301)</p></li>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">magnitude_std</span></code> bug in <code class="docutils literal notranslate"><span class="pre">RandAugment</span></code>. (#309)</p></li>
+<li><p>Fix bug when <code class="docutils literal notranslate"><span class="pre">samples_per_gpu</span></code> is 1. (#311)</p></li>
+</ul>
+</section>
+</section>
+<section id="v0-12-0-3-6-2021">
+<h2>v0.12.0(3/6/2021)<a class="headerlink" href="#v0-12-0-3-6-2021" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Finish adding Chinese tutorials and build Chinese documentation on readthedocs.</p></li>
+<li><p>Update ResNeXt checkpoints and ResNet checkpoints on CIFAR.</p></li>
+</ul>
+<section id="id49">
+<h3>New Features<a class="headerlink" href="#id49" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Improve and add Chinese translation of <code class="docutils literal notranslate"><span class="pre">data_pipeline.md</span></code> and <code class="docutils literal notranslate"><span class="pre">new_modules.md</span></code>. (#265)</p></li>
+<li><p>Build Chinese translation on readthedocs. (#267)</p></li>
+<li><p>Add an argument efficientnet_style to <code class="docutils literal notranslate"><span class="pre">RandomResizedCrop</span></code> and <code class="docutils literal notranslate"><span class="pre">CenterCrop</span></code>. (#268)</p></li>
+</ul>
+</section>
+<section id="id50">
+<h3>Improvements<a class="headerlink" href="#id50" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Only allow directory operation when rank==0 when testing. (#258)</p></li>
+<li><p>Fix typo in <code class="docutils literal notranslate"><span class="pre">base_head</span></code>. (#274)</p></li>
+<li><p>Update ResNeXt checkpoints. (#283)</p></li>
+</ul>
+</section>
+<section id="id51">
+<h3>Bug Fixes<a class="headerlink" href="#id51" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Add attribute <code class="docutils literal notranslate"><span class="pre">data.test</span></code> in MNIST configs. (#264)</p></li>
+<li><p>Download CIFAR/MNIST dataset only on rank 0. (#273)</p></li>
+<li><p>Fix MMCV version compatibility. (#276)</p></li>
+<li><p>Fix CIFAR color channels bug and update checkpoints in model zoo. (#280)</p></li>
+</ul>
+</section>
+</section>
+<section id="v0-11-1-21-5-2021">
+<h2>v0.11.1(21/5/2021)<a class="headerlink" href="#v0-11-1-21-5-2021" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Refine <code class="docutils literal notranslate"><span class="pre">new_dataset.md</span></code> and add Chinese translation of <code class="docutils literal notranslate"><span class="pre">finture.md</span></code>, <code class="docutils literal notranslate"><span class="pre">new_dataset.md</span></code>.</p></li>
+</ul>
+<section id="id52">
+<h3>New Features<a class="headerlink" href="#id52" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">dim</span></code> argument for <code class="docutils literal notranslate"><span class="pre">GlobalAveragePooling</span></code>. (#236)</p></li>
+<li><p>Add random noise to <code class="docutils literal notranslate"><span class="pre">RandAugment</span></code> magnitude. (#240)</p></li>
+<li><p>Refine <code class="docutils literal notranslate"><span class="pre">new_dataset.md</span></code> and add Chinese translation of <code class="docutils literal notranslate"><span class="pre">finture.md</span></code>, <code class="docutils literal notranslate"><span class="pre">new_dataset.md</span></code>. (#243)</p></li>
+</ul>
+</section>
+<section id="id53">
+<h3>Improvements<a class="headerlink" href="#id53" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Refactor arguments passing for Heads. (#239)</p></li>
+<li><p>Allow more flexible <code class="docutils literal notranslate"><span class="pre">magnitude_range</span></code> in <code class="docutils literal notranslate"><span class="pre">RandAugment</span></code>. (#249)</p></li>
+<li><p>Inherits MMCV registry so that in the future OpenMMLab repos like MMDet and MMSeg could directly use the backbones supported in MMCls. (#252)</p></li>
+</ul>
+</section>
+<section id="id54">
+<h3>Bug Fixes<a class="headerlink" href="#id54" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Fix typo in <code class="docutils literal notranslate"><span class="pre">analyze_results.py</span></code>. (#237)</p></li>
+<li><p>Fix typo in unittests. (#238)</p></li>
+<li><p>Check if specified tmpdir exists when testing to avoid deleting existing data. (#242 &amp; #258)</p></li>
+<li><p>Add missing config files in <code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code>. (#250 &amp; #255)</p></li>
+<li><p>Use temporary directory under shared directory to collect results to avoid unavailability of temporary directory for multi-node testing. (#251)</p></li>
+</ul>
+</section>
+</section>
+<section id="v0-11-0-1-5-2021">
+<h2>v0.11.0(1/5/2021)<a class="headerlink" href="#v0-11-0-1-5-2021" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Support cutmix trick.</p></li>
+<li><p>Support random augmentation.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">tools/deployment/test.py</span></code> as a ONNX runtime test tool.</p></li>
+<li><p>Support ViT backbone and add training configs for ViT on ImageNet.</p></li>
+<li><p>Add Chinese <code class="docutils literal notranslate"><span class="pre">README.md</span></code> and some Chinese tutorials.</p></li>
+</ul>
+<section id="id55">
+<h3>New Features<a class="headerlink" href="#id55" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Support cutmix trick. (#198)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">simplify</span></code> option in <code class="docutils literal notranslate"><span class="pre">pytorch2onnx.py</span></code>. (#200)</p></li>
+<li><p>Support random augmentation. (#201)</p></li>
+<li><p>Add config and checkpoint for training ResNet on CIFAR-100. (#208)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">tools/deployment/test.py</span></code> as a ONNX runtime test tool. (#212)</p></li>
+<li><p>Support ViT backbone and add training configs for ViT on ImageNet. (#214)</p></li>
+<li><p>Add finetuning configs for ViT on ImageNet. (#217)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">device</span></code> option to support training on CPU. (#219)</p></li>
+<li><p>Add Chinese <code class="docutils literal notranslate"><span class="pre">README.md</span></code> and some Chinese tutorials. (#221)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">metafile.yml</span></code> in configs to support interaction with paper with code(PWC) and MMCLI. (#225)</p></li>
+<li><p>Upload configs and converted checkpoints for ViT fintuning on ImageNet. (#230)</p></li>
+</ul>
+</section>
+<section id="id56">
+<h3>Improvements<a class="headerlink" href="#id56" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">LabelSmoothLoss</span></code> so that label smoothing and mixup could be enabled at the same time. (#203)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">cal_acc</span></code> option in <code class="docutils literal notranslate"><span class="pre">ClsHead</span></code>. (#206)</p></li>
+<li><p>Check <code class="docutils literal notranslate"><span class="pre">CLASSES</span></code> in checkpoint to avoid unexpected key error. (#207)</p></li>
+<li><p>Check mmcv version when importing rsicls to ensure compatibility. (#209)</p></li>
+<li><p>Update <code class="docutils literal notranslate"><span class="pre">CONTRIBUTING.md</span></code> to align with that in MMCV. (#210)</p></li>
+<li><p>Change tags to html comments in configs README.md. (#226)</p></li>
+<li><p>Clean codes in ViT backbone. (#227)</p></li>
+<li><p>Reformat <code class="docutils literal notranslate"><span class="pre">pytorch2onnx.md</span></code> tutorial. (#229)</p></li>
+<li><p>Update <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> to support MMCLI. (#232)</p></li>
+</ul>
+</section>
+<section id="id57">
+<h3>Bug Fixes<a class="headerlink" href="#id57" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Fix missing <code class="docutils literal notranslate"><span class="pre">cutmix_prob</span></code> in ViT configs. (#220)</p></li>
+<li><p>Fix backend for resize in ResNeXt configs. (#222)</p></li>
+</ul>
+</section>
+</section>
+<section id="v0-10-0-1-4-2021">
+<h2>v0.10.0(1/4/2021)<a class="headerlink" href="#v0-10-0-1-4-2021" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Support AutoAugmentation</p></li>
+<li><p>Add tutorials for installation and usage.</p></li>
+</ul>
+<section id="id58">
+<h3>New Features<a class="headerlink" href="#id58" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">Rotate</span></code> pipeline for data augmentation. (#167)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">Invert</span></code> pipeline for data augmentation. (#168)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">Color</span></code> pipeline for data augmentation. (#171)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">Solarize</span></code> and <code class="docutils literal notranslate"><span class="pre">Posterize</span></code> pipeline for data augmentation. (#172)</p></li>
+<li><p>Support fp16 training. (#178)</p></li>
+<li><p>Add tutorials for installation and basic usage of MMClassification.(#176)</p></li>
+<li><p>Support <code class="docutils literal notranslate"><span class="pre">AutoAugmentation</span></code>, <code class="docutils literal notranslate"><span class="pre">AutoContrast</span></code>, <code class="docutils literal notranslate"><span class="pre">Equalize</span></code>, <code class="docutils literal notranslate"><span class="pre">Contrast</span></code>, <code class="docutils literal notranslate"><span class="pre">Brightness</span></code> and <code class="docutils literal notranslate"><span class="pre">Sharpness</span></code> pipelines for data augmentation. (#179)</p></li>
+</ul>
+</section>
+<section id="id59">
+<h3>Improvements<a class="headerlink" href="#id59" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Support dynamic shape export to onnx. (#175)</p></li>
+<li><p>Release training configs and update model zoo for fp16 (#184)</p></li>
+<li><p>Use MMCV’s EvalHook in MMClassification (#182)</p></li>
+</ul>
+</section>
+<section id="id60">
+<h3>Bug Fixes<a class="headerlink" href="#id60" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Fix wrong naming in vgg config (#181)</p></li>
+</ul>
+</section>
+</section>
+<section id="v0-9-0-1-3-2021">
+<h2>v0.9.0(1/3/2021)<a class="headerlink" href="#v0-9-0-1-3-2021" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Implement mixup trick.</p></li>
+<li><p>Add a new tool to create TensorRT engine from ONNX, run inference and verify outputs in Python.</p></li>
+</ul>
+<section id="id61">
+<h3>New Features<a class="headerlink" href="#id61" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Implement mixup and provide configs of training ResNet50 using mixup. (#160)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">Shear</span></code> pipeline for data augmentation. (#163)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">Translate</span></code> pipeline for data augmentation. (#165)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">tools/onnx2tensorrt.py</span></code> as a tool to create TensorRT engine from ONNX, run inference and verify outputs in Python. (#153)</p></li>
+</ul>
+</section>
+<section id="id62">
+<h3>Improvements<a class="headerlink" href="#id62" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">--eval-options</span></code> in <code class="docutils literal notranslate"><span class="pre">tools/test.py</span></code> to support eval options override, matching the behavior of other open-mmlab projects. (#158)</p></li>
+<li><p>Support showing and saving painted results in <code class="docutils literal notranslate"><span class="pre">rsicls.apis.test</span></code> and <code class="docutils literal notranslate"><span class="pre">tools/test.py</span></code>, matching the behavior of other open-mmlab projects. (#162)</p></li>
+</ul>
+</section>
+<section id="id63">
+<h3>Bug Fixes<a class="headerlink" href="#id63" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Fix configs for VGG, replace checkpoints converted from other repos with the ones trained by ourselves and upload the missing logs in the model zoo. (#161)</p></li>
+</ul>
+</section>
+</section>
+<section id="v0-8-0-31-1-2021">
+<h2>v0.8.0(31/1/2021)<a class="headerlink" href="#v0-8-0-31-1-2021" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Support multi-label task.</p></li>
+<li><p>Support more flexible metrics settings.</p></li>
+<li><p>Fix bugs.</p></li>
+</ul>
+<section id="id64">
+<h3>New Features<a class="headerlink" href="#id64" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Add evaluation metrics: mAP, CP, CR, CF1, OP, OR, OF1 for multi-label task. (#123)</p></li>
+<li><p>Add BCE loss for multi-label task. (#130)</p></li>
+<li><p>Add focal loss for multi-label task. (#131)</p></li>
+<li><p>Support PASCAL VOC 2007 dataset for multi-label task. (#134)</p></li>
+<li><p>Add asymmetric loss for multi-label task. (#132)</p></li>
+<li><p>Add analyze_results.py to select images for success/fail demonstration. (#142)</p></li>
+<li><p>Support new metric that calculates the total number of occurrences of each label. (#143)</p></li>
+<li><p>Support class-wise evaluation results. (#143)</p></li>
+<li><p>Add thresholds in eval_metrics. (#146)</p></li>
+<li><p>Add heads and a baseline config for multilabel task. (#145)</p></li>
+</ul>
+</section>
+<section id="id65">
+<h3>Improvements<a class="headerlink" href="#id65" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Remove the models with 0 checkpoint and ignore the repeated papers when counting papers to gain more accurate model statistics. (#135)</p></li>
+<li><p>Add tags in README.md. (#137)</p></li>
+<li><p>Fix optional issues in docstring. (#138)</p></li>
+<li><p>Update stat.py to classify papers. (#139)</p></li>
+<li><p>Fix mismatched columns in README.md. (#150)</p></li>
+<li><p>Fix test.py to support more evaluation metrics. (#155)</p></li>
+</ul>
+</section>
+<section id="id66">
+<h3>Bug Fixes<a class="headerlink" href="#id66" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Fix bug in VGG weight_init. (#140)</p></li>
+<li><p>Fix bug in 2 ResNet configs in which outdated heads were used. (#147)</p></li>
+<li><p>Fix bug of misordered height and width in <code class="docutils literal notranslate"><span class="pre">RandomCrop</span></code> and <code class="docutils literal notranslate"><span class="pre">RandomResizedCrop</span></code>. (#151)</p></li>
+<li><p>Fix missing <code class="docutils literal notranslate"><span class="pre">meta_keys</span></code> in <code class="docutils literal notranslate"><span class="pre">Collect</span></code>. (#149 &amp; #152)</p></li>
+</ul>
+</section>
+</section>
+<section id="v0-7-0-31-12-2020">
+<h2>v0.7.0(31/12/2020)<a class="headerlink" href="#v0-7-0-31-12-2020" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Add more evaluation metrics.</p></li>
+<li><p>Fix bugs.</p></li>
+</ul>
+<section id="id67">
+<h3>New Features<a class="headerlink" href="#id67" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Remove installation of MMCV from requirements. (#90)</p></li>
+<li><p>Add 3 evaluation metrics: precision, recall and F-1 score. (#93)</p></li>
+<li><p>Allow config override during testing and inference with <code class="docutils literal notranslate"><span class="pre">--options</span></code>. (#91 &amp; #96)</p></li>
+</ul>
+</section>
+<section id="id68">
+<h3>Improvements<a class="headerlink" href="#id68" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">build_runner</span></code> to make runners more flexible. (#54)</p></li>
+<li><p>Support to get category ids in <code class="docutils literal notranslate"><span class="pre">BaseDataset</span></code>. (#72)</p></li>
+<li><p>Allow <code class="docutils literal notranslate"><span class="pre">CLASSES</span></code> override during <code class="docutils literal notranslate"><span class="pre">BaseDateset</span></code> initialization. (#85)</p></li>
+<li><p>Allow input image as ndarray during inference. (#87)</p></li>
+<li><p>Optimize MNIST config. (#98)</p></li>
+<li><p>Add config links in model zoo documentation. (#99)</p></li>
+<li><p>Use functions from MMCV to collect environment. (#103)</p></li>
+<li><p>Refactor config files so that they are now categorized by methods. (#116)</p></li>
+<li><p>Add README in config directory. (#117)</p></li>
+<li><p>Add model statistics. (#119)</p></li>
+<li><p>Refactor documentation in consistency with other MM repositories. (#126)</p></li>
+</ul>
+</section>
+<section id="id69">
+<h3>Bug Fixes<a class="headerlink" href="#id69" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Add missing <code class="docutils literal notranslate"><span class="pre">CLASSES</span></code> argument to dataset wrappers. (#66)</p></li>
+<li><p>Fix slurm evaluation error during training. (#69)</p></li>
+<li><p>Resolve error caused by shape in <code class="docutils literal notranslate"><span class="pre">Accuracy</span></code>. (#104)</p></li>
+<li><p>Fix bug caused by extremely insufficient data in distributed sampler.(#108)</p></li>
+<li><p>Fix bug in <code class="docutils literal notranslate"><span class="pre">gpu_ids</span></code> in distributed training. (#107)</p></li>
+<li><p>Fix bug caused by extremely insufficient data in collect results during testing (#114)</p></li>
+</ul>
+</section>
+</section>
+<section id="v0-6-0-11-10-2020">
+<h2>v0.6.0(11/10/2020)<a class="headerlink" href="#v0-6-0-11-10-2020" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Support new method: ResNeSt and VGG.</p></li>
+<li><p>Support new dataset: CIFAR10.</p></li>
+<li><p>Provide new tools to do model inference, model conversion from pytorch to onnx.</p></li>
+</ul>
+<section id="id70">
+<h3>New Features<a class="headerlink" href="#id70" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Add model inference. (#16)</p></li>
+<li><p>Add pytorch2onnx. (#20)</p></li>
+<li><p>Add PIL backend for transform <code class="docutils literal notranslate"><span class="pre">Resize</span></code>. (#21)</p></li>
+<li><p>Add ResNeSt. (#25)</p></li>
+<li><p>Add VGG and its pretained models. (#27)</p></li>
+<li><p>Add CIFAR10 configs and models. (#38)</p></li>
+<li><p>Add albumentations transforms. (#45)</p></li>
+<li><p>Visualize results on image demo. (#58)</p></li>
+</ul>
+</section>
+<section id="id71">
+<h3>Improvements<a class="headerlink" href="#id71" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Replace urlretrieve with urlopen in dataset.utils. (#13)</p></li>
+<li><p>Resize image according to its short edge. (#22)</p></li>
+<li><p>Update ShuffleNet config. (#31)</p></li>
+<li><p>Update pre-trained models for shufflenet_v2, shufflenet_v1, se-resnet50, se-resnet101. (#33)</p></li>
+</ul>
+</section>
+<section id="id72">
+<h3>Bug Fixes<a class="headerlink" href="#id72" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Fix init_weights in <code class="docutils literal notranslate"><span class="pre">shufflenet_v2.py</span></code>. (#29)</p></li>
+<li><p>Fix the parameter <code class="docutils literal notranslate"><span class="pre">size</span></code> in test_pipeline. (#30)</p></li>
+<li><p>Fix the parameter in cosine lr schedule. (#32)</p></li>
+<li><p>Fix the convert tools for mobilenet_v2. (#34)</p></li>
+<li><p>Fix crash in CenterCrop transform when image is greyscale (#40)</p></li>
+<li><p>Fix outdated configs. (#53)</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+              </article>
+              
+            </div>
+            <footer>
+  
+  <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+    
+    <a href="faq.html" class="btn btn-neutral float-right" title="Frequently Asked Questions" accesskey="n"
+      rel="next">Next <img src="_static/images/chevron-right-blue.svg"
+        class="next-page"></a>
+    
+    
+    <a href="tools/miscellaneous.html" class="btn btn-neutral" title="Miscellaneous" accesskey="p"
+      rel="prev"><img src="_static/images/chevron-right-blue.svg" class="previous-page"> Previous</a>
+    
+  </div>
+  
+
+  <hr>
+
+  <div role="contentinfo">
+    <p>
+      &copy; Copyright 2022, EarthNets.
+
+    </p>
+  </div>
+  
+  <div>
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a
+      href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the
+      Docs</a>.
+  </div>
+   
+
+</footer>
+          </div>
+        </div>
+
+        <div class="pytorch-content-right" id="pytorch-content-right">
+          <div class="pytorch-right-menu" id="pytorch-right-menu">
+            <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
+              <ul>
+<li><a class="reference internal" href="#">Changelog</a><ul>
+<li><a class="reference internal" href="#v0-23-1-2-6-2022">v0.23.1(2/6/2022)</a><ul>
+<li><a class="reference internal" href="#new-features">New Features</a></li>
+<li><a class="reference internal" href="#improvements">Improvements</a></li>
+<li><a class="reference internal" href="#bug-fixes">Bug Fixes</a></li>
+<li><a class="reference internal" href="#docs-update">Docs Update</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v0-23-0-1-5-2022">v0.23.0(1/5/2022)</a><ul>
+<li><a class="reference internal" href="#id1">New Features</a></li>
+<li><a class="reference internal" href="#id2">Improvements</a></li>
+<li><a class="reference internal" href="#id3">Docs Update</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v0-22-1-15-4-2022">v0.22.1(15/4/2022)</a><ul>
+<li><a class="reference internal" href="#id4">New Features</a></li>
+<li><a class="reference internal" href="#id5">Improvements</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v0-22-0-30-3-2022">v0.22.0(30/3/2022)</a><ul>
+<li><a class="reference internal" href="#highlights">Highlights</a></li>
+<li><a class="reference internal" href="#id6">New Features</a></li>
+<li><a class="reference internal" href="#id7">Improvements</a></li>
+<li><a class="reference internal" href="#id8">Bug Fixes</a></li>
+<li><a class="reference internal" href="#id9">Docs Update</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v0-21-0-04-03-2022">v0.21.0(04/03/2022)</a><ul>
+<li><a class="reference internal" href="#id10">Highlights</a></li>
+<li><a class="reference internal" href="#id11">New Features</a></li>
+<li><a class="reference internal" href="#id12">Improvements</a></li>
+<li><a class="reference internal" href="#id13">Bug Fixes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v0-20-1-07-02-2022">v0.20.1(07/02/2022)</a><ul>
+<li><a class="reference internal" href="#id14">Bug Fixes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v0-20-0-30-01-2022">v0.20.0(30/01/2022)</a><ul>
+<li><a class="reference internal" href="#id15">Highlights</a></li>
+<li><a class="reference internal" href="#id16">New Features</a></li>
+<li><a class="reference internal" href="#id17">Improvements</a></li>
+<li><a class="reference internal" href="#id18">Bug Fixes</a></li>
+<li><a class="reference internal" href="#id19">Docs Update</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v0-19-0-31-12-2021">v0.19.0(31/12/2021)</a><ul>
+<li><a class="reference internal" href="#id20">Highlights</a></li>
+<li><a class="reference internal" href="#id21">New Features</a></li>
+<li><a class="reference internal" href="#id22">Improvements</a></li>
+<li><a class="reference internal" href="#id23">Bug Fixes</a></li>
+<li><a class="reference internal" href="#id24">Docs Update</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v0-18-0-30-11-2021">v0.18.0(30/11/2021)</a><ul>
+<li><a class="reference internal" href="#id25">Highlights</a></li>
+<li><a class="reference internal" href="#id26">New Features</a></li>
+<li><a class="reference internal" href="#id27">Improvements</a></li>
+<li><a class="reference internal" href="#id28">Bug Fixes</a></li>
+<li><a class="reference internal" href="#id29">Docs Update</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v0-17-0-29-10-2021">v0.17.0(29/10/2021)</a><ul>
+<li><a class="reference internal" href="#id30">Highlights</a></li>
+<li><a class="reference internal" href="#id31">New Features</a></li>
+<li><a class="reference internal" href="#id32">Improvements</a></li>
+<li><a class="reference internal" href="#id33">Bug Fixes</a></li>
+<li><a class="reference internal" href="#id34">Docs Update</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v0-16-0-30-9-2021">v0.16.0(30/9/2021)</a><ul>
+<li><a class="reference internal" href="#id35">Highlights</a></li>
+<li><a class="reference internal" href="#id36">New Features</a></li>
+<li><a class="reference internal" href="#id37">Improvements</a></li>
+<li><a class="reference internal" href="#id38">Bug Fixes</a></li>
+<li><a class="reference internal" href="#id39">Docs Update</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v0-15-0-31-8-2021">v0.15.0(31/8/2021)</a><ul>
+<li><a class="reference internal" href="#id40">Highlights</a></li>
+<li><a class="reference internal" href="#id41">New Features</a></li>
+<li><a class="reference internal" href="#code-refactor">Code Refactor</a></li>
+<li><a class="reference internal" href="#docs-improvement">Docs Improvement</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v0-14-0-4-8-2021">v0.14.0(4/8/2021)</a><ul>
+<li><a class="reference internal" href="#id42">Highlights</a></li>
+<li><a class="reference internal" href="#id43">New Features</a></li>
+<li><a class="reference internal" href="#id44">Improvements</a></li>
+<li><a class="reference internal" href="#id45">Bug Fixes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v0-13-0-3-7-2021">v0.13.0(3/7/2021)</a><ul>
+<li><a class="reference internal" href="#id46">New Features</a></li>
+<li><a class="reference internal" href="#id47">Improvements</a></li>
+<li><a class="reference internal" href="#id48">Bug Fixes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v0-12-0-3-6-2021">v0.12.0(3/6/2021)</a><ul>
+<li><a class="reference internal" href="#id49">New Features</a></li>
+<li><a class="reference internal" href="#id50">Improvements</a></li>
+<li><a class="reference internal" href="#id51">Bug Fixes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v0-11-1-21-5-2021">v0.11.1(21/5/2021)</a><ul>
+<li><a class="reference internal" href="#id52">New Features</a></li>
+<li><a class="reference internal" href="#id53">Improvements</a></li>
+<li><a class="reference internal" href="#id54">Bug Fixes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v0-11-0-1-5-2021">v0.11.0(1/5/2021)</a><ul>
+<li><a class="reference internal" href="#id55">New Features</a></li>
+<li><a class="reference internal" href="#id56">Improvements</a></li>
+<li><a class="reference internal" href="#id57">Bug Fixes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v0-10-0-1-4-2021">v0.10.0(1/4/2021)</a><ul>
+<li><a class="reference internal" href="#id58">New Features</a></li>
+<li><a class="reference internal" href="#id59">Improvements</a></li>
+<li><a class="reference internal" href="#id60">Bug Fixes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v0-9-0-1-3-2021">v0.9.0(1/3/2021)</a><ul>
+<li><a class="reference internal" href="#id61">New Features</a></li>
+<li><a class="reference internal" href="#id62">Improvements</a></li>
+<li><a class="reference internal" href="#id63">Bug Fixes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v0-8-0-31-1-2021">v0.8.0(31/1/2021)</a><ul>
+<li><a class="reference internal" href="#id64">New Features</a></li>
+<li><a class="reference internal" href="#id65">Improvements</a></li>
+<li><a class="reference internal" href="#id66">Bug Fixes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v0-7-0-31-12-2020">v0.7.0(31/12/2020)</a><ul>
+<li><a class="reference internal" href="#id67">New Features</a></li>
+<li><a class="reference internal" href="#id68">Improvements</a></li>
+<li><a class="reference internal" href="#id69">Bug Fixes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v0-6-0-11-10-2020">v0.6.0(11/10/2020)</a><ul>
+<li><a class="reference internal" href="#id70">New Features</a></li>
+<li><a class="reference internal" href="#id71">Improvements</a></li>
+<li><a class="reference internal" href="#id72">Bug Fixes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+          </div>
+        </div>
+    </section>
+  </div>
+
+  
+
+
+  
+
+  
+  <script type="text/javascript" id="documentation_options" data-url_root="./"
+    src="_static/documentation_options.js"></script>
+  <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+  <script src="_static/jquery.js"></script>
+  <script src="_static/underscore.js"></script>
+  <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+  <script src="_static/doctools.js"></script>
+  <script src="_static/clipboard.min.js"></script>
+  <script src="_static/copybutton.js"></script>
+  <script src="_static/js/custom.js"></script>
+  
+
+  
+
+  <script type="text/javascript" src="_static/js/vendor/popper.min.js"></script>
+  <script type="text/javascript" src="_static/js/vendor/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+    jQuery(function () {
+      SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+  <!-- Begin Footer -->
+
+  <div class="container-fluid docs-tutorials-resources" id="docs-tutorials-resources">
+  </div>
+
+  <!-- End Footer -->
+
+  <!-- Begin Mobile Menu -->
+
+  <div class="mobile-main-menu">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="mobile-main-menu-header-container">
+          <a class="header-logo" href="https://rsi-classification.readthedocs.io/en/latest/" aria-label="OpenMMLab"></a>
+          <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-main-menu-links-container">
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://github.com/EarthNets/RSI-Segmentation/blob/main/demo/rsi_classification_tutorial.ipynb" target="_blank">Tutorial</a>
+          </li>
+          <li>
+            <a href="https://github.com/EarthNets/RSI-Classification" target="_blank">GitHub</a>
+          </li>
+          <li class="resources-mobile-menu-title" >
+            About
+          </li>
+          <ul class="resources-mobile-menu-items">
+            <li>
+              <a href="https://github.com/open-mmlab/mmcv" target="_blank">MMCV</a>
+            </li>
+          </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Mobile Menu -->
+
+  <script type="text/javascript" src="_static/js/vendor/anchor.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      mobileMenu.bind();
+      mobileTOC.bind();
+      pytorchAnchors.bind();
+      sideMenus.bind();
+      scrollToAnchor.bind();
+      highlightNavigation.bind();
+      mainMenuDropdown.bind();
+      filterTags.bind();
+
+      // Add class to links that have code blocks, since we cannot create links in code blocks
+      $("article.pytorch-article a span.pre").each(function (e) {
+        $(this).closest("a").addClass("has-code");
+      });
+    })
+  </script>
+</body>
+
+</html>
