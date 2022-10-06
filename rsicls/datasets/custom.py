@@ -315,6 +315,7 @@ class EODataset(BaseDataset):
                                               '.bmp', '.pgm', '.tif'),
                  test_mode: bool = False,
                  file_client_args: Optional[dict] = None):
+
         self.extensions = tuple(set([i.lower() for i in extensions]))
         self.file_client_args = file_client_args
         self._dataset = load(datapipe, root=data_root, split=split)
@@ -322,7 +323,7 @@ class EODataset(BaseDataset):
         super().__init__(
             data_prefix=data_root,
             pipeline=pipeline,
-            classes=classes,
+            classes=self._dataset.CLASSES,
             ann_file=ann_file,
             test_mode=test_mode)
 
