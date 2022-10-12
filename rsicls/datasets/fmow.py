@@ -9,6 +9,14 @@ from .custom import CustomDataset
 @DATASETS.register_module()
 class FMoW(CustomDataset):
 
+    """FMoW dataset.
+
+    - prepare dataset: follow the instructions in https://github.com/EarthNets/Dataset4EO/blob/main/Dataset4EO/datasets/_builtin/fmow.py
+    - usage: 
+        op1. load data with pytorch dataset (the current version): inheritate `CustomDataset`
+        op2. load data with Dataset4EO datapipe: inheritate `EODataset`
+
+    """
 
 
     CLASSES = [
@@ -76,7 +84,7 @@ class FMoW(CustomDataset):
         'zoo'       
     ]
 
-    IMG_EXTENSIONS = ('_msrgb.jpg','.png')
+    IMG_EXTENSIONS = ('_msrgb.jpg','_rgb.jpg')
 
     def __init__(self,
                  data_prefix: str,
